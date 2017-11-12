@@ -1,0 +1,59 @@
+ID;NAMA GURU;L/P;NUPTK;NIP / NIK;STATUS;STATUS;TMT;JABATAN;T.LAHIR;TGL LAHIR;LULUSAN;ALAMAT
+1;Budi Nur Efendi* S.E;L;2746753657200002;2004070003;Guru Tetap Yayasan;(GTY);17 Juli 2004;Waka.Sarpras;Pekalongan;14 April 1975;S1/Ekonomi/2001;Ds. Jagung Rt.01/02 Kesesi Pkl
+2;Nuning Widayanti* S.Pd;P;2453757659300022;2004070004;Guru Tidak Tetap ;(GTT);17 Juli 2004;Guru;Pekalongan;21 Januari 1979;S1/PBSI/2002;Ds. Kaibahan Kec.Kesesi Pkl
+3;Tri Lestariningsih* S.H* S.Pd;P;9562746649300003;2004070005;Guru Tetap Yayasan;(GTY);17 Juli 2004;Waka.Kurikulum;Sukoharjo;30 Desember 1968;S1/PPKn/2004;Griya Kesesi Indah Pkl
+4;Sugi* S.Ag;L;5239742646200033;2004070006;Guru Tetap Yayasan;(GTY);17 Juli 2004;Waka.Kesiswaan;Pekalongan;09 Juli 1964;S1/PAI/1995;Ds. Coprayan Buaran Kab.Pekalongan
+5;Sri Wulansari* S.E;P;4249754656300063;2008010009;Guru Tetap Yayasan;(GTY);05 Desember 2005;Guru;Pekalongan;17 September 1976;S1/Ekonomi/2000;Ds. Kesesirejo Kec. Bodeh Kab. Pemalang
+6;Erna Purwanti* S.Pd;P;6061760661300003;2008010010;Guru Tidak Tetap ;(GTT);17 Juli 2007;Guru;Brebes;29 Juli 1982;S1/Bhs.Inggris/2007;Perum Karangsari Karanganyar Kajen
+7;Ema Yuniarsih* S.Pd;P;7949763664300082;2008010013;Guru Tetap Yayasan;(GTY);25 Januari 2008;Guru;Pekalongan;17 Juni 1985;S1/Bhs.Inggris/2007;Ds. Karangrejo kesesi Pekalongan
+8;Ikrin Nuryati* S.Pd;P;5837763664300162;2008010014;Guru  Tetap Yayasan;(GTY);25 Januari 2008;Guru;Pekalongan;05 Mei 1985;S1/Matematika/2007;Ds. Sangkanjoyo kec. Kajen Kab. Pekalongan
+9;Ika Yuniarti* S.Pd;P;9933761662220002;2008070015;Guru Tetap Yayasan;(GTY);17 Juli 2008;Guru;Pemalang;01 Juni 1983;S1/Akuntansi/2007;Ds. Cibelok Kec. Taman Kab. Pemalang
+10;Teguh Iman Nursatio* S.T;L;2658762663120002;2009070016;Guru Tetap Yayasan;(GTY);13 Juli 2009;Guru;Pekalongan;26 Maret 1984;S1/Teknik Mesin/2007;Ds. Gejlig Rt.04/02 Kajen Pkl
+11;Nurpujianti* S.Pd;P;8858755657300002;2010070017;Guru Tidak Tetap ;(GTT);13 Juli 2009;Guru;Pemalang;26 Mei 1977;S1/Ilmu Hukum/2001;Ds. Kesesirejo Bodeh Pemalang 
+12;Athur Andryono* S.Pd;L;5456763664120002;2010070018;Guru Tetap Yayasan;(GTY);13 Juli 2009;Guru;Pekalongan;24 Januari 1985;S1/Kimia/2009;Ds. Sidosari Rt.02/01 Kesesi Pkl
+13;Nurfan jati Utomo* S.Pd;L;-;2010070019;Guru Tidak Tetap;(GTT);13 Juli 2009;Guru;Pemalang;28 September 1984;S1/PBSID/UMS 2007;Ds. Kebandaran Rt.01/01 Bodeh Pemalang
+14;Siti Zumaroh* S.Pd;P;7234764665220003;2011010020;Guru Tetap Yayasan;(GTY);13 Juli 2009;Kaprog.Akuntansi;Pemalang;02 September 1986;S1/Akuntansi/2008;Ds. Karangtalok   ampelgading Pemalang
+15;Muchamad Didi Hardiyanto*ST;L;7435758659110023;2011070022;Guru Tetap Yayasan;(GTY);12 Juli 2010;Kaprog. Otomotif;Brebes;03 November 1980;S1/Teknik Mesin/2001;Jl.Laksada Yos Ssudarso Rt.01/02 Rejasari
+16;Aisah* S.E;P;2538756659220003;2011070023;Guru Tetap Yayasan;(GTY);12 Juli 2010;Guru;Pemalang;06 Desember 1978;S1/Ekonomi/2007;Ds. Watugajah Kesesi Pekalongan
+17;Sridewi Nurhayati* S.Pd.I;P;4049763664300143;2011070024;Guru  Tetap Yayasan;(GTY);12 Juli 2010;Guru;Pekalongan;17 Juli 1985;S1/Tarbiyah/2010;Ds. Langensari Rt.01/02 Kesesi Pekalongan
+18;Ridiyastuti* S.Pd;P;-;2011070025;Guru Tidak Tetap ;(GTT);12 Januari 2011;Guru;Pekalongan;12 September 1988;S1/BK/PPB/2011;Jl.Raya Kaibahan Kesesi Pekalongan
+19;Theodiar Bagasmega Sandy P.* S.Pd;L;-;2011070026;Guru Tidak Tetap ;(GTT);11 Juli 2011;Guru;Pekalongan;12 Desember 1986;S1/Bhs.Inggris/2011;Ds. Srinahan kesesi Pekalongan
+20;Achmad Kunto Widagdo* S.Pd;L;-;2012070027;Guru Tidak Tetap ;(GTT);11 Juli 2011;Guru;Pekalongan;20 Mei 1988;S1/Pendjas/2010;Ds. Ponolawen Rt.04/02 Kesesi Pkl
+21;Taofik* S.Pd.I;L;-;2012070028;Guru Tidak Tetap ;(GTT);11 Juli 2011;Guru;Pekalongan;04 Maret 1982;S1/PAI/2010;Ds. Kaibahan Rt.08/04 kesesi Pkl
+22;Efendi* S.Pd;L;9535756658200032;2012070029;Guru Tidak Tetap ;(GTT);11 Juli 2011;Guru;Pemalang;03 Februari 1978;S1/BP;Ds. Babakan Kec. Bodeh kab. Pemalang 
+23;Wibowo* A.Md;L;9840760662110052;2013070030;Guru Tidak Tetap ;(GTT);20 Juli 2011;Guru;Brebes;08 Mei 1982;D3/Teknik Mesin;Ds. Cibiuk Rt.10/02 Ampelgading Pml
+24;Wibowo Budi Margono* S.Pd;L;-;2013070031;Guru Tidak Tetap ;(GTT);16 Juli 2012;Guru;Pekalongan;09 Agustus 1986;S1 Pend. Teknik Mesin;Ds. Karangsari Rt.03/05 Karanganyar Pkl
+25;Triwijoyo Budisantoso* ST;L;-;2013070032;Guru Tidak Tetap ;(GTT);16 Juli 2012;Guru;Pekalongan;08 November 1979;S1/Teknik Industri;Ds. Bulaksari Rt.02/04 Sragi Pkl
+26;Ida Irawanti* S.Pd;P;-;2015010034;Guru Tidak Tetap ;(GTT);16 Juli 2012;Guru;Pekalongan;27 Oktober 1986;S1/Bahasa Jawa/2010;Ds. Kalimade Rt.03/02 kesesi Pkl
+27;Ovita Rika Ariska* S.Pd;P;-;2015010036;Guru Tidak Tetap ;(GTT);15 Juli 2013;Guru;Kendal;22 Agustus 1991;S1/Pend.Fisika;Jl.Kakak tua No.08 Puri Asri Comal
+28;Diningrum* S.Pd;P;0833766667210092;2015010037;Guru Tidak Tetap ;(GTT);15 Juli 2013;Guru;Pemalang;05 Januari 1988;S1/Pend.Matematika;Ds. Babakan Rt.02/01 Kec. Bodeh Pml
+29;Murti Ariyani* S.Pd;P;0756750651300042;2012110038;Guru Tidak Tetap ;(GTT);15 Juli 2013;Guru;Pekalongan;24 April 1972;S1/Bahasa Inggris;Ds. Ponolawen Rt.05/02 Kesesi Pekalongan
+30;Nurohman* S.Pd.I;L;-;2016010042;Guru Tidak Tetap ;(GTT);25 Januari 2015;Guru;Pekalongan;05 April 1982;S1/ PAI;Ds. Sidosari - Kesesi - Pekalongan
+31;Reni Lestari* S.Pd;P;-;2015010043;Guru Tidak Tetap ;(GTT);25 Januari 2015;Guru;Pekalongan;11 Nopember 1988;S1/B. Inggris;Ds. Langensari - Kec. Kesesi - Pekalongan
+32;Sundoko* S.Pd;L;-;2015010046;Guru Tidak Tetap ;(GTT);25 Januari 2015;Guru;Pemalang;08 April 1989;S1/ BK;Ds. Tegalmlati - Kec. Petarukan Kab. Pemalang
+33;Bahrul Ulum;L;-;2012110047;Guru Tidak Tetap ;(GTT);01 November 2012;Guru;Pekalongan;05 September 1989;S1/BK/PPB ;Ds. Kesesi Rt.03/09 Kesesi Pkl
+34;Gigih Sarwoedi Winoto* S.pd;L;-;2015070048;Guru Tidak Tetap ;(GTT);8 Juli 2015;Guru;Pekalongan;12 Agustus 1987;S1/PKO/2009;Ds. Pantianom Rt.06/02 Bojong - Pekalongan
+35;Afri Hadi Susanto* S.Pd;L;-;2015070049;Guru Tidak Tetap ;(GTT);8 Juli 2015;Guru;Pekalongan;23 April 1988;S1/Teknik Mesin/2015;Ds. Kr. Sari Rt.01/06 No.47 - Kr. Anyar - PKL
+36;Gunardi* S.Kom;L;-;2016010050;Guru Tidak Tetap ;(GTT);04 Januari 2016;Guru;Pekalongan;15 Maret 1977;S1/Teknik Informatika;Ds. Kalijoyo Kec. Kajen
+37;Bregas Widya  Pratama* S.Pd;L;-;2016010051;Guru Tidak Tetap ;(GTT);04 Januari 2016;Guru;Pekalongan;15 Mei 1993;S1 Pend. Geografi/;Ds. Krandon Kec. Kesesi
+38;Umi Masithoh* S.Pd;P;-;2016070052;Guru Tidak Tetap ;(GTT);18 Juli 2016;Guru;Pekalongan;8 Oktober 1989;S1/B.Indonesia/2013;Ds. Sidosari Rt.004/002 Kec. Kesesi Kab. PKL
+39;Mirqotur Rohmah* S.Pd.I;P;-;2016070053;Guru Tidak Tetap ;(GTT);18 Juli 2016;Guru;Pekalongan;25 Oktober 1962;S1/PAI/2014;Ds. Kesesi. Rt.001/010 - Kesesi - Pekalongan
+40;Agus Junaedi* S.Pd;L;-;2016070054;Guru Tidak Tetap ;(GTT);18 Juli 2016;Guru;Pekalongan;20 Agustus 1965;S1/IPS/Akuntansi/1994;Ds. Kesesi Rt.2/8 Kec. Kesesi. Kab. Pekalongan
+41;Mustakim* A.Md;L;-;2016070055;Guru Tidak Tetap ;(GTT);18 Juli 2016;Guru;Pekalongan;03 Mei 1993;D3/Teknik Mesin/2014;Ds. Kesesi Kec. Kesesi Kab. Pekalongan
+42;Nurfatimah* S.Si;P;-;2016070056;Guru Tidak Tetap ;(GTT);18 Juli 2016;Guru;Pekalongan;21 September 1990;S1/Kimia/2014;Ds. Sidosari Rt.02/01 Kesesi Pkl
+43;Rina Muktiarsih* S.Pd;P;-;2016070057;Guru Tidak Tetap ;(GTT);18 Juli 2016;Guru;Pekalongan;28 April 1990;S1/B.Inggris/2012;Ds. Kebonagung Rt.003/006  Kajen Kab. PKL
+44;Egi Nurjito*S.Kom;L;-;2016070058;Guru Tidak Tetap ;(GTT);18 Juli 2016;Guru;Pekalongan;06 Januari 1993;S1/Komputer/2015;Ds. Watugajah Rt.01/02. Kec. Kesesi PKL
+45;Pamuji Syukur* S.Pd;L;-;2016070059;Guru Tidak Tetap ;(GTT);18 Juli 2016;Guru;Pekalongan;15 Februari 1989;S1/B.Inggris/2014;Ds. Sidomulyo Rt.6/1 Kec. Kesesi Kab. PKL
+46;Winarto* S.Pd;L;-;2016070060;Guru Tidak Tetap ;(GTT);18 Juli 2016;Guru;Pemalang;10 September 1983;S1/Matematika/2008;Ds. Jraganan Rt.2/2 Kec. Bodeh Kab. Pemalang
+47;Toto Minulyo* S.Pd;L;-;2016070061;Guru Tidak Tetap ;(GTT);18 Juli 2016;Guru;Pekalongan;30 Agustus 1989;S1/PKO/2012;Ds. Sidosari Rt.02/01 Kesesi Pkl
+48;Siti Fatkhuroh* S.pd;P;-;2016070062;Guru Tidak Tetap ;(GTT);18 Juli 2016;Guru;Pekalongan;15 Maret 1986;S1/Matematika/2012;Ds.Kesesi Rt.04/09 - Kesesi - Pekalongan
+49;Muhajirin* A.Ma;L;-;2004070007;Pegawai Tetap Yayasan;(PTY);17 Juli 2004;Ka.TU;Pekalongan;02 Mei 1983;D2/IKIP PGRI Semarang;Ds. Langensari Rt.01/02 Kesesi Pekalongan
+50;Sri pujiati;P;-;2005070008;Pegawai Tetap Yayasan;(PTY);17 Juli 2005;Adm;Pekalongan;23 Oktober 1979;SMA N 1 Kesesi;Ds. Pantirejo Dk. Pepedan Kesesi Pkl
+51;Nuridin* A.Ma Pust;L;-;2007070011;Pegawai Tetap Yayasan;(PTY);17 Juli 2007;Adm;Pekalongan;07 Mei 1986;D2/Perpus UT Bahurekso;Ds. Kesesi Rt.03/09 Kesesi Pkl
+52;Kartono* A.Ma Pust;L;-;2007070012;Pegawai Tetap Yayasan;(PTY);17 Juli 2007;Bagian Umum;Pekalongan;03 Februari 1973;SMK YAPENDA Wiradesa;Ds. Kaibahan Kesesi Pekalongan
+53;Ngudiono;L;-;2009070021;Pegawai Tidak Tetap ;(PTT);17 Juli 2009;Jaga Malam;Pekalongan;17 Januari 1970;SMP N 1 Kesesi;Ds. Karangrejo kesesi Pekalongan
+54;Asmaun;L;-;2013070039;Pegawai Tidak Tetap ;(PTT);15 Juli 2013;IT;Pekalongan;24 April 1991;SMK N 1 Sragi;Ds. Bulaksari Rt.02/01 Sragi Pekalongan
+55;Rizal* A.Ma Pust;L;-;2014090041;Pegawai Tidak Tetap ;(PTT);11 September 2014;Ka. Perpust.;Pekalongan;13 Mei 1980;D2/Perpus UT Arum Sari;Ds. Sidosari Kec. Kesesi Kab. Pekalongan
+56;Irfan Maulana;L;-;2014090044;Pegawai Tidak Tetap ;(PTT);12 September 2014;Tool Man;Pemalang;18 Februari 1996;SMK Teknik Mesin;Ds. Kebandungan Kec. Bodeh Kab. Pemalang
+57;Durajak;L;-;2014090045;Pegawai Tidak Tetap ;(PTT);13 September 2014;Kebersihan;Pekalongan;00 Januari 0000;SD N Kutorejo;Ds. Kesesi Kec. Kesesi Kab. Pekalongan
+58;Eka Yanuaris Madayanti;P;-;2016070062;Pegawai Tidak Tetap ;(PTT);18 Juli 2016;Adm;Pekalongan;08 Januari 1995;SMA N 1 Kesesi;Ds. Krasak Ageng Rt.4/3 Kec. Sragi Kab. PKL
