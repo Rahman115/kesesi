@@ -94,8 +94,6 @@ class Model {
         }
 
 
-//        echo $sql; 
-
         $this->db->query($sql);
 
         return $this->db->execute()->toObject();
