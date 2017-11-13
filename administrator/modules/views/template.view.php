@@ -70,6 +70,9 @@ $page = (isset($_GET['page']) && $_GET['page']) ? $_GET['page'] : '';
                         <li>
                             <a href="../" target="_blank"><i class="fa fa-fw fa-paper-plane"></i> Lihat Website</a>
                         </li>
+                        <li <?php if ($page == "transaksi") echo 'class="active"'; ?>>
+                            <a href="<?php echo PATH; ?>?page=transaksi"><i class="fa fa-fw fa-building"></i> Data Transaksi</a>
+                        </li>
                         <li <?php if ($page == "teacher") echo 'class="active"'; ?>>
                             <a href="<?php echo PATH; ?>?page=teacher"><i class="fa fa-fw fa-book"></i> Data Guru</a>
                         </li>
@@ -88,9 +91,6 @@ $page = (isset($_GET['page']) && $_GET['page']) ? $_GET['page'] : '';
                         
                         <!--
                         
-                        <li <?php if ($page == "tentang") echo 'class="active"'; ?>>
-                            <a href="<?php echo PATH; ?>?page=tentang"><i class="fa fa-fw fa-building"></i> Tentang Sekolah</a>
-                        </li>
                         <li <?php if ($page == "kontak") echo 'class="active"'; ?>>
                             <a href="<?php echo PATH; ?>?page=kontak"><i class="fa fa-fw fa-phone-square"></i> Kontak</a>
                         </li>

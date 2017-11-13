@@ -2,7 +2,7 @@
 $page = (isset($_GET['page']) && $_GET['page']) ? $_GET['page'] : '';
 
 // this configuration path for website
-define('PATH', 'http://localhost/argajaladri/'); // isi path dari website anda
+define('PATH', 'http://localhost/kesesi/'); // isi path dari website anda
 define('SITE_URL', PATH . 'index.php');
 define('POSITION_URL', PATH . '?page=' . $page);
 
@@ -10,5 +10,5 @@ define('POSITION_URL', PATH . '?page=' . $page);
 define('DB_HOST', 'localhost'); // host yang di gunakan
 define('DB_USERNAME', 'root'); // username host
 define('DB_PASSWORD', ''); // password host
-define('DB_NAME', 'argajaladri_db'); // database yang di gunakan
+define('DB_NAME', 'db_smk_nu_kesesi'); // database yang di gunakan
 ?>

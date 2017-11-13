@@ -26,7 +26,7 @@ class Database{
 
     public function getWhere($tableName, $where = array()) {
 
-        $this->sql = "SELECT*FROM " . $tableName;
+        $this->sql = "SELECT * FROM " . $tableName;
 
 
         if(is_array($where)) {
@@ -41,6 +41,8 @@ class Database{
             }
 
         }
+        
+//        echo $this->sql;
 
         return $this->execute();
     }

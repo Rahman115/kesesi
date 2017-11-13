@@ -33,7 +33,7 @@ $page = (isset($_GET['page']) && $_GET['page']) ? $_GET['page'] : '';
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Home
+                            <a class="nav-link" href="?page=login&&action=logout">Keluar
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
@@ -48,12 +48,19 @@ $page = (isset($_GET['page']) && $_GET['page']) ? $_GET['page'] : '';
             <!-- Call to Action Well -->
             <div class="card text-white bg-secondary my-4 text-center">
                 <div class="card-body">
-                    <p class="text-white m-0">This call to action card is a great place to showcase some important information or display a clever tagline!</p>
+                    <p class="text-white m-0">Sistem Informasi SPP SMK NU Kesesi</p>
                 </div>
             </div>
 
             <!-- Content Row -->
             <div class="row">
+                <div class="col-lg-12">
+                    <?php
+                    $view = new View($viewName);
+                    $view->bind('data', $data);
+                    $view->forceRender();
+                    ?>
+                </div>
                 <div class="col-md-4 mb-4">
                     <div class="card h-100">
                         <div class="card-body">
@@ -96,14 +103,14 @@ $page = (isset($_GET['page']) && $_GET['page']) ? $_GET['page'] : '';
 
         </div>
         <!-- /.container -->
-        
-            <!-- Footer -->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
-      </div>
-      <!-- /.container -->
-    </footer>
+
+        <!-- Footer -->
+        <footer class="py-5 bg-dark">
+            <div class="container">
+                <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+            </div>
+            <!-- /.container -->
+        </footer>
 
         <!-- JavaScript -->
         <script src="vendor/jquery/jquery.min.js"></script>

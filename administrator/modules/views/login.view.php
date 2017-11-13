@@ -5,7 +5,7 @@
 
     <head>
         <meta charset="utf-8" />
-        <title>SMK Negeri Indonesia</title>
+        <title>SMK NU Kesesi</title>
 
         <!-- CSS -->
         <link href="resources/css/bootstrap.min.css" rel="stylesheet" />
@@ -31,7 +31,7 @@
                 <div class="form-group">
                     <div class="text-center text-header">
                         <img src="<?php echo PATH; ?>resources/images/logo.png" style="width:75px;" alt="logo">
-                        <h1>SMK Negeri Indonesia</h1>
+                        <h1>SMK NU Kesesi</h1>
                         <h2>Login Administrator</h2>
                     </div>
                 </div>
