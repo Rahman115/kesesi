@@ -23,12 +23,12 @@
                         <i class="fa fa-comments fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge"><?php echo $data["total"]["bukutamu"]; ?></div>
-                        <div>Bukutamu</div>
+                        <div class="huge"><?php echo $data["total"]["transaksi"]; ?></div>
+                        <div>Data Transaksi</div>
                     </div>
                 </div>
             </div>
-            <a href="<?php echo PATH; ?>?page=bukutamu">
+            <a href="<?php echo PATH; ?>?page=transaksi">
                 <div class="panel-footer">
                     <span class="pull-left">Tampilkan Semua</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -45,12 +45,12 @@
                         <i class="fa fa-tasks fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge"><?php echo $data["total"]["artikel"]; ?></div>
-                        <div>Artikel</div>
+                        <div class="huge"><?php echo $data["total"]["rooms"]; ?></div>
+                        <div>Jumlah Ruangan</div>
                     </div>
                 </div>
             </div>
-            <a href="<?php echo PATH; ?>?page=artikel">
+            <a href="<?php echo PATH; ?>?page=rooms">
                 <div class="panel-footer">
                     <span class="pull-left">View Details</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -67,12 +67,12 @@
                         <i class="fa fa-users fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge"><?php echo $data["total"]["guru"]; ?></div>
+                        <div class="huge"><?php echo $data["total"]["teacher"]; ?></div>
                         <div>Total Guru</div>
                     </div>
                 </div>
             </div>
-            <a href="<?php echo PATH; ?>?page=guru">
+            <a href="<?php echo PATH; ?>?page=teacher">
                 <div class="panel-footer">
                     <span class="pull-left">View Details</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -86,15 +86,15 @@
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-xs-3">
-                        <i class="fa fa-phone-square fa-5x"></i>
+                        <i class="fa fa-users fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class="huge"><?php echo $data["total"]["kontak"]; ?></div>
-                        <div>Total Kontak</div>
+                        <div class="huge"><?php echo $data["total"]["studends"]; ?></div>
+                        <div>Total Siswa</div>
                     </div>
                 </div>
             </div>
-            <a href="<?php echo PATH; ?>?page=kontak">
+            <a href="<?php echo PATH; ?>?page=studends">
                 <div class="panel-footer">
                     <span class="pull-left">View Details</span>
                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

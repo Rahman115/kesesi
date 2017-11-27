@@ -46,7 +46,7 @@ class Model{
 
     public function getJoin($tableJoin, $params, $join = "JOIN", $where = "") {
 
-        $sql = "SELECT*FROM " . $this->tableName;
+        $sql = "SELECT * FROM " . $this->tableName;
 
         if(is_array($tableJoin)) {
 
@@ -59,9 +59,18 @@ class Model{
             $sql .= " ". $join ." " . $tableJoin . " ";
         }
 
-        foreach($params as $key => $value) {
+        if ($params && is_array($params)) {
+            $sql .= " ON ";
+            $j = 0;
 
-            $sql .=" ON " . $key . " = " . $value . " ";
+            foreach ($params as $key => $value) {
+
+                $sql .=" " . $key . " = " . $value . " ";
+                $j++;
+                if ($j < count($params)) {
+                    $sql .= " AND ";
+                }
+            }
         }
 
         if($where && is_array($where)) {
@@ -81,7 +90,8 @@ class Model{
             }
 
         }
-
+		
+		
         $this->db->query($sql);
 
         return $this->db->execute()->toObject();

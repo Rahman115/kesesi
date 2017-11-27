@@ -14,6 +14,7 @@
 <div class="row">
     <div class="col-lg-12">
         <table class="table table-condensed">
+            <form method="post" role="form" >
             <tr>
                 <td>
                     Kelas
@@ -57,6 +58,7 @@
                     <button class="btn btn-danger btn-group-justified" type="submit" >Cari</button>
                 </td>
             </tr>
+</form>
         </table>
 
     </div>

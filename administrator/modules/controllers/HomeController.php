@@ -7,7 +7,9 @@ class HomeController extends MainController {
     public function index() {
 
         $data = $_SESSION["login"];
-        $this->model('bukutamu');
+        		
+		/**
+		$this->model('bukutamu');
         $this->model('artikel');
         $this->model('guru');
         $this->model('kontak');
@@ -19,6 +21,23 @@ class HomeController extends MainController {
                 'kontak' => $this->kontak->rows()
             ))
         );
+		
+		**/
+		
+		$this->model('rooms');
+		$this->model('transaksi');
+		$this->model('teacher');
+		$this->model('studends');
+		
+		$this->template('home', array(
+			'userData' => $data,
+			'total' => array(
+				'rooms' => $this->rooms->rows(),
+				'transaksi' => $this->transaksi->rows(),
+				'teacher' => $this->teacher->rows(),
+				'studends' => $this->studends->rows()
+			)
+		));
     }
 
 }

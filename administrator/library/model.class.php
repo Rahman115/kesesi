@@ -92,8 +92,7 @@ class Model {
                 }
             }
         }
-
-
+        
         $this->db->query($sql);
 
         return $this->db->execute()->toObject();

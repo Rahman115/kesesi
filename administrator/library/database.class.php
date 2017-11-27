@@ -41,10 +41,7 @@ class Database{
             }
 
         }
-        
-//        var_dump($tableName);
-//        var_dump($where);
-//        echo $this->sql;
+
         return $this->execute();
     }
 

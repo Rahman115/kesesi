@@ -88,7 +88,6 @@ $page = (isset($_GET['page']) && $_GET['page']) ? $_GET['page'] : '';
                         <li <?php if ($page == "studends") echo 'class="active"'; ?>>
                             <a href="<?php echo PATH; ?>?page=studends"><i class="fa fa-fw fa-users"></i> Data Siswa</a>
                         </li>
-                        
                         <!--
                         
                         <li <?php if ($page == "kontak") echo 'class="active"'; ?>>
