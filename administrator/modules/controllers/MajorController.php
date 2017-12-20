@@ -26,7 +26,7 @@ class MajorController extends MainController {
         $selectMajor = $this->major->getJoin('class', array('class.major_code' => "major.code", 'major.code' => "'{$id}'"), 'JOIN'
         );
 
-//        var_dump($selectMajor);
+		// var_dump($selectMajor);
 
         $this->template('major', array('major' => $data, 'id' => $id, 'access' => true, 'selectMajor' => $selectMajor));
     }
