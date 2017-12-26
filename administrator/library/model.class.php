@@ -45,7 +45,7 @@ class Model {
         return $this->db->delete($this->tableName, $where);
     }
 
-    public function getJoin($tableJoin, $params, $join = "JOIN", $where = "") {
+    public function getJoin($tableJoin, $params, $join = "JOIN", $where = "", $like = "") {
 
 
 
@@ -92,6 +92,25 @@ class Model {
                 }
             }
         }
+        
+        if ($like && is_array($like)) {
+
+            $sql .= " WHERE ";
+            $i = 0;
+
+            foreach ($like as $key => $value) {
+
+                $sql .= " " . $key . " LIKE '%" . $value . "%' ";
+
+                $i++;
+                if ($i < count($like)) {
+
+                    $sql .=" AND ";
+                }
+            }
+        }
+        
+//        var_dump($sql);
         
         $this->db->query($sql);
 

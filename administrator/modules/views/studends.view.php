@@ -40,7 +40,9 @@
                             <td><?php echo $siswa->gendre; ?></td>
                             <td><?php echo $siswa->status; ?></td>
                             <td>
-                                <a class="btn btn-danger btn-sm" href="<?php echo SITE_URL; ?>?page=anggota&&action=delete&&id=<?php echo $siswa->id_teacher; ?>" onclick="return confirm('Are you sure delete this data?');">Delete</a>
+                                <a class="btn btn-danger btn-xs" href="<?php echo SITE_URL; ?>?page=anggota&&action=delete&&id=<?php echo $siswa->id_studend; ?>" onclick="return confirm('Are you sure delete this data?');">
+                                    <span class="glyphicon glyphicon-refresh"> </span>
+                                </a>
                             </td>
                         </tr>
                         <?php

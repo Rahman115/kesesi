@@ -2,7 +2,7 @@
 $page = (isset($_GET['page']) && $_GET['page']) ? $_GET['page'] : '';
 
 // this configuration path for website
-define('PATH', 'http://localhost/kesesi/'); // isi path dari website anda
+define('PATH', 'http://192.168.137.1/kesesi/'); // isi path dari website anda
 define('SITE_URL', PATH . 'index.php');
 define('POSITION_URL', PATH . '?page=' . $page);
 
