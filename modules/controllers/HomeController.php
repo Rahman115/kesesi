@@ -37,14 +37,14 @@ class HomeController extends MainController {
     }
 
     public function bayar_online() {
-        
+
         $error = array();
         $success = NULL;
-        
+
         $data = $_SESSION["loginStudend"];
 
         $token = isset($_GET['token']) ? $_GET['token'] : '';
-        
+
         if ($token == md5($data->nis)) {
             if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 $nis = isset($_POST['transfer_nis_pengguna']) ? $_POST['transfer_nis_pengguna'] : '';
@@ -58,9 +58,29 @@ class HomeController extends MainController {
                 if (!empty($foto["name"]) && $foto["type"] != 'image/jpg' && $foto["type"] != 'image/jpeg' && $foto["type"] != 'image/png') {
                     array_push($error, "Gambar hanya boleh .JPG/.PNG");
                 }
-                
-                
-                
+
+                if (empty($name) || $name == "") {
+                    array_push($error, "Nama Pengguna harus di isi.");
+                }
+
+                if (empty($rek) || $rek == "") {
+                    array_push($error, "Nomor Rekening harus di isi.");
+                }
+
+                if (empty($nominal) || $nominal == "") {
+                    array_push($error, "Nilai Nominal harus di isi.");
+                }
+
+                if (count($error) == NULL) {
+                    $imageName = $foto["name"];
+
+                    if ($foto["name"]) {
+
+                        $imageName = date("h_i_s_Y_m_d_") . str_replace(" ", "_", $nama) . '.jpg';
+
+                        move_uploaded_file($foto["tmp_name"], '../public/images/bukti_pembayaran/' . $imageName);
+                    }
+                }
             }
         } else {
             $this->back();
