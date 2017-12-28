@@ -88,11 +88,10 @@ $page = (isset($_GET['page']) && $_GET['page']) ? $_GET['page'] : '';
                         <li <?php if ($page == "studends") echo 'class="active"'; ?>>
                             <a href="<?php echo PATH; ?>?page=studends"><i class="fa fa-fw fa-users"></i> Data Siswa</a>
                         </li>
-                        <!--
-                        
-                        <li <?php if ($page == "kontak") echo 'class="active"'; ?>>
-                            <a href="<?php echo PATH; ?>?page=kontak"><i class="fa fa-fw fa-phone-square"></i> Kontak</a>
+                        <li <?php if ($page == "settings") echo 'class="active"'; ?>>
+                            <a href="<?php echo PATH; ?>?page=settings"><i class="fa fa-fw fa-phone-square"></i> Pengaturan</a>
                         </li>
+                        <!--
                         <li <?php if ($page == "user") echo 'class="active"'; ?>>
                             <a href="<?php echo PATH; ?>?page=user"><i class="fa fa-fw fa-users"></i> Manajemen User</a>
                         </li>
@@ -150,7 +149,7 @@ $page = (isset($_GET['page']) && $_GET['page']) ? $_GET['page'] : '';
                 });
             });
         </script>
-
+        <script src="<?php echo PATH; ?>resources/js/add.js" type="text/javascript"></script>
     </body>
 
 </html>

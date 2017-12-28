@@ -4,7 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/xampp/htdocs/kesesi/administrator/modules/controllers/TransaksiController.php</file>
+            <file>file:/C:/xampp/htdocs/kesesi/administrator/modules/views/transaksi_pembayaran.view.php</file>
             <file>file:/C:/xampp/htdocs/kesesi/administrator/modules/views/transaksi.view.php</file>
+            <file>file:/C:/xampp/htdocs/kesesi/administrator/modules/views/transaksi_rooms.view.php</file>
             <file>file:/C:/xampp/htdocs/kesesi/administrator/modules/views/transaksi_kelas.view.php</file>
         </group>
     </open-files>

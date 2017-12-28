@@ -16,6 +16,7 @@
     <div class="col-lg-12">
         <ul class="nav nav-tabs">
             <li role="presentation" class="active"><a href="<?php echo SITE_URL; ?>?page=transaksi">Transaksi</a></li>
+            <li role="presentation"><a href="<?php echo SITE_URL; ?>?page=transaksi&action=online">Transaksi Online</a></li>
             <li role="presentation"><a href="<?php echo SITE_URL; ?>?page=transaksi&action=kelas&kelas=X">Data Transaksi Kelas X</a></li>
             <li role="presentation"><a href="<?php echo SITE_URL; ?>?page=transaksi&action=kelas&kelas=XI">Data Transaksi Kelas XI</a></li>
             <li role="presentation"><a href="<?php echo SITE_URL; ?>?page=transaksi&action=kelas&kelas=XII">Data Transaksi Kelas XII</a></li>
@@ -30,7 +31,7 @@
         </div>
         <div class="col-lg-6">
 
-            <input class="form-control" name="search_name" type="text" placeholder="Cari Nama Siswa" autofocus="">
+            <input class="form-control" name="search_name" type="text" placeholder="Cari Nama Siswa" autofocus="" autocomplete="off">
         </div>
 
         <div class="col-lg-4">

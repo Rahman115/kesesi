@@ -16,6 +16,8 @@ class Database{
 
     public function query($sql){
         $this->sql = $sql;
+        
+        return $this->execute();
     }
 
     public function getAll($tableName) {

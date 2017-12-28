@@ -15,8 +15,8 @@ $page = (isset($_GET['page']) && $_GET['page']) ? $_GET['page'] : '';
         <title>SMK NU Kesesi</title>
 
         <!-- CSS -->
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+        <link href="resources/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <!-- Custom styles -->
         <link href="vendor/css/style.css" rel="stylesheet">
 

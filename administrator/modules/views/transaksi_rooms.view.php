@@ -17,13 +17,23 @@
         <ul class="nav nav-tabs">
             <?php
             $kys = array_keys($data['rm']);
+            $kys2 = array_keys($data['activ']);
+            
+            $m2 = explode(".", $data['activ'][$kys2[0]]->code_room);
             $m = explode(".", $data['rm'][$kys[0]]->room);
+            
+//            var_dump($data['rm']);
             ?>
             <li role="presentation"><a href="<?php echo SITE_URL; ?>?page=transaksi&action=kelas&kelas=<?php echo $m[0]; ?>"><span class="glyphicon glyphicon-arrow-left"></span></a></li>
-            <?php foreach ($data['rm'] AS $rm) { ?>
+            <?php foreach ($data['rm'] AS $rm) { 
+                $ex = explode('.', $rm->room);
+//                var_dump($ex);
+                  if($ex[2] == $m2[2] ) { ?>
+                    <li role="presentation" <?php echo 'class="active"';?>><a href="<?php echo SITE_URL; ?>?page=transaksi&action=rooms&major=<?php echo $ex[1].'.'.$ex[2];?>&wl=<?php echo $ex[0].'.'.$rm->teacher_code;?>"><?php echo $rm->room; ?></a></li>
 
-                <li role="presentation" <?php // if ($data['activ'] == 'X') echo 'class="active"';        ?>><a href="<?php echo SITE_URL; ?>?page=transaksi&action=kelas&kelas=X"><?php echo $rm->room; ?></a></li>
-
+                <?php } else { ?>
+                    <li role="presentation" ><a href="<?php echo SITE_URL; ?>?page=transaksi&action=rooms&major=<?php echo $ex[1].'.'.$ex[2];?>&wl=<?php echo $ex[0].'.'.$rm->teacher_code;?>"><?php echo $rm->room; ?></a></li>
+                <?php } ?>
             <?php } ?>
         </ul>
     </div>
@@ -36,10 +46,13 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>CODE SISWA</th>
+                        <!--<th>CODE SISWA</th>-->
                         <th>NIS</th>
                         <th>NAMA SISWA</th>
                         <th>L/P</th>
+                        <th>SPP</th>
+                        <th>PRAKTEK</th>
+                        <th>SYARIAH</th>
                         <th>STATUS</th>
                         <th>Action</th>
                     </tr>
@@ -52,9 +65,12 @@
                         ?>
                         <tr>
                             <td><?php echo $n++; ?></td>
-                            <td><?php echo $val->code_room; ?></td>
+                            <!--<td><?php // echo $val->code_room; ?></td>-->
                             <td><?php echo $val->nis; ?></td>
                             <td><?php echo $val->name; ?></td>
+                            <td><?php echo $val->gendre; ?></td>
+                            <td><?php echo $val->gendre; ?></td>
+                            <td><?php echo $val->gendre; ?></td>
                             <td><?php echo $val->gendre; ?></td>
                             <td><?php echo $val->status; ?></td>
                             <td>
