@@ -2,3 +2,8 @@ TABEL TRANSAKSI DI MODIFIKASI
 ---
 TABEL TRANSAKSI
 lihat img_tabel_transaksi.png
+Atau :
+    - Hapus terlebih dahulu tabel transaksi
+    - Import kembali dalam Folder README pada file transaksi.sql
+
+--- modif 29/12/2017 ---

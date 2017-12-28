@@ -79,9 +79,9 @@ class HomeController extends MainController {
 
                     if ($foto["name"]) {
 //
-                        $imageName = date("Y_m_d_") . str_replace(" ", "_", $nis) . '.jpg';
+                        $imageName = date("h_i_s_Y_m_d_") . str_replace(" ", "_", $nis) . '.jpg';
 //
-                        move_uploaded_file($foto["tmp_name"], '../public/images/bukti_pembayaran/' . $imageName);
+                        move_uploaded_file($foto["tmp_name"], 'public/images/bukti_pembayaran/' . $imageName);
                     }
 
                     $INSERT = $this->transaksi->insert(array(
@@ -91,7 +91,7 @@ class HomeController extends MainController {
                         'status_transaksi' => $status,
                         'jenis_transaksi' => "ONLINE_CONFIRM",
                         'price' => $nominal,
-                        'exp' => $imageName
+                        'exp' => $type."/".$rek."/".$name."/".$imageName
                             )
                     );
 
@@ -105,7 +105,10 @@ class HomeController extends MainController {
         }
 
         $this->template('transaksi_online', array(
-            'studend' => $data)
+            'studend' => $data,
+            'error' => $error,
+            'success' => $success
+                )
         );
     }
 

@@ -31,12 +31,13 @@
                             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                             <?php echo $data["success"]; ?>
                         </div>
-                        <meta http-equiv="refresh" content="1;url=<?php echo PATH; ?>?page=transaksi&action=pembayaran&ID=<?php echo $data['siswa']->nis; ?>">
+                        <meta http-equiv="refresh" content="1;url=<?php echo PATH; ?>?page=home">
 
                     <?php } ?>
                     <div class="form-group">
                         <label class="control-label">NAMA LENGKAP</label>
-                        <?php echo $data['studend']->name; ?>
+                        
+                        <input type="text" disabled="" value="<?php echo $data['studend']->name; ?>" class="form-control">
                         <input type="hidden" name="transfer_nis_pengguna" value="<?php echo $data['studend']->nis; ?>" >
                     </div>
                     <div class="form-group">
