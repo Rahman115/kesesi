@@ -37,7 +37,35 @@ class HomeController extends MainController {
     }
 
     public function bayar_online() {
+        
+        $error = array();
+        $success = NULL;
+        
         $data = $_SESSION["loginStudend"];
+
+        $token = isset($_GET['token']) ? $_GET['token'] : '';
+        
+        if ($token == md5($data->nis)) {
+            if ($_SERVER['REQUEST_METHOD'] == "POST") {
+                $nis = isset($_POST['transfer_nis_pengguna']) ? $_POST['transfer_nis_pengguna'] : '';
+                $type = isset($_POST['transfer_bank']) ? $_POST['transfer_bank'] : '';
+                $name = isset($_POST['transfer_nama_pengguna']) ? $_POST['transfer_nama_pengguna'] : '';
+                $rek = isset($_POST['transfer_nomor_rekening_pengguna']) ? $_POST['transfer_nomor_rekening_pengguna'] : '';
+                $nominal = isset($_POST['transfer_nominal_pengguna']) ? $_POST['transfer_nominal_pengguna'] : '';
+
+                $foto = isset($_FILES['transfer_bukti_pembayaran']) ? $_FILES['transfer_bukti_pembayaran'] : '';
+
+                if (!empty($foto["name"]) && $foto["type"] != 'image/jpg' && $foto["type"] != 'image/jpeg' && $foto["type"] != 'image/png') {
+                    array_push($error, "Gambar hanya boleh .JPG/.PNG");
+                }
+                
+                
+                
+            }
+        } else {
+            $this->back();
+        }
+
         $this->template('transaksi_online', array(
             'studend' => $data)
         );
