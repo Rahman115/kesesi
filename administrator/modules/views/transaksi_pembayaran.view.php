@@ -289,12 +289,8 @@
                                 <td><b>KETERANGAN</b></td>
                                 <td>:</td>
                                 <td >
-    <!--                                    <select name="transaksi_explanation" class="form-control">
-
-                                        <option value="LUNAS">LUNAS</option>
-                                        <option value="BELUM_LUNAS">BELUM LUNAS</option>
-                                    </select>-->
-                                    <input disabled="" value="<?php echo $data['exp_syariah'][0]->EXP; ?>" type="text" class="form-control">
+    
+                                    <input disabled="" <?php if(isset($data['exp_syariah'][0]->EXP)){ echo 'value="'.$data['exp_syariah'][0]->EXP.'"'; } else { echo 'value="No_Transaksi"';} ?> type="text" class="form-control">
                                 </td>
                             </tr>
                             <tr>

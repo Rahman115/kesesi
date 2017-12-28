@@ -41,6 +41,8 @@ class HomeController extends MainController {
         $error = array();
         $success = NULL;
 
+        $this->model('transaksi');
+
         $data = $_SESSION["loginStudend"];
 
         $token = isset($_GET['token']) ? $_GET['token'] : '';
@@ -48,6 +50,7 @@ class HomeController extends MainController {
         if ($token == md5($data->nis)) {
             if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 $nis = isset($_POST['transfer_nis_pengguna']) ? $_POST['transfer_nis_pengguna'] : '';
+                $status = isset($_POST['transfer_status']) ? $_POST['transfer_status'] : '';
                 $type = isset($_POST['transfer_bank']) ? $_POST['transfer_bank'] : '';
                 $name = isset($_POST['transfer_nama_pengguna']) ? $_POST['transfer_nama_pengguna'] : '';
                 $rek = isset($_POST['transfer_nomor_rekening_pengguna']) ? $_POST['transfer_nomor_rekening_pengguna'] : '';
@@ -75,10 +78,25 @@ class HomeController extends MainController {
                     $imageName = $foto["name"];
 
                     if ($foto["name"]) {
-
-                        $imageName = date("h_i_s_Y_m_d_") . str_replace(" ", "_", $nama) . '.jpg';
-
+//
+                        $imageName = date("Y_m_d_") . str_replace(" ", "_", $nis) . '.jpg';
+//
                         move_uploaded_file($foto["tmp_name"], '../public/images/bukti_pembayaran/' . $imageName);
+                    }
+
+                    $INSERT = $this->transaksi->insert(array(
+                        'id_transaksi' => '',
+                        'id_student' => $nis,
+                        'date_transaksi' => date('Y-m-d'),
+                        'status_transaksi' => $status,
+                        'jenis_transaksi' => "ONLINE_CONFIRM",
+                        'price' => $nominal,
+                        'exp' => $imageName
+                            )
+                    );
+
+                    if ($INSERT) {
+                        $success = "BERHASIL MELAKUKAN TRANSAKSI";
                     }
                 }
             }

@@ -7,10 +7,46 @@
             <form method="post" role="form" enctype="multipart/form-data">
                 <div class="card-body">
                     <p class="card-text">
+                        <?php
+                        if (isset($data["error"]) && count($data["error"]) > 0) {
+                            ?>
+                        <div class="alert alert-danger" role="alert">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <ul class="list-square">
+                                <?php
+                                foreach ($data["error"] as $error) {
+                                    ?>
+                                    <li>
+                                        <?php echo $error; ?>
+                                    </li>
+                                <?php } ?>
+
+                            </ul>
+                        </div>
+                        <?php
+                    } else if (isset($data["success"])) {
+                        ?>
+
+                        <div class="alert alert-success">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <?php echo $data["success"]; ?>
+                        </div>
+                        <meta http-equiv="refresh" content="1;url=<?php echo PATH; ?>?page=transaksi&action=pembayaran&ID=<?php echo $data['siswa']->nis; ?>">
+
+                    <?php } ?>
                     <div class="form-group">
                         <label class="control-label">NAMA LENGKAP</label>
                         <?php echo $data['studend']->name; ?>
                         <input type="hidden" name="transfer_nis_pengguna" value="<?php echo $data['studend']->nis; ?>" >
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">JENIS PEMBAYARAN</label>
+                        <select name="transfer_status" class="form-control">
+                            <option value="LUNAS">SPP</option>
+                            <option value="PRAKTEK-GANJIL">PRAKTEK - SEMESTER GANJIL</option>
+                            <option value="PRAKTEK-GENAP">PRAKTEK - SEMESTER GENAP</option>
+                            <option value="SYARIAH">SYARIAH</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label class="control-label">BANK TRANSFER</label>
