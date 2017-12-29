@@ -35,7 +35,7 @@
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                 <?php echo $data["success"]; ?>
             </div>
-            <meta http-equiv="refresh" content="1;url=<?php echo PATH; ?>?page=set">
+            <meta http-equiv="refresh" content="1;url=<?php echo PATH; ?>?page=settings">
 
         <?php } ?>
 
