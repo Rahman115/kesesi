@@ -30,9 +30,9 @@ class SettingsController extends MainController {
             if ($upd) {
                 $success = "Data telah tersimpan";
             }
-
-            $this->template('settings', array('set' => $data[0], 'title' => "PENGATURAN", 'error' => $error, 'success' => $success));
         }
+
+        $this->template('settings', array('set' => $data[0], 'title' => "PENGATURAN", 'error' => $error, 'success' => $success));
     }
 
 }
