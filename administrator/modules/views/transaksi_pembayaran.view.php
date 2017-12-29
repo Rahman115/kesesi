@@ -53,7 +53,7 @@
                 if ($data['syariah'][0]->PRICE == NULL) {
                     echo '<div class="alert alert-info" role="alert">Belum melukan pembayaran syariah</div>';
                 } else {
-                    echo '<div class="alert alert-info" role="alert">Total pembayaran syariah <b>Rp ' . $data['syariah'][0]->PRICE . '</b> - ' . $data['exp_syariah'][0]->EXP . '</div>';
+                    echo '<div class="alert alert-info" role="alert">Total pembayaran syariah <b>Rp ' . number_format($data['syariah'][0]->PRICE, 2, ",", ".") . '</b> - ' . $data['exp_syariah'][0]->EXP . '</div>';
                 }
                 ?>
                 <div class="table-responsive" >
@@ -76,7 +76,7 @@
                                     <tr>
                                         <td><?php echo $no; ?></td>
                                         <td><?php echo $transaksi->date_transaksi; ?></td>
-                                        <td>Rp.<?php echo $transaksi->price; ?></td>
+                                        <td>Rp.<?php echo number_format($transaksi->price, 2, ",", "."); ?></td>
                                         <td><?php echo $transaksi->exp; ?></td>
                                     </tr>
                                     <?php
@@ -123,7 +123,7 @@
                                     <tr>
                                         <td><?php echo $no; ?></td>
                                         <td><?php echo $transaksi->date_transaksi; ?></td>
-                                        <td>Rp.<?php echo $transaksi->price; ?></td>
+                                        <td>Rp.<?php echo number_format($transaksi->price, 2, ",", "."); ?></td>
                                         <td><?php
                                             if ($transaksi->jenis_transaksi == 'SEMESTER_GENAP') {
                                                 echo "GENAP";
@@ -399,7 +399,7 @@
                                     <tr>
                                         <td><?php echo $no; ?></td>
                                         <td><?php echo $transaksi->date_transaksi; ?></td>
-                                        <td>Rp.<?php echo $transaksi->price; ?></td>
+                                        <td>Rp.<?php echo number_format($transaksi->price, 2, ",", "."); ?></td>
                                         <td><?php echo $transaksi->exp; ?></td>
                                     </tr>
                                     <?php

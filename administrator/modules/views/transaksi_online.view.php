@@ -51,7 +51,7 @@
                             <td><?php echo $online->name; ?></td>
                             <td><?php echo $online->status_transaksi; ?></td>
                             <td><?php echo $online->code_room; ?></td>
-                            <td><?php echo $online->price; ?></td>
+                            <td><?php echo number_format($online->price, 2, ",", "."); ?></td>
                             <td><a title="Lihat Detail Transaksi" href="<?php echo SITE_URL; ?>?page=transaksi&action=online&ID=<?php echo $online->id_transaksi; ?>" class="btn btn-xs btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a></td>
                         </tr>
                     <?php } 

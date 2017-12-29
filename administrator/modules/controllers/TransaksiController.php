@@ -84,10 +84,9 @@ class TransaksiController extends MainController {
 
     public function pembayaran() {
 
-
-
         $this->model('studends');
         $this->model('transaksi');
+        $this->model('settings');
 
         $error = array();
         $success = NULL;
@@ -97,6 +96,9 @@ class TransaksiController extends MainController {
         $pembayaran = isset($_GET['pembayaran']) ? $_GET['pembayaran'] : '';
         $ID = isset($_GET['ID']) ? $_GET['ID'] : '';
 
+
+        $set = $this->settings->getWhere(array('id' => 1));
+        $set = $set[0];
 
         $data = $this->studends->getWhere(array('nis' => $ID));
         $tr = $this->transaksi->get();
@@ -127,15 +129,15 @@ class TransaksiController extends MainController {
             }
 
             if ($post[1] == 'SYARIAH') {
-                if ($PEMBAYARAN_SYARIAH[0]->PRICE == NULL && $post[2] < '2500000') {
+                if ($PEMBAYARAN_SYARIAH[0]->PRICE == NULL && $post[2] < $set->syariah) {
                     $post[3] = 'BELUM_LUNAS';
                 } else if ($PEMBAYARAN_SYARIAH[0]->PRICE != NULL) {
                     $syariah = $PEMBAYARAN_SYARIAH[0]->PRICE + $post[2];
-                    if ($syariah < '2500000') {
+                    if ($syariah < $set->syariah) {
                         $post[3] = 'BELUM_LUNAS';
-                    } else if ($syariah == '2500000') {
+                    } else if ($syariah == $set->syariah) {
                         $post[3] = 'LUNAS';
-                    } else if ($syariah > '2500000') {
+                    } else if ($syariah > $set->syariah) {
                         array_push($error, "Data Harga yang di inputkan lebih");
                     }
                 }
@@ -147,19 +149,19 @@ class TransaksiController extends MainController {
                     WHERE transaksi.status_transaksi = 'PRAKTEK' 
                         AND transaksi.jenis_transaksi = '{$post[5]}' 
                         AND transaksi.id_student = '{$post[0]}'");
-                if ($examp[0]->PRICE == NULL && $post[2] < '200000') {
+                if ($examp[0]->PRICE == NULL && $post[2] < $set->praktek) {
                     $post[3] = 'BELUM_LUNAS';
-                } else if ($examp[0]->PRICE == NULL && $post[2] == '200000') {
+                } else if ($examp[0]->PRICE == NULL && $post[2] == $set->praktek) {
                     $post[3] = 'LUNAS';
-                } else if ($examp[0]->PRICE == NULL && $post[2] > '200000') {
+                } else if ($examp[0]->PRICE == NULL && $post[2] > $set->praktek) {
                     array_push($error, "Data Harga yang di inputkan lebih");
                 } else if ($examp[0]->PRICE != NULL) {
                     $total = $examp[0]->PRICE + $post[2];
-                    if ($total < '200000') {
+                    if ($total < $set->praktek) {
                         $post[3] = 'BELUM_LUNAS';
-                    } else if ($total == '200000') {
+                    } else if ($total == $set->praktek) {
                         $post[3] = 'LUNAS';
-                    } else if ($total > '200000') {
+                    } else if ($total > $set->praktek) {
                         array_push($error, "Data Harga yang di inputkan lebih");
                     }
                 }
@@ -204,6 +206,10 @@ class TransaksiController extends MainController {
         $error = array();
 
         $this->model('transaksi');
+        $this->model('settings');
+
+        $set = $this->settings->getWhere(array('id' => 1));
+        $set = $set[0];
 
         $ID = isset($_GET['ID']) ? $_GET['ID'] : '';
 
@@ -241,9 +247,9 @@ class TransaksiController extends MainController {
 
                     foreach ($PEMBAYARAN_SPP AS $val) {
                         if ($val->waktu == $date) {
-                            if ($val->price < '100000') {
+                            if ($val->price < $set->spp) {
                                 $nominal = $val->price + $nominal;
-                                if ($nominal < '100000') {
+                                if ($nominal < $set->spp) {
                                     $exp = "BELUM_LUNAS";
                                 } else {
                                     $exp = "LUNAS";
@@ -252,7 +258,7 @@ class TransaksiController extends MainController {
                                 array_push($error, 'Terdapat pembayaran ditanggal yang sama');
                             }
                         } else {
-                            if ($nominal < '100000') {
+                            if ($nominal < $set->spp) {
                                 $exp = "BELUM_LUNAS";
                             } else {
                                 $exp = "LUNAS";
@@ -274,13 +280,13 @@ class TransaksiController extends MainController {
 
                     if ($PEMBAYARAN_PRAKTEK[0]->PRICE != NULL) {
                         $nominal = $PEMBAYARAN_PRAKTEK[0]->PRICE + $nominal;
-                        if ($nominal < '250000') {
+                        if ($nominal < $set->praktek) {
                             $exp = 'BELUM_LUNAS';
                         } else {
                             $exp = 'LUNAS';
                         }
                     } else {
-                        if ($nominal < '250000') {
+                        if ($nominal < $set->praktek) {
                             $exp = 'BELUM_LUNAS';
                         } else {
                             $exp = 'LUNAS';
@@ -295,13 +301,13 @@ class TransaksiController extends MainController {
 
                     if ($PEMBAYARAN_SYARIAH[0]->PRICE != NULL) {
                         $nominal = $PEMBAYARAN_SYARIAH[0]->PRICE + $nominal;
-                        if ($nominal < '2500000') {
+                        if ($nominal < $set->syariah) {
                             $exp = 'BELUM_LUNAS';
                         } else {
                             $exp = 'LUNAS';
                         }
                     } else {
-                        if ($nominal < '2500000') {
+                        if ($nominal < $set->syariah) {
                             $exp = 'BELUM_LUNAS';
                         } else {
                             $exp = 'LUNAS';

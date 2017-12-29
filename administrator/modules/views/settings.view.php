@@ -48,21 +48,21 @@
                         <td style="width: 200px;"><label>PEMBAYARAN SPP</label></td>
                         <td style="width: 1px;">:</td>
                         <td>
-                            <input type="text" name="form_set_spp" <?php if (isset($data["set"])) echo 'value="' . $data["set"]->spp . '"'; ?> class="form-control">
+                            <input type="number" name="form_set_spp" <?php if (isset($data["set"])) echo 'value="' . $data["set"]->spp . '"'; ?> class="form-control">
                         </td>
                     </tr>
                     <tr>
                         <td style="width: 200px;"><label>PEMBAYARAN PRAKTEK</label></td>
                         <td style="width: 1px;">:</td>
                         <td>
-                            <input type="text" name="form_set_praktek" <?php if (isset($data["set"])) echo 'value="' . $data["set"]->praktek . '"'; ?> class="form-control">
+                            <input type="number" name="form_set_praktek" <?php if (isset($data["set"])) echo 'value="' . $data["set"]->praktek . '"'; ?> class="form-control">
                         </td>
                     </tr>
                     <tr>
                         <td style="width: 200px;"><label>PEMBAYARAN SYARIAH</label></td>
                         <td style="width: 1px;">:</td>
                         <td>
-                            <input type="text" name="form_set_syariah" <?php if (isset($data["set"])) echo 'value="' . $data["set"]->syariah . '"'; ?> class="form-control">
+                            <input type="number" name="form_set_syariah" <?php if (isset($data["set"])) echo 'value="' . $data["set"]->syariah . '"'; ?> class="form-control">
                         </td>
                     </tr>
                     <tr>

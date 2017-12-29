@@ -49,11 +49,12 @@
                         <!--<th>CODE SISWA</th>-->
                         <th>NIS</th>
                         <th>NAMA SISWA</th>
-                        <th>L/P</th>
-                        <th>SPP</th>
-                        <th>PRAKTEK</th>
+                        
+                        <th>SPP <?php echo date('M');?></th>
+                        <th>PRAKTEK GANJIL</th>
+                        <th>PRAKTEK GENAP</th>
                         <th>SYARIAH</th>
-                        <th>STATUS</th>
+                        
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -72,7 +73,6 @@
                             <td><?php echo $val->gendre; ?></td>
                             <td><?php echo $val->gendre; ?></td>
                             <td><?php echo $val->gendre; ?></td>
-                            <td><?php echo $val->status; ?></td>
                             <td>
                                 <a href="<?php echo SITE_URL; ?>?page=transaksi" class="btn btn-xs btn-success" title="Pembayaran"><span class="glyphicon glyphicon-upload"></span></a>
                                 <a href="<?php echo SITE_URL; ?>?page=transaksi" class="btn btn-xs btn-danger" title="Riwayat"><span class="glyphicon glyphicon-list"></span></a>
