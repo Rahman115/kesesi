@@ -11,7 +11,7 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="form-group">
-            <a href="<?php echo PATH; ?>?page=teacher&&action=insert" class="btn btn-primary">+ Tambah Data Baru</a>
+            <!--<a href="<?php echo PATH; ?>?page=teacher&&action=insert" class="btn btn-primary">+ Tambah Data Baru</a>-->
         </div>
 
         <div class="table-responsive">
@@ -24,7 +24,7 @@
                         <th>Nama Lengkap</th>
                         <th style="width: 88px;">Jenis Kelamin</th>
                         <th>Status</th>
-                        <th class="header" style="width:150px;">Action</th>
+                        <!--<th class="header" style="width:150px;">Action</th>-->
                     </tr>
                 </thead>
                 <tbody>
@@ -39,11 +39,11 @@
                             <td><b><a href="<?php echo SITE_URL; ?>?page=studends&&action=detail&&id=<?php echo $siswa->id_studend; ?>"><?php echo $siswa->name; ?></a></b></td>
                             <td><?php echo $siswa->gendre; ?></td>
                             <td><?php echo $siswa->status; ?></td>
-                            <td>
+<!--                            <td>
                                 <a class="btn btn-danger btn-xs" href="<?php echo SITE_URL; ?>?page=anggota&&action=delete&&id=<?php echo $siswa->id_studend; ?>" onclick="return confirm('Are you sure delete this data?');">
                                     <span class="glyphicon glyphicon-refresh"> </span>
                                 </a>
-                            </td>
+                            </td>-->
                         </tr>
                         <?php
                         $no++;

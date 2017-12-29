@@ -36,7 +36,7 @@
                                     <td><?php echo $jurusan->stands; ?></td>
                                     <td>
                                         <a class="btn btn-primary btn-xs" href="<?php echo SITE_URL; ?>?page=major&&action=kelas&&id=<?php echo $jurusan->code; ?>">Kelas</a>
-                                        <a class="btn btn-danger btn-xs" href="<?php echo SITE_URL; ?>?page=major&&action=select&&id=<?php echo $jurusan->code; ?>" onclick="return confirm('Are you sure Select this data?');">Select</a>
+                                        <!--<a class="btn btn-danger btn-xs" href="<?php echo SITE_URL; ?>?page=major&&action=select&&id=<?php echo $jurusan->code; ?>" onclick="return confirm('Are you sure Select this data?');">Select</a>-->
 
                                     </td>
                                 </tr>

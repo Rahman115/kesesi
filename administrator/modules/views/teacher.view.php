@@ -11,7 +11,7 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="form-group">
-            <a href="<?php echo PATH; ?>?page=teacher&&action=insert" class="btn btn-primary">+ Tambah Data Baru</a>
+            <!--<a href="<?php echo PATH; ?>?page=teacher&&action=insert" class="btn btn-primary">+ Tambah Data Baru</a>-->
         </div>
 
         <div class="table-responsive">
@@ -24,7 +24,7 @@
                         <th style="width: 88px;">Jenis Kelamin</th>
                         <th>Jabatan</th>
                         <th>Status</th>
-                        <th class="header" style="width:150px;">Action</th>
+                        <!--<th class="header" style="width:150px;">Action</th>-->
                     </tr>
                 </thead>
                 <tbody>
@@ -35,13 +35,13 @@
                         <tr>
                             <td><?php echo $no; ?></td>
                             <td><?php echo $guru->nip; ?></td>
-                            <td><b><a href="<?php echo SITE_URL; ?>?page=anggota&&action=detail&&id=<?php echo $guru->id_teacher; ?>"><?php echo $guru->name; ?></a></b></td>
+                            <td><b><a href="<?php echo SITE_URL; ?>?page=teacher&&action=detail&&id=<?php echo $guru->id_teacher; ?>"><?php echo $guru->name; ?></a></b></td>
                             <td><?php echo $guru->gender; ?></td>
                             <td><?php echo $guru->position; ?></td>
                             <td><?php echo $guru->status; ?></td>
-                            <td>
+<!--                            <td>
                                 <a class="btn btn-danger btn-sm" href="<?php echo SITE_URL; ?>?page=anggota&&action=delete&&id=<?php echo $guru->id_teacher; ?>" onclick="return confirm('Are you sure delete this data?');">Delete</a>
-                            </td>
+                            </td>-->
                         </tr>
                         <?php
                         $no++;

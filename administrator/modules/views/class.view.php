@@ -11,9 +11,9 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <div class="form-group">
+<!--        <div class="form-group">
             <a href="<?php echo PATH; ?>?page=teacher&&action=insert" class="btn btn-primary">+ Tambah Data Baru</a>
-        </div>
+        </div>-->
 
         <div class="table-responsive">
             <table class="table table-hover data-table table-striped tablesorter">
@@ -25,7 +25,7 @@
                         <th>Jumlas Siswa</th>
                         <th>Jumlah Ruangan</th>
                         <th>Rombel</th>
-                        <th class="header" style="width:150px;">Action</th>
+                        <!--<th class="header" style="width:150px;">Action</th>-->
                     </tr>
                 </thead>
                 <tbody>
@@ -40,9 +40,9 @@
                             <td><?php echo $kelas->sum_students; ?></td>
                             <td><?php echo $kelas->sum_rooms; ?></td>
                             <td><?php echo $kelas->rombel; ?></td>
-                            <td>
+<!--                            <td>
                                 <a class="btn btn-danger btn-sm" href="<?php echo SITE_URL; ?>?page=anggota&&action=delete&&id=<?php echo $kelas->id_teacher; ?>" onclick="return confirm('Are you sure delete this data?');">Delete</a>
-                            </td>
+                            </td>-->
                         </tr>
                         <?php
                         $no++;
