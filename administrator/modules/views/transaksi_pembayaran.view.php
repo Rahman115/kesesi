@@ -252,7 +252,7 @@
                                 <td >
                                     <input type="text" value="<?php echo $data['pembayaran'] ?>" class="form-control" disabled="">
                                     <input type="hidden" value="<?php echo $data['pembayaran'] ?>" name="transaksi_type">
-                                    <input type="hidden" value="BULANAN" name="transaksi_jenis">
+                                    <input type="hidden" value="SYARIAH" name="transaksi_jenis">
                                 </td>
                             </tr>
                             <tr>

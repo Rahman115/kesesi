@@ -43,7 +43,7 @@
                     <div class="form-group">
                         <label class="control-label">JENIS PEMBAYARAN</label>
                         <select name="transfer_status" class="form-control">
-                            <option value="LUNAS">SPP</option>
+                            <option value="SPP">SPP</option>
                             <option value="PRAKTEK-GANJIL">PRAKTEK - SEMESTER GANJIL</option>
                             <option value="PRAKTEK-GENAP">PRAKTEK - SEMESTER GENAP</option>
                             <option value="SYARIAH">SYARIAH</option>

@@ -194,10 +194,155 @@ class TransaksiController extends MainController {
             'exp_syariah' => $EXP_SYARIAH
                 )
         );
-    } 
-    
+    }
+
     public function online() {
-        $this->template('transaksi_online');
+
+        $info = FALSE;
+        $success = NULL;
+        $data_info = NULL;
+        $error = array();
+
+        $this->model('transaksi');
+
+        $ID = isset($_GET['ID']) ? $_GET['ID'] : '';
+
+
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+            $nis = isset($_POST['transfer_nis_pengguna']) ? $_POST['transfer_nis_pengguna'] : '';
+            $status = isset($_POST['transfer_status']) ? $_POST['transfer_status'] : '';
+            $type = isset($_POST['transfer_bank']) ? $_POST['transfer_bank'] : '';
+            $name = isset($_POST['transfer_nama_pengguna']) ? $_POST['transfer_nama_pengguna'] : '';
+            $rek = isset($_POST['transfer_nomor_rekening_pengguna']) ? $_POST['transfer_nomor_rekening_pengguna'] : '';
+            $nominal = isset($_POST['transfer_nominal_pengguna']) ? $_POST['transfer_nominal_pengguna'] : '';
+            $foto = isset($_POST['transfer_bukti_pembayaran']) ? $_POST['transfer_bukti_pembayaran'] : '';
+            $date = isset($_POST['transfer_date']) ? $_POST['transfer_date'] : '';
+
+            if (empty($name) || $name == "") {
+                array_push($error, "Nama Pengguna harus di isi.");
+            }
+
+            if (empty($rek) || $rek == "") {
+                array_push($error, "Nomor Rekening harus di isi.");
+            }
+
+            if (empty($nominal) || $nominal == "") {
+                array_push($error, "Nilai Nominal harus di isi.");
+            }
+
+            if (count($error) == NULL) {
+
+                if ($status == 'SPP') {
+                    $PEMBAYARAN_SPP = $this->transaksi->query("SELECT transaksi.date_transaksi AS waktu, price FROM transaksi "
+                            . "RIGHT JOIN studends ON transaksi.id_student = studends.nis "
+                            . "WHERE (transaksi.jenis_transaksi = 'BULANAN' OR transaksi.jenis_transaksi = 'BULANAN_OL') AND transaksi.id_student = '{$nis}'");
+
+                    foreach ($PEMBAYARAN_SPP AS $val) {
+                        if ($val->waktu == $date) {
+                            if ($val->price < '100000') {
+                                $nominal = $val->price + $nominal;
+                                if ($nominal < '100000') {
+                                    $exp = "BELUM_LUNAS";
+                                } else {
+                                    $exp = "LUNAS";
+                                }
+                            } else {
+                                array_push($error, 'Terdapat pembayaran ditanggal yang sama');
+                            }
+                        } else {
+                            if ($nominal < '100000') {
+                                $exp = "BELUM_LUNAS";
+                            } else {
+                                $exp = "LUNAS";
+                            }
+                        }
+                    }
+                    $jenis = 'BULANAN_OL';
+                } else if ($status == 'PRAKTEK-GANJIL' || $status == 'PRAKTEK-GENAP') {
+
+                    $exStatus = explode('-', $status);
+
+                    $jenis = "SEMESTER_" . $exStatus[1] . "_OL";
+
+                    $PEMBAYARAN_PRAKTEK = $this->transaksi->query("SELECT SUM(transaksi.price) AS PRICE FROM transaksi "
+                            . "RIGHT JOIN studends ON transaksi.id_student = studends.nis "
+                            . "WHERE transaksi.jenis_transaksi= '{$jenis}' "
+                            . "AND transaksi.status_transaksi = 'PRAKTEK' "
+                            . "AND transaksi.id_student = '{$nis}'");
+
+                    if ($PEMBAYARAN_PRAKTEK[0]->PRICE != NULL) {
+                        $nominal = $PEMBAYARAN_PRAKTEK[0]->PRICE + $nominal;
+                        if ($nominal < '250000') {
+                            $exp = 'BELUM_LUNAS';
+                        } else {
+                            $exp = 'LUNAS';
+                        }
+                    } else {
+                        if ($nominal < '250000') {
+                            $exp = 'BELUM_LUNAS';
+                        } else {
+                            $exp = 'LUNAS';
+                        }
+                    }
+                } else if ($status == 'SYARIAH') {
+                    $PEMBAYARAN_SYARIAH = $this->transaksi->query("SELECT SUM(transaksi.price) AS PRICE FROM transaksi "
+                            . "RIGHT JOIN studends ON transaksi.id_student = studends.nis "
+                            . "WHERE transaksi.status_transaksi = 'SYARIAH' AND transaksi.id_student = '{$nis}'");
+
+                    $jenis = 'SYARIAH_OL';
+
+                    if ($PEMBAYARAN_SYARIAH[0]->PRICE != NULL) {
+                        $nominal = $PEMBAYARAN_SYARIAH[0]->PRICE + $nominal;
+                        if ($nominal < '2500000') {
+                            $exp = 'BELUM_LUNAS';
+                        } else {
+                            $exp = 'LUNAS';
+                        }
+                    } else {
+                        if ($nominal < '2500000') {
+                            $exp = 'BELUM_LUNAS';
+                        } else {
+                            $exp = 'LUNAS';
+                        }
+                    }
+                }
+
+                $arr = array(
+//                    'id_transaksi' => '',
+                    'id_student' => $nis,
+                    'date_transaksi' => date('Y-m-d'),
+                    'status_transaksi' => $status,
+                    'jenis_transaksi' => $jenis,
+                    'price' => $nominal,
+                    'exp' => $exp . "-" . $type . "/" . $rek . "/" . $name . "/" . $foto
+                );
+
+                $upd = $this->transaksi->update($arr, array('id_transaksi' => $ID));
+
+                if ($upd) {
+                    $success = "BERHASIL MELAKUKAN TRANSAKSI";
+                    $this->back();
+                }
+            }
+        }
+
+        if (!empty($ID) || $ID != '') {
+
+            $data_info = $this->transaksi->getJoin('studends', array('transaksi.id_student' => 'studends.nis', 'transaksi.id_transaksi' => $ID), "JOIN");
+
+            $sum_info = $this->transaksi->rows();
+            if ($sum_info > 0) {
+
+                $info = TRUE;
+            }
+        }
+
+
+        $data = $this->transaksi->getJoin('studends', array('transaksi.id_student' => 'studends.nis', 'transaksi.jenis_transaksi' => "'ONLINE_CONFIRM'"), "JOIN");
+
+        $this->template('transaksi_online', array('online' => $data, 'info' => $info, 'dataInfo' => $data_info[0], 'error' => $error, 'success' => $success));
     }
 
 }
