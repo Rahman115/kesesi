@@ -91,12 +91,12 @@ $page = (isset($_GET['page']) && $_GET['page']) ? $_GET['page'] : '';
                         <li <?php if ($page == "settings") echo 'class="active"'; ?>>
                             <a href="<?php echo PATH; ?>?page=settings"><i class="fa fa-fw fa-phone-square"></i> Pengaturan</a>
                         </li>
-                        <!--
+                        
                         <li <?php if ($page == "user") echo 'class="active"'; ?>>
                             <a href="<?php echo PATH; ?>?page=user"><i class="fa fa-fw fa-users"></i> Manajemen User</a>
                         </li>
                         
-                        -->
+                        
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->

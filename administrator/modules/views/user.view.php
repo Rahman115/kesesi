@@ -18,33 +18,33 @@
         <div class="table-responsive">
             <table class="table table-hover data-table table-striped tablesorter">
                 <thead>
-                <tr>
-                    <th class="header" style="width: 40px;">No</th>
-                    <th>Foto</th>
-                    <th>Nama</th>
-                    <th>Email</th>
-                    <th>Username</th>
-                    <th class="header" style="width:150px;">Action</th>
-                </tr>
+                    <tr>
+                        <th class="header" style="width: 40px;">No</th>
+                        <th>Foto</th>
+                        <th>Nama</th>
+                        <th>Email</th>
+                        <th>Username</th>
+                        <th class="header" style="width:150px;">Action</th>
+                    </tr>
                 </thead>
                 <tbody>
-                <?php
+                    <?php
                     $no = 1;
-                    foreach($data["user"] as $user) {
+                    foreach ($data["user"] as $user) {
                         ?>
                         <tr>
                             <td><?php echo $no; ?></td>
                             <td>
 
                                 <?php
-                                    if($user->images) {
-                                ?>
+                                if ($user->images) {
+                                    ?>
                                     <img src="../public/images/user/<?php echo $user->images; ?>" style="width: 50px;" alt="<?php echo $user->images; ?>">
-                                <?php
-                                }else{
-                                ?>
+                                    <?php
+                                } else {
+                                    ?>
                                     <img src="../resources/images/no_user.jpg" style="width: 50px;" alt="<?php echo $user->images; ?>">
-                                <?php
+                                    <?php
                                 }
                                 ?>
 
@@ -53,15 +53,23 @@
                             <td><?php echo $user->email; ?></td>
                             <td><?php echo $user->username; ?></td>
                             <td>
-                                <a class="btn btn-primary btn-sm" href="<?php echo SITE_URL; ?>?page=user&&action=detail&&id=<?php echo $user->id_user; ?>">Detail</a>
-                                <a class="btn btn-warning btn-sm" href="<?php echo SITE_URL; ?>?page=user&&action=update&&id=<?php echo $user->id_user; ?>">Edit</a>
-                                <a class="btn btn-danger btn-sm" href="<?php echo SITE_URL; ?>?page=user&&action=delete&&id=<?php echo $user->id_user; ?>" onclick="return confirm('Are you sure delete this data?');">Delete</a>
+                                <?php if($user->username != 'admin') { ?>
+                                <a class="btn btn-primary btn-xs" href="<?php echo SITE_URL; ?>?page=user&&action=detail&&id=<?php echo $user->id_user; ?>">
+                                    <span class="glyphicon glyphicon-eye-open"></span>
+                                </a>
+                                <a class="btn btn-warning btn-xs" href="<?php echo SITE_URL; ?>?page=user&&action=update&&id=<?php echo $user->id_user; ?>">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                </a>
+                                <a class="btn btn-danger btn-xs" href="<?php echo SITE_URL; ?>?page=user&&action=delete&&id=<?php echo $user->id_user; ?>" onclick="return confirm('Are you sure delete this data?');">
+                                    <span class="glyphicon glyphicon-erase"></span>
+                                </a>
+                                <?php } ?>
                             </td>
                         </tr>
-                    <?php
+                        <?php
                         $no++;
                     }
-                ?>
+                    ?>
                 </tbody>
             </table>
         </div>

@@ -52,6 +52,7 @@ class TransaksiController extends MainController {
 
         $this->model('rooms');
         $this->model('studends');
+        $this->model('transaksi');
 
         $wl_exp = isset($_GET['wl']) ? $_GET['wl'] : "";
         $wl = explode(".", $wl_exp);
@@ -75,7 +76,28 @@ class TransaksiController extends MainController {
         for ($i = 0; $i < count($data); $i++) {
             $exp = explode(".", $data[$i]->code_room);
             if ($exp[3] == $wl[1]) {
-                $data_new[$i] = $data[$i];
+                $data_new[$i][0] = $data[$i];
+
+                $data_new[$i][1] = $this->transaksi->query("SELECT SUM(transaksi.price) AS PRICE FROM transaksi "
+                        . "JOIN studends ON transaksi.id_student = studends.nis "
+                        . "WHERE transaksi.status_transaksi = 'SYARIAH' "
+                        . "AND transaksi.id_student = '{$data[$i]->nis}'");
+                $data_new[$i][2] = $this->transaksi->query("SELECT transaksi.date_transaksi AS tgl, transaksi.price AS nominal "
+                        . "FROM transaksi "
+                        . "JOIN studends ON transaksi.id_student = studends.nis "
+                        . "WHERE transaksi.status_transaksi = 'SPP' "
+                        . "AND transaksi.id_student = '{$data[$i]->nis}'");
+                $data_new[$i][3] = $this->transaksi->query("SELECT SUM(transaksi.price) AS PRICE FROM transaksi "
+                        . "RIGHT JOIN studends ON transaksi.id_student = studends.nis "
+                        . "WHERE transaksi.status_transaksi = 'PRAKTEK' "
+                        . "AND transaksi.jenis_transaksi = 'SEMESTER_GANJIL' "
+                        . "AND transaksi.id_student = '{$data[$i]->nis}'");
+
+                $data_new[$i][4] = $this->transaksi->query("SELECT SUM(transaksi.price) AS PRICE FROM transaksi "
+                        . "RIGHT JOIN studends ON transaksi.id_student = studends.nis "
+                        . "WHERE transaksi.status_transaksi = 'PRAKTEK' "
+                        . "AND transaksi.jenis_transaksi = 'SEMESTER_GENAP' "
+                        . "AND transaksi.id_student = '{$data[$i]->nis}'");
             }
         }
 

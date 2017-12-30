@@ -18,21 +18,23 @@
             <?php
             $kys = array_keys($data['rm']);
             $kys2 = array_keys($data['activ']);
-            
-            $m2 = explode(".", $data['activ'][$kys2[0]]->code_room);
+
+            $m2 = explode(".", $data['activ'][$kys2[0]][0]->code_room);
             $m = explode(".", $data['rm'][$kys[0]]->room);
-            
+
 //            var_dump($data['rm']);
             ?>
             <li role="presentation"><a href="<?php echo SITE_URL; ?>?page=transaksi&action=kelas&kelas=<?php echo $m[0]; ?>"><span class="glyphicon glyphicon-arrow-left"></span></a></li>
-            <?php foreach ($data['rm'] AS $rm) { 
+            <?php
+            foreach ($data['rm'] AS $rm) {
                 $ex = explode('.', $rm->room);
 //                var_dump($ex);
-                  if($ex[2] == $m2[2] ) { ?>
-                    <li role="presentation" <?php echo 'class="active"';?>><a href="<?php echo SITE_URL; ?>?page=transaksi&action=rooms&major=<?php echo $ex[1].'.'.$ex[2];?>&wl=<?php echo $ex[0].'.'.$rm->teacher_code;?>"><?php echo $rm->room; ?></a></li>
+                if ($ex[2] == $m2[2]) {
+                    ?>
+                    <li role="presentation" <?php echo 'class="active"'; ?>><a href="<?php echo SITE_URL; ?>?page=transaksi&action=rooms&major=<?php echo $ex[1] . '.' . $ex[2]; ?>&wl=<?php echo $ex[0] . '.' . $rm->teacher_code; ?>"><?php echo $rm->room; ?></a></li>
 
                 <?php } else { ?>
-                    <li role="presentation" ><a href="<?php echo SITE_URL; ?>?page=transaksi&action=rooms&major=<?php echo $ex[1].'.'.$ex[2];?>&wl=<?php echo $ex[0].'.'.$rm->teacher_code;?>"><?php echo $rm->room; ?></a></li>
+                    <li role="presentation" ><a href="<?php echo SITE_URL; ?>?page=transaksi&action=rooms&major=<?php echo $ex[1] . '.' . $ex[2]; ?>&wl=<?php echo $ex[0] . '.' . $rm->teacher_code; ?>"><?php echo $rm->room; ?></a></li>
                 <?php } ?>
             <?php } ?>
         </ul>
@@ -49,12 +51,12 @@
                         <!--<th>CODE SISWA</th>-->
                         <th>NIS</th>
                         <th>NAMA SISWA</th>
-                        
-                        <th>SPP <?php echo date('M');?></th>
+
+                        <th>SPP <?php echo date('M'); ?></th>
                         <th>PRAKTEK GANJIL</th>
                         <th>PRAKTEK GENAP</th>
                         <th>SYARIAH</th>
-                        
+
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -66,16 +68,49 @@
                         ?>
                         <tr>
                             <td><?php echo $n++; ?></td>
-                            <!--<td><?php // echo $val->code_room; ?></td>-->
-                            <td><?php echo $val->nis; ?></td>
-                            <td><?php echo $val->name; ?></td>
-                            <td><?php echo $val->gendre; ?></td>
-                            <td><?php echo $val->gendre; ?></td>
-                            <td><?php echo $val->gendre; ?></td>
-                            <td><?php echo $val->gendre; ?></td>
+                            <!--<td><?php // echo $val->code_room;              ?></td>-->
+                            <td><?php echo $val[0]->nis; ?></td>
+                            <td><?php echo $val[0]->name; ?></td>
+                            <td><?php
+                                if (empty($val[2])) {
+                                    echo "0";
+                                } else {
+                                    for ($i = 0; $i < count($val[2]); $i++) {
+//                                        echo ;
+                                        $exp = explode('-', $val[2][$i]->tgl);
+                                        $tm = date('m');
+                                        if ($exp[1] == $tm) {
+                                            echo "Rp. " . number_format($val[2][$i]->nominal, "0", ",", ".");
+                                        }
+//                                    var_dump();
+                                    }
+//                                var_dump();
+                                }
+                                ?></td>
+                            <td><?php
+                                if ($val[3][0]->PRICE == NULL) {
+                                    echo "0";
+                                } else {
+                                    echo "Rp. " . number_format($val[3][0]->PRICE, "0", ",", ".");
+                                }
+                                ?></td>
+                            <td><?php
+                                if ($val[4][0]->PRICE == NULL) {
+                                    echo "0";
+                                } else {
+                                    echo "Rp. " . number_format($val[4][0]->PRICE, "0", ",", ".");
+                                }
+                                ?></td>
+
+                            <td><?php
+                                if ($val[1][0]->PRICE == NULL) {
+                                    echo "0";
+                                } else {
+                                    echo "Rp. " . number_format($val[1][0]->PRICE, "0", ",", ".");
+                                }
+                                ?></td>
                             <td>
-                                <a href="<?php echo SITE_URL; ?>?page=transaksi" class="btn btn-xs btn-success" title="Pembayaran"><span class="glyphicon glyphicon-upload"></span></a>
-                                <a href="<?php echo SITE_URL; ?>?page=transaksi" class="btn btn-xs btn-danger" title="Riwayat"><span class="glyphicon glyphicon-list"></span></a>
+                                <a href="<?php echo SITE_URL; ?>?page=transaksi&action=pembayaran&ID=<?php echo $val[0]->nis; ?>" class="btn btn-xs btn-danger" title="Riwayat"><span class="glyphicon glyphicon-list"></span></a>
                             </td>
                         </tr>
                     <?php } ?>

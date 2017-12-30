@@ -83,7 +83,7 @@
                 </p>
             </div>
             <div class="card-footer">
-                <a href="#" class="btn btn-danger">DETAIL PEMBAYARAN</a>
+                <!--<a href="#" class="btn btn-danger">DETAIL PEMBAYARAN</a>-->
                 <a href="?page=home&action=bayar_online&token=<?php echo md5($data['studend']->nis); ?>" class="btn btn-primary">BAYAR ONLINE</a>
             </div>
         </div>

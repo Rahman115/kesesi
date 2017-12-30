@@ -21,6 +21,7 @@
                         <th>Jumlah Laki-Laki</th>
                         <th>Jumlas Perempuan</th>
                         <th>Jumlah Siswa</th>
+                        <th>NIP</th>
                         <th>Wali Kelas</th>
                         <!--<th class="header" style="width:150px;">Action</th>-->
                     </tr>
@@ -37,6 +38,7 @@
                             <td><?php echo $ruang->sum_p; ?></td>
                             <td><?php echo $ruang->sum_all; ?></td>
                             <td><?php echo $ruang->teacher_code; ?></td>
+                            <td><?php echo $ruang->name; ?></td>
                             <!--<td>-->
                                 <!--<a class="btn btn-danger btn-sm" href="<?php echo SITE_URL; ?>?page=anggota&&action=delete&&id=<?php echo $ruang->id_teacher; ?>" onclick="return confirm('Are you sure delete this data?');">Delete</a>-->
                             <!--</td>-->

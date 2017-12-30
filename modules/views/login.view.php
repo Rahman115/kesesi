@@ -10,11 +10,13 @@
 
     </head>
     <body>
+
         <div class="container">
             <form class="form-signin" method="POST">
                 <div class="form-group">
                     <div class="text-center text-header">
                         <h1>SMK NU Kesesi</h1>
+                        <img src="public/images/logo.jpg" height="100" alt=""/>
                         <h2>Login Siswa</h2>
                     </div>
                 </div>

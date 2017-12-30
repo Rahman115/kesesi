@@ -51,14 +51,15 @@
                         <th class="header">CODE KELAS</th>
                         <th class="header">NIS</th>
                         <th class="header">Nama Siswa</th>
-                        <th class="header">L/P</th>
-                        <th class="header">PEMBAYARAN</th>
+                        <th class="header">STATUS</th>
+                        <th class="header">TANGGAL TRANSAKSI</th>
                         <th class="header" style="width: 100px;">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
                     $no = 1;
+//                    var_dump($data["transaksi"]);
                     if ($data["transaksi"] != NULL) {
                         foreach ($data["transaksi"] as $transaksi) {
                             ?>
@@ -67,31 +68,27 @@
                                 <td><?php echo $transaksi->code_room; ?></td>
                                 <td><?php echo $transaksi->nis; ?></td>
                                 <td><?php echo $transaksi->name; ?></td>
-                                <td><?php echo $transaksi->gendre; ?></td>
                                 <td><?php
-//                                    if ($transaksi->status_transaksi == NULL) {
-//                                        echo "Belum Transaksi";
-//                                    } else {
-//                                        echo $transaksi->status_transaksi;
-//                                    }
-                                    ?>
-                                    <a class="btn btn-info btn-xs" href="<?php echo SITE_URL; ?>?page=transaksi&&action=update&&id=<?php echo $transaksi->id_transaksi; ?>" title="Pembayaran">
-                                        <span class="glyphicon glyphicon-credit-card"></span> SPP
-                                    </a>
-                                    <a class="btn btn-warning btn-xs" href="<?php echo SITE_URL; ?>?page=transaksi&&action=update&&id=<?php echo $transaksi->id_transaksi; ?>" title="Pembayaran">
-                                        <span class="glyphicon glyphicon-credit-card"></span> Syariah
-                                    </a>
-                                    <a class="btn btn-danger btn-xs" href="<?php echo SITE_URL; ?>?page=transaksi&&action=update&&id=<?php echo $transaksi->id_transaksi; ?>" title="Pembayaran">
-                                        <span class="glyphicon glyphicon-credit-card"></span> Praktek
-                                    </a>
-                                </td>
+                                    if ($transaksi->status_transaksi != NULL) {
+                                        echo $transaksi->status_transaksi;
+                                    } else {
+                                        echo "-";
+                                    }
+                                    ?></td>
+                                <td><?php
+                                    if ($transaksi->date_transaksi != NULL) {
+                                        echo $transaksi->date_transaksi;
+                                    } else {
+                                        echo "-";
+                                    }
+                                    ?></td>
                                 <td>
                                     <a class="btn btn-warning btn-xs" href="<?php echo SITE_URL; ?>?page=transaksi&action=pembayaran&ID=<?php echo $transaksi->nis; ?>" title="Pembayaran">
                                         <span class="glyphicon glyphicon-credit-card"></span>
                                     </a>
-                                    <a class="btn btn-danger btn-xs" href="<?php echo SITE_URL; ?>?page=transaksi&&action=delete&&id=<?php echo $transaksi->id_transaksi; ?>" onclick="return confirm('Are sure Delete this data?')" title="Hapus Data">
+        <!--                                    <a class="btn btn-danger btn-xs" href="<?php echo SITE_URL; ?>?page=transaksi&&action=delete&&id=<?php echo $transaksi->id_transaksi; ?>" onclick="return confirm('Are sure Delete this data?')" title="Hapus Data">
                                         <span class="glyphicon glyphicon-erase"></span>
-                                    </a>
+                                    </a>-->
                                 </td>
                             </tr>
                             <?php

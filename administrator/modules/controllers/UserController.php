@@ -34,9 +34,9 @@ class UserController extends MainController {
 
         $this->model('user');
 
-        $data = $this->user->getWhere(array('user' => $id));
+        $data = $this->user->getWhere(array('id_user' => $id));
 
-        $delete = $this->user->delete(array('user' => $id));
+        $delete = $this->user->delete(array('id_user' => $id));
 
         if ($delete && $data[0]->images) {
             unlink('../public/images/user/' . $data[0]->images);
