@@ -16,6 +16,8 @@ class Database{
 
     public function query($sql){
         $this->sql = $sql;
+        
+        return $this->execute();
     }
 
     public function getAll($tableName) {
@@ -27,7 +29,7 @@ class Database{
     public function getWhere($tableName, $where = array()) {
 
         $this->sql = "SELECT * FROM " . $tableName;
-
+// $data = $this->student->getWhere(array('nis' => $nis));
 
         if(is_array($where)) {
 

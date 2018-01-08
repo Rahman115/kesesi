@@ -78,6 +78,7 @@
                         <button type="submit" class="btn btn-primary">
                             KIRIM
                         </button>
+                        <a href="<?php echo SITE_URL; ?>" class="btn btn-danger">KEMBALI</a>
                     </div>
 
                     </p>

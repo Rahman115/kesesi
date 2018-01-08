@@ -214,6 +214,7 @@
                                     <input type="date" value="<?php echo date('Y-m-d'); ?>" placeholder="Tanggal Transaksi" name="transaksi_date" class="form-control">
                                 </td>
                             </tr>
+                            <!-- 
                             <tr>
                                 <td><b>KETERANGAN</b></td>
                                 <td>:</td>
@@ -225,7 +226,7 @@
                                     </select>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr> -->
                                 <td colspan="3">
                                     <button type="submit" class="btn btn-primary btn-sm" name="simpan_data">
                                         <span class="glyphicon glyphicon-save"></span> BAYAR

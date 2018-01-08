@@ -112,6 +112,62 @@ class HomeController extends MainController {
         );
     }
 
+    public function detail_pembayaran(){
+
+        $token = isset($_GET['token']) ? $_GET['token'] : '';
+
+        $this->model('transaksi');
+        $this->model('studends');
+        $this->model('settings');
+
+        $set = $this->settings->get();
+
+        // var_dump($set[0]);
+
+        $dataSPP = $this->transaksi->query("SELECT SUM(transaksi.price) AS PRICE "
+                        . "FROM transaksi "
+                        . "JOIN studends ON transaksi.id_student = studends.nis "
+                        . "WHERE transaksi.status_transaksi = 'SPP' "
+                        . "AND transaksi.id_student = '{$_SESSION['loginStudend']->nis}'");
+
+        $dataSYARIAH = $this->transaksi->query("SELECT SUM(transaksi.price) AS PRICE FROM transaksi "
+                        . "JOIN studends ON transaksi.id_student = studends.nis "
+                        . "WHERE transaksi.status_transaksi = 'SYARIAH' "
+                        . "AND transaksi.id_student = '{$_SESSION['loginStudend']->nis}'");
+
+
+        $dataGENAP = $this->transaksi->query("SELECT SUM(transaksi.price) AS PRICE FROM transaksi "
+                        . "RIGHT JOIN studends ON transaksi.id_student = studends.nis "
+                        . "WHERE transaksi.status_transaksi = 'PRAKTEK' "
+                        . "AND transaksi.jenis_transaksi = 'SEMESTER_GENAP' "
+                        . "AND transaksi.id_student = '{$_SESSION['loginStudend']->nis}'");
+
+
+        $dataGANJIL = $this->transaksi->query("SELECT SUM(transaksi.price) AS PRICE FROM transaksi "
+                        . "RIGHT JOIN studends ON transaksi.id_student = studends.nis "
+                        . "WHERE transaksi.status_transaksi = 'PRAKTEK' "
+                        . "AND transaksi.jenis_transaksi = 'SEMESTER_GANJIL' "
+                        . "AND transaksi.id_student = '{$_SESSION['loginStudend']->nis}'");
+
+
+        
+        $arr = array(
+        'spp' => $dataSPP[0],
+        'syariah' => $dataSYARIAH[0],
+        'sGenap' => $dataGENAP[0],
+        'sGanjil' => $dataGANJIL[0]
+            );
+
+
+        $data = $this->studends->getJoin('transaksi',array('studends.nis' => 'transaksi.id_student'),"JOIN",array('nis' => $_SESSION['loginStudend']->nis));
+
+        // var_dump($dataGANJIL);
+
+
+
+        $this->template('datail_pembayaran', array('siswa' => $data, 'harga' => $arr, 'set' => $set[0]));
+    }
+
 }
 
 ?>
