@@ -143,7 +143,7 @@
                                 <td><?php echo $value->date_transaksi; ?></td>
                                 <td><?php 
                                 $v = explode('-', $value->exp);
-                                if(count($v) > 1) {
+                                if(count($v) > 1 || $value->exp == 'LUNAS' || $value->exp == 'BELUM_LUNAS') {
 //                                echo $v[0];    
                                     echo "Telah Confirmasi";
                                 } else {

@@ -125,7 +125,7 @@
                                         <td><?php echo $transaksi->date_transaksi; ?></td>
                                         <td>Rp.<?php echo number_format($transaksi->price, 2, ",", "."); ?></td>
                                         <td><?php
-                                            if ($transaksi->jenis_transaksi == 'SEMESTER_GENAP') {
+                                            if ($transaksi->jenis_transaksi == 'PRAKTEK_GENAP') {
                                                 echo "GENAP";
                                             } else {
                                                 echo "GANJIL";
@@ -347,8 +347,8 @@
 
                                     <select name="transaksi_jenis" class="form-control">
 
-                                        <option value="SEMESTER_GANJIL">SEMESTER GANJIL</option>
-                                        <option value="SEMESTER_GENAP">SEMESTER GENAP</option>
+                                        <option value="PRAKTEK_GANJIL">SEMESTER GANJIL</option>
+                                        <option value="PRAKTEK_GENAP">SEMESTER GENAP</option>
                                     </select>
                                 </td>
                             </tr>
