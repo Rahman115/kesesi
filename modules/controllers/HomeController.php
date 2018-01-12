@@ -162,7 +162,7 @@ class HomeController extends MainController {
         $data = $this->studends->getJoin('transaksi',array('studends.nis' => 'transaksi.id_student'),"JOIN",array('nis' => $_SESSION['loginStudend']->nis));
         $dataSiswa = $this->studends->get(array('nis' => $_SESSION['loginStudend']->nis));
 
-         var_dump($arr);
+//         var_dump($arr);
 
 
 
