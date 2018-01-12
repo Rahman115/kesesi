@@ -160,12 +160,13 @@ class HomeController extends MainController {
 
 
         $data = $this->studends->getJoin('transaksi',array('studends.nis' => 'transaksi.id_student'),"JOIN",array('nis' => $_SESSION['loginStudend']->nis));
+        $dataSiswa = $this->studends->get(array('nis' => $_SESSION['loginStudend']->nis));
 
         // var_dump($dataGANJIL);
 
 
 
-        $this->template('datail_pembayaran', array('siswa' => $data, 'harga' => $arr, 'set' => $set[0]));
+        $this->template('datail_pembayaran', array('siswa' => $data, 'harga' => $arr, 'set' => $set[0], 'dataSiswa' => $dataSiswa[0]));
     }
 
 }

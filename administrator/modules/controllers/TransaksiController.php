@@ -82,6 +82,7 @@ class TransaksiController extends MainController {
                         . "JOIN studends ON transaksi.id_student = studends.nis "
                         . "WHERE transaksi.status_transaksi = 'SYARIAH' "
                         . "AND transaksi.id_student = '{$data[$i]->nis}'");
+                
                 $data_new[$i][2] = $this->transaksi->query("SELECT transaksi.date_transaksi AS tgl, transaksi.price AS nominal "
                         . "FROM transaksi "
                         . "JOIN studends ON transaksi.id_student = studends.nis "
@@ -100,6 +101,7 @@ class TransaksiController extends MainController {
                         . "AND transaksi.id_student = '{$data[$i]->nis}'");
             }
         }
+
 
         $this->template('transaksi_rooms', array('activ' => $data_new, 'rm' => $data_rooms_new));
     }
@@ -162,33 +164,30 @@ class TransaksiController extends MainController {
 
 
 
- $data_spp = $this->transaksi->query($qry);
+                $data_spp = $this->transaksi->query($qry);
 
 
-if($data_spp != null && $data_spp[0]->exp == 'LUNAS') {
-array_push($error, "Data pembayaran bulan ini telah LUNAS");
-} else { 
+                if ($data_spp != null && $data_spp[0]->exp == 'LUNAS') {
+                    array_push($error, "Data pembayaran bulan ini telah LUNAS");
+                } else {
 
 
-if($data_spp != null && $set->spp > $post[2]) {
-    $total = $data_spp[0]->nominal + $post[2];
-    if($set->spp > $total) {
-        $post[3] = "BELUM LUNAS";
-    } else {
-        
-        $post[3] = "LUNAS";    
-        
-    }
-}
- else if ($data_spp == NULL && $post[2] == $set->spp) {
-    $post[3] = "LUNAS";
-} else if ($data_spp == NULL && $post[2] < $set->spp) {
-    $post[3] = "BELUM LUNAS"; 
-}
-else if ($data_spp != NULL && $set->spp < $data_spp[0]->nominal) {
-    array_push($error, "Nominal yang anda inputkan terlalu besar !");
-} 
-}
+                    if ($data_spp != null && $set->spp > $post[2]) {
+                        $total = $data_spp[0]->nominal + $post[2];
+                        if ($set->spp > $total) {
+                            $post[3] = "BELUM LUNAS";
+                        } else {
+
+                            $post[3] = "LUNAS";
+                        }
+                    } else if ($data_spp == NULL && $post[2] == $set->spp) {
+                        $post[3] = "LUNAS";
+                    } else if ($data_spp == NULL && $post[2] < $set->spp) {
+                        $post[3] = "BELUM LUNAS";
+                    } else if ($data_spp != NULL && $set->spp < $data_spp[0]->nominal) {
+                        array_push($error, "Nominal yang anda inputkan terlalu besar !");
+                    }
+                }
                 // if ($PEMBAYARAN_SYARIAH[0]->PRICE == NULL && $post[2] < $set->syariah) {
                 //     $post[3] = 'BELUM_LUNAS';
                 // } else if ($PEMBAYARAN_SYARIAH[0]->PRICE != NULL) {
@@ -202,9 +201,6 @@ else if ($data_spp != NULL && $set->spp < $data_spp[0]->nominal) {
                 //     }
                 // }
 // array(1) { [0]=> object(stdClass)#30 (2) { ["tgl"]=> string(10) "2018-01-08" ["nominal"]=> string(5) "50000" } }
-
-
-
             }
 
             if ($post[1] == 'SYARIAH') {

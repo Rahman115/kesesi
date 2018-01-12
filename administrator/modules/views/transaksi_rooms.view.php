@@ -68,22 +68,24 @@
                         ?>
                         <tr>
                             <td><?php echo $n++; ?></td>
-                            <!--<td><?php // echo $val->code_room;              ?></td>-->
+                            <!--<td><?php // echo $val->code_room;               ?></td>-->
                             <td><?php echo $val[0]->nis; ?></td>
                             <td><?php echo $val[0]->name; ?></td>
                             <td><?php
                                 if (empty($val[2])) {
                                     echo "0";
                                 } else {
+                                    $nominal = 0;
                                     for ($i = 0; $i < count($val[2]); $i++) {
 //                                        echo ;
                                         $exp = explode('-', $val[2][$i]->tgl);
                                         $tm = date('m');
                                         if ($exp[1] == $tm) {
-                                            echo "Rp. " . number_format($val[2][$i]->nominal, "0", ",", ".");
+                                            $nominal += $val[2][$i]->nominal;
                                         }
 //                                    var_dump();
                                     }
+                                    echo "Rp. " . number_format($nominal, "0", ",", ".");
 //                                var_dump();
                                 }
                                 ?></td>

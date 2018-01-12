@@ -30,6 +30,13 @@ class Model {
 
         return $this->db->execute()->toObject();
     }
+    
+    public function query ($param = "") {
+        
+        $this->db->query($param);
+
+        return $this->db->execute()->toObject();
+    }
 
     public function rows() {
         return $this->db->getAll($this->tableName)->numRows();
