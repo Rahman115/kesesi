@@ -3,7 +3,8 @@ $page = (isset($_GET['page']) && $_GET['page']) ? $_GET['page'] : '';
 
 // this configuration path for website
 define('TIME_ZONE', date_default_timezone_set('Asia/Jakarta'));
-define('PATH', 'http://localhost/kesesi/administrator/'); // isi path dari website anda
+define('PATH', 'http://192.168.113.52/kesesi/administrator/'); // isi path dari website anda
+//define('PATH', 'http://localhost/kesesi/administrator/'); // isi path dari website anda
 define('SITE_URL', PATH . 'index.php');
 define('POSITION_URL', PATH . '?page=' . $page);
 
