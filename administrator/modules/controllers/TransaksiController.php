@@ -353,14 +353,16 @@ class TransaksiController extends MainController {
 
                     $exStatus = explode('-', $status);
 
-                    $jenis = "SEMESTER_" . $exStatus[1] . "_OL";
+                    $jenis = "PRAKTEK_" . $exStatus[1];
 
                     $PEMBAYARAN_PRAKTEK = $this->transaksi->query("SELECT SUM(transaksi.price) AS PRICE FROM transaksi "
                             . "RIGHT JOIN studends ON transaksi.id_student = studends.nis "
                             . "WHERE transaksi.jenis_transaksi= '{$jenis}' "
-                            . "AND transaksi.status_transaksi = 'PRAKTEK' "
+                            . "AND transaksi.status_transaksi = '{$status}' "
                             . "AND transaksi.id_student = '{$nis}'");
-
+                            
+                    $status = $exStatus[0];
+                    
                     if ($PEMBAYARAN_PRAKTEK[0]->PRICE != NULL) {
                         $nominal = $PEMBAYARAN_PRAKTEK[0]->PRICE + $nominal;
                         if ($nominal < $set->praktek) {
@@ -378,8 +380,8 @@ class TransaksiController extends MainController {
                 } else if ($status == 'SYARIAH') {
                     $PEMBAYARAN_SYARIAH = $this->transaksi->query("SELECT SUM(transaksi.price) AS PRICE FROM transaksi "
                             . "RIGHT JOIN studends ON transaksi.id_student = studends.nis "
-                            . "WHERE transaksi.status_transaksi = 'SYARIAH' AND transaksi.id_student = '{$nis}'");
-
+                            . "WHERE transaksi.status_transaksi = 'SYARIAH' AND transaksi.jenis_transaksi = 'SYARIAH_OL' AND transaksi.id_student = '{$nis}'");
+//                    var_dump($PEMBAYARAN_SYARIAH);
                     $jenis = 'SYARIAH_OL';
 
                     if ($PEMBAYARAN_SYARIAH[0]->PRICE != NULL) {
@@ -390,7 +392,7 @@ class TransaksiController extends MainController {
                             $exp = 'LUNAS';
                         }
                     } else {
-                        if ($nominal < $set->syariah) {
+                        if ($set->syariah > $nominal) {
                             $exp = 'BELUM_LUNAS';
                         } else {
                             $exp = 'LUNAS';
@@ -408,11 +410,11 @@ class TransaksiController extends MainController {
                     'exp' => $exp . "-" . $type . "/" . $rek . "/" . $name . "/" . $foto
                 );
 
-                $upd = $this->transaksi->update($arr, array('id_transaksi' => $ID));
 //                var_dump($arr);
+                $upd = $this->transaksi->update($arr, array('id_transaksi' => $ID));
                 if ($upd) {
                     $success = "BERHASIL MELAKUKAN TRANSAKSI";
-                    $this->back();
+                    $this->redirect(SITE_URL . "?page=transaksi&action=online");
                 }
             }
         }

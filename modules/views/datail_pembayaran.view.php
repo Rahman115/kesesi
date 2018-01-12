@@ -46,7 +46,7 @@
                                 ?></td>
                             <td><?php
 //                                var_dump($data['set']->syariah);
-                                if (!empty($data['harga']['syariah']->PRICE) || $data['harga']['syariah']->PRICE == $data['set']->syariah) {
+                                if (!empty($data['harga']['syariah']->PRICE) && $data['harga']['syariah']->PRICE == $data['set']->syariah) {
                                     echo "LUNAS";
                                 } else if(empty($data['harga']['syariah']->PRICE)){
                                     echo "BELUM LUNAS - (" . number_format($data['set']->syariah, 0, ",", "."). ")";
@@ -59,10 +59,11 @@
                             <td>2</td>
                             <td>PRAKTEK SEMESTER GANJIL</td>
                             <td><?php
+//                                var_dump($data['harga']['sGanjil']->PRICE);
                                 if ($data['harga']['sGanjil']->PRICE == null || empty($data['harga']['sGanjil']->PRICE) || $data['harga']['sGanjil']->PRICE == '') {
                                     echo "Belum membayar";
                                 } else {
-                                    echo number_format($data['harga']['sGenap']->PRICE, 0, ",", ".");
+                                    echo number_format($data['harga']['sGanjil']->PRICE, 0, ",", ".");
                                 }
                                 ?></td>
                             <td><?php
@@ -143,7 +144,8 @@
                                 <td><?php 
                                 $v = explode('-', $value->exp);
                                 if(count($v) > 1) {
-                                echo $v[0];    
+//                                echo $v[0];    
+                                    echo "Telah Confirmasi";
                                 } else {
                                     echo "Menunggu Confirmasi";
                                 }
