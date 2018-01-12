@@ -82,7 +82,7 @@ class TransaksiController extends MainController {
                         . "JOIN studends ON transaksi.id_student = studends.nis "
                         . "WHERE transaksi.status_transaksi = 'SYARIAH' "
                         . "AND transaksi.id_student = '{$data[$i]->nis}'");
-                
+
                 $data_new[$i][2] = $this->transaksi->query("SELECT transaksi.date_transaksi AS tgl, transaksi.price AS nominal "
                         . "FROM transaksi "
                         . "JOIN studends ON transaksi.id_student = studends.nis "
@@ -319,24 +319,32 @@ class TransaksiController extends MainController {
                     $PEMBAYARAN_SPP = $this->transaksi->query("SELECT transaksi.date_transaksi AS waktu, price FROM transaksi "
                             . "RIGHT JOIN studends ON transaksi.id_student = studends.nis "
                             . "WHERE (transaksi.jenis_transaksi = 'BULANAN' OR transaksi.jenis_transaksi = 'BULANAN_OL') AND transaksi.id_student = '{$nis}'");
-
-                    foreach ($PEMBAYARAN_SPP AS $val) {
-                        if ($val->waktu == $date) {
-                            if ($val->price < $set->spp) {
-                                $nominal = $val->price + $nominal;
+                    if (empty($PEMBAYARAN_SPP)) {
+//                                    echo "Hello";
+                        if ($set->spp > $nominal) {
+                            $exp = "BELUM_LUNAS";
+                        } else {
+                            $exp = "LUNAS";
+                        }
+                    } else {
+                        foreach ($PEMBAYARAN_SPP AS $val) {
+                            if ($val->waktu == $date) {
+                                if ($val->price < $set->spp) {
+                                    $nominal = $val->price + $nominal;
+                                    if ($nominal < $set->spp) {
+                                        $exp = "BELUM_LUNAS";
+                                    } else {
+                                        $exp = "LUNAS";
+                                    }
+                                } else {
+                                    array_push($error, 'Terdapat pembayaran ditanggal yang sama');
+                                }
+                            } else {
                                 if ($nominal < $set->spp) {
                                     $exp = "BELUM_LUNAS";
                                 } else {
                                     $exp = "LUNAS";
                                 }
-                            } else {
-                                array_push($error, 'Terdapat pembayaran ditanggal yang sama');
-                            }
-                        } else {
-                            if ($nominal < $set->spp) {
-                                $exp = "BELUM_LUNAS";
-                            } else {
-                                $exp = "LUNAS";
                             }
                         }
                     }
@@ -401,7 +409,7 @@ class TransaksiController extends MainController {
                 );
 
                 $upd = $this->transaksi->update($arr, array('id_transaksi' => $ID));
-
+//                var_dump($arr);
                 if ($upd) {
                     $success = "BERHASIL MELAKUKAN TRANSAKSI";
                     $this->back();

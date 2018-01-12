@@ -140,7 +140,15 @@
 
                                 <td><?php echo $value->price; ?></td>
                                 <td><?php echo $value->date_transaksi; ?></td>
-                                <td><?php echo $value->exp; ?></td>
+                                <td><?php 
+                                $v = explode('-', $value->exp);
+                                if(count($v) > 1) {
+                                echo $v[0];    
+                                } else {
+                                    echo "Menunggu Confirmasi";
+                                }
+//                                var_dump(count($v));
+                                 ?></td>
                             </tr>
                         <?php } ?>
 
