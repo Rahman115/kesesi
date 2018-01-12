@@ -32,6 +32,30 @@ class StudendsController extends MainController {
         
         $guru = $this->teacher->get();
         
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $id_studends = isset($_POST['form_siswa_id_studends']) ? $_POST['form_siswa_id_studends'] : '';
+            $nis = isset($_POST['form_siswa_nis']) ? $_POST['form_siswa_nis'] : '';
+            $name = isset($_POST['form_siswa_name']) ? $_POST['form_siswa_name'] : '';
+            $gendre = isset($_POST['form_siswa_gendre']) ? $_POST['form_siswa_gendre'] : '';
+            $code = isset($_POST['form_siswa_code_room']) ? $_POST['form_siswa_code_room'] : '';
+            $status = isset($_POST['form_siswa_status']) ? $_POST['form_siswa_status'] : '';
+
+            $code = $code[0] . "." . $code[1] . "." . $code[2] . "." . $code[3];
+
+            $arr = array(
+                'id_studend' => '',
+                'nis' => $nis,
+                'code_room' => $code,
+                'name' => $name,
+                'gendre' => $gendre,
+                'status' => $status
+            );
+            $upd = $this->studends->insert($arr);
+            if ($upd) {
+                $success = "Data telah tersimpan";
+            }
+        }
+        
         $this->template('studends_form', array('title' => "DATA SISWA BARU", 'error' => $error, 'success' => $success, 'guru' => $guru));
     }
 
