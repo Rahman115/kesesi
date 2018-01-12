@@ -16,8 +16,6 @@ class Database{
 
     public function query($sql){
         $this->sql = $sql;
-        
-        return $this->execute();
     }
 
     public function getAll($tableName) {
@@ -26,7 +24,7 @@ class Database{
         return $this->execute();
     }
 
-    public function getWhere($tableName, $where = array()) {
+    public function getWhere($tableName, $where = array(), $params = '') {
 
         $this->sql = "SELECT*FROM " . $tableName;
 
@@ -43,10 +41,68 @@ class Database{
             }
 
         }
+        
+        if (is_array($params)) {
+            if (isset($params["limit"])) {
+
+                $this->sql .= " LIMIT " . $params["limit"];
+            }
+        }
 
         return $this->execute();
     }
 
+    public function getLike($tableName, $where = array(), $params = ''){
+        $this->sql = "SELECT*FROM " . $tableName;
+        
+        if(is_array($where)) {
+
+            $this->sql .= " WHERE ";
+            $i = 0;
+            foreach($where as $key => $value) {
+                $i++;
+                $this->sql .= $key . " LIKE '%" . $value . "%' ";
+
+                if($i < count($where)) $this->sql .= " AND ";
+            }
+
+        }
+        
+        if (is_array($params)) {
+            if (isset($params["limit"])) {
+
+                $this->sql .= " LIMIT " . $params["limit"];
+            }
+        }
+        
+//        var_dump($this->sql);
+
+        return $this->execute();
+        
+    }
+
+    public function getOrderBy($tableName, $params=''){
+        $this->sql = "SELECT*FROM " . $tableName;
+        
+        if (is_array($params)) {
+            $this->sql .= " ORDER BY ";
+            
+            foreach($params["order"] as $key => $value) {
+                
+                $this->sql .= $key ." " . $value;
+            }
+            
+            if (isset($params["limit"])) {
+
+                $this->sql .= " LIMIT " . $params["limit"];
+            }
+        }
+        
+        var_dump($this->sql);
+
+        // return $this->execute();
+        
+    }
 
     public function delete($tableName, $where = array()) {
 
@@ -99,6 +155,8 @@ class Database{
             }
         }
         $this->sql = $this->sql . ")";
+        
+//        var_dump($this->sql);
 
         return $this->execute();
 
