@@ -70,7 +70,9 @@
                         </td>
                     </tr>
                     <?php
-                    $exp = explode('.', $data["studends"]->code_room);
+                    if (isset($data["studends"])) {
+                        $exp = explode('.', $data["studends"]->code_room);
+                    }
                     ?>
                     <tr>
                         <td><label>KELAS</label></td>

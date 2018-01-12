@@ -22,6 +22,18 @@ class StudendsController extends MainController {
 
         $this->template('studends_info', array('studends' => $data[0]));
     }
+    
+    public function insert(){
+        $error = array();
+        $success = NULL;
+
+        $this->model('studends');
+        $this->model('teacher');
+        
+        $guru = $this->teacher->get();
+        
+        $this->template('studends_form', array('title' => "DATA SISWA BARU", 'error' => $error, 'success' => $success, 'guru' => $guru));
+    }
 
     public function update() {
         $error = array();
