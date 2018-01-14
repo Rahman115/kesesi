@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 14 Jan 2018 pada 06.37
+-- Generation Time: 20 Des 2017 pada 10.00
 -- Versi Server: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -122,26 +122,6 @@ INSERT INTO `rooms` (`id_room`, `room`, `sum_l`, `sum_p`, `sum_all`, `teacher_co
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `settings`
---
-
-CREATE TABLE `settings` (
-  `id` int(10) NOT NULL,
-  `spp` varchar(25) NOT NULL,
-  `syariah` varchar(25) NOT NULL,
-  `praktek` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `settings`
---
-
-INSERT INTO `settings` (`id`, `spp`, `syariah`, `praktek`) VALUES
-(1, '100000', '2500000', '250000');
-
--- --------------------------------------------------------
-
---
 -- Struktur dari tabel `studends`
 --
 
@@ -242,7 +222,7 @@ INSERT INTO `studends` (`id_studend`, `code_room`, `nis`, `name`, `gendre`, `sta
 (81, 'X.AKT.3.2012110038', '2991', 'LITA DWI MARETTA', 'P', 'Aktif'),
 (82, 'X.AKT.3.2012110038', '2992', 'LUTFIANA', 'P', 'Aktif'),
 (83, 'X.AKT.3.2012110038', '2993', 'LUTFIATUNNISA', 'P', 'Aktif'),
-(84, 'X.AKT.3.2012110038', '2994', 'NABILAH BA#DIA MAULIDA', 'P', 'Aktif'),
+(84, 'X.AKT.3.2012110038', '2994', 'NABILAH BA\'DIA MAULIDA', 'P', 'Aktif'),
 (85, 'X.AKT.3.2012110038', '2995', 'NADIA NUR AZIZAH', 'P', 'Aktif'),
 (86, 'X.AKT.3.2012110038', '2996', 'NAELLY TARMAN', 'P', 'Aktif'),
 (87, 'X.AKT.3.2012110038', '2997', 'NUR IKA MARGARITA', 'P', 'Aktif'),
@@ -364,7 +344,7 @@ INSERT INTO `studends` (`id_studend`, `code_room`, `nis`, `name`, `gendre`, `sta
 (203, 'X.TKR.3.2016070058', '3194', 'REZA JUNIAWAN', 'L', 'Aktif'),
 (204, 'X.TKR.3.2016070058', '3195', 'RIZKY AGUNG ADITYA', 'L', 'Aktif'),
 (205, 'X.TKR.3.2016070058', '3196', 'ROY SETIAWAN', 'L', 'Aktif'),
-(206, 'X.TKR.3.2016070058', '3197', 'SAFII MA#RIF', 'L', 'Aktif'),
+(206, 'X.TKR.3.2016070058', '3197', 'SAFII MA\'RIF', 'L', 'Aktif'),
 (207, 'X.TKR.3.2016070058', '3198', 'SAHRUL HAMZAH', 'L', 'Aktif'),
 (208, 'X.TKR.3.2016070058', '3199', 'SUSILO', 'L', 'Aktif'),
 (209, 'X.TKR.3.2016070058', '3200', 'TAUFIK AROHMAN', 'L', 'Aktif'),
@@ -531,7 +511,7 @@ INSERT INTO `studends` (`id_studend`, `code_room`, `nis`, `name`, `gendre`, `sta
 (370, 'XI.AKT.2.2015010037', '2637', 'RITA JUMAROH', 'P', 'Aktif'),
 (371, 'XI.AKT.2.2015010037', '2638', 'RUSMANTINI', 'P', 'Aktif'),
 (372, 'XI.AKT.2.2015010037', '2882', 'SAHLINA NUR HALYSA', 'P', 'Aktif'),
-(373, 'XI.AKT.2.2015010037', '2639', 'SITI MUTMA#INAH', 'P', 'Aktif'),
+(373, 'XI.AKT.2.2015010037', '2639', 'SITI MUTMA\'INAH', 'P', 'Aktif'),
 (374, 'XI.AKT.2.2015010037', '2640', 'SITI SUMAYAH', 'P', 'Aktif'),
 (375, 'XI.AKT.2.2015010037', '2641', 'SRI MURDIYATI', 'P', 'Aktif'),
 (376, 'XI.AKT.2.2015010037', '2642', 'SUSMIYATI', 'P', 'Aktif'),
@@ -674,7 +654,7 @@ INSERT INTO `studends` (`id_studend`, `code_room`, `nis`, `name`, `gendre`, `sta
 (513, 'XI.TSM.2.2010070018', '2758', 'KARIPIN', 'L', 'Aktif'),
 (514, 'XI.TSM.2.2010070018', '2759', 'KHOIRUL TAWADZUK', 'L', 'Aktif'),
 (515, 'XI.TSM.2.2010070018', '2760', 'KURNIAWAN', 'L', 'Aktif'),
-(516, 'XI.TSM.2.2010070018', '2764', 'MUBIN YASBA#IN', 'L', 'Aktif'),
+(516, 'XI.TSM.2.2010070018', '2764', 'MUBIN YASBA\'IN', 'L', 'Aktif'),
 (517, 'XI.TSM.2.2010070018', '2765', 'MUCHSIN ATHOILLAH', 'L', 'Aktif'),
 (518, 'XI.TSM.2.2010070018', '2761', 'MUHAMAD RIFQI HIDAYAT', 'L', 'Aktif'),
 (519, 'XI.TSM.2.2010070018', '2768', 'MUHAMMAD IRFAN', 'L', 'Aktif'),
@@ -718,7 +698,7 @@ INSERT INTO `studends` (`id_studend`, `code_room`, `nis`, `name`, `gendre`, `sta
 (557, 'XI.TSM.3.2016070053', '2886', 'SAFRY AMIRUDIN', 'L', 'Merah'),
 (558, 'XI.TSM.3.2016070053', '2814', 'SODIKIN', 'L', 'Aktif'),
 (559, 'XI.TSM.3.2016070053', '2817', 'TARISNA SARI', 'L', 'Aktif'),
-(560, 'XI.TSM.3.2016070053', '2819', 'TEGUH SA#BANI', 'L', 'Aktif'),
+(560, 'XI.TSM.3.2016070053', '2819', 'TEGUH SA\'BANI', 'L', 'Aktif'),
 (561, 'XI.TSM.3.2016070053', '2820', 'TUBAGUS FAHMI', 'L', 'Aktif'),
 (562, 'XI.TSM.3.2016070053', '2821', 'WIWIT EKO SETYONO', 'L', 'Aktif'),
 (563, 'XI.TSM.3.2016070053', '2822', 'YULIANTO', 'L', 'Aktif'),
@@ -839,102 +819,102 @@ INSERT INTO `studends` (`id_studend`, `code_room`, `nis`, `name`, `gendre`, `sta
 (678, 'XII.AKT.3.2004070002', '2366', 'YUNITA KAROMAH', 'P', 'Aktif'),
 (679, 'XII.AKT.3.2004070002', '2329', 'ZAKARIYA', 'L', 'Tebal'),
 (680, 'XII.AKT.3.2004070002', '2878', 'FIKIH AJI SAPUTRA', 'L', 'Tebal'),
-(681, 'XII.TSM.1.2008010009', '2406', 'ABDUL HOFUR', 'L', 'Aktif'),
-(682, 'XII.TSM.1.2008010009', '2409', 'AGUS KURNIAWAN', 'L', 'Aktif'),
-(683, 'XII.TSM.1.2008010009', '2480', 'AHYAR AS#ARI', 'L', 'Aktif'),
-(684, 'XII.TSM.1.2008010009', '2446', 'AKMALAN NASOHIDIN', 'L', 'Aktif'),
-(685, 'XII.TSM.1.2008010009', '2482', 'ARI SUKMO', 'L', 'Aktif'),
-(686, 'XII.TSM.1.2008010009', '2485', 'ARIP TRIATMOJO', 'L', 'Aktif'),
-(687, 'XII.TSM.1.2008010009', '2413', 'BOWO LUKITO', 'L', 'Aktif'),
-(688, 'XII.TSM.1.2008010009', '2489', 'DARMANTO', 'L', 'Aktif'),
-(689, 'XII.TSM.1.2008010009', '2451', 'DEDE ADI YUSUF', 'L', 'Aktif'),
-(690, 'XII.TSM.1.2008010009', '2491', 'DIKI MIFTAHUDIN', 'L', 'Aktif'),
-(691, 'XII.TSM.1.2008010009', '2417', 'ELIYA NUR CHASANAH', 'P', 'Tebal'),
-(692, 'XII.TSM.1.2008010009', '2418', 'FIKA NUR SEKHAH', 'P', 'Tebal'),
-(693, 'XII.TSM.1.2008010009', '2457', 'HOFAT MAWAZI', 'L', 'Aktif'),
-(694, 'XII.TSM.1.2008010009', '2458', 'HOZIN AHWALANA', 'L', 'Aktif'),
-(695, 'XII.TSM.1.2008010009', '2423', 'MOHAMAD KHAIRUL ROZIKIN', 'L', 'Aktif'),
-(696, 'XII.TSM.1.2008010009', '2573', 'MOHAMAD THOMAS ADITYA SAPUTRA', 'L', 'Aktif'),
-(697, 'XII.TSM.1.2008010009', '2425', 'MELA KISMIATI', 'P', 'Tebal'),
-(698, 'XII.TSM.1.2008010009', '2499', 'NIKO HANDIKA', 'L', 'Aktif'),
-(699, 'XII.TSM.1.2008010009', '2556', 'NINA SARIASIH', 'P', 'Tebal'),
-(700, 'XII.TSM.1.2008010009', '2501', 'NUR HANDOYO', 'L', 'Aktif'),
-(701, 'XII.TSM.1.2008010009', '2467', 'REZA ADAM ZAH', 'L', 'Aktif'),
-(702, 'XII.TSM.1.2008010009', '2503', 'RICKY RAMADIANTO', 'L', 'Aktif'),
-(703, 'XII.TSM.1.2008010009', '2504', 'RISQI HIDAYAT', 'L', 'Aktif'),
-(704, 'XII.TSM.1.2008010009', '2468', 'SAREH BUDI HARTO', 'L', 'Merah'),
-(705, 'XII.TSM.1.2008010009', '2469', 'SATRIYO PUJIANTO', 'L', 'Aktif'),
-(706, 'XII.TSM.1.2008010009', '2507', 'SETIO AJI PURNOMO', 'L', 'Aktif'),
-(707, 'XII.TSM.1.2008010009', '2472', 'TEGAR ROMADHON', 'L', 'Aktif'),
-(708, 'XII.TSM.1.2008010009', '2570', 'TIKAR APRILIYANI', 'P', 'Tebal'),
-(709, 'XII.TSM.1.2008010009', '2440', 'WISNU HANDOKO', 'L', 'Aktif'),
-(710, 'XII.TSM.1.2008010009', '2476', 'WISNU SETIAWAN', 'L', 'Aktif'),
-(711, 'XII.TSM.1.2008010009', '2516', 'ZAENAL ABIDIN', 'L', 'Aktif'),
-(712, 'XII.TSM.2.2008010014', '2407', 'ADI ARIF BUDIYANTO', 'L', 'Aktif'),
-(713, 'XII.TSM.2.2008010014', '2410', 'AHMAD AJI SANTOSO', 'L', 'Aktif'),
-(714, 'XII.TSM.2.2008010014', '2572', 'AHMAD FAJAR', 'L', 'Aktif'),
-(715, 'XII.TSM.2.2008010014', '2479', 'AHMADUN', 'L', 'Aktif'),
-(716, 'XII.TSM.2.2008010014', '2445', 'AKBAR ROJIKIN', 'L', 'Aktif'),
-(717, 'XII.TSM.2.2008010014', '2481', 'AMIR FUR#ON', 'L', 'Aktif'),
-(718, 'XII.TSM.2.2008010014', '2484', 'ARIP KURNIAWAN', 'L', 'Aktif'),
-(719, 'XII.TSM.2.2008010014', '2486', 'ASROFIL ALHAM', 'L', 'Aktif'),
-(720, 'XII.TSM.2.2008010014', '2488', 'BURHAN AL KHABIB', 'L', 'Aktif'),
-(721, 'XII.TSM.2.2008010014', '2450', 'CIPTOROSO', 'L', 'Aktif'),
-(722, 'XII.TSM.2.2008010014', '2492', 'DWI AHMAD ROMADON', 'L', 'Aktif'),
-(723, 'XII.TSM.2.2008010014', '2454', 'EKO PRIYANTO', 'L', 'Aktif'),
-(724, 'XII.TSM.2.2008010014', '2493', 'GUNTUR SANTOSO', 'L', 'Aktif'),
-(725, 'XII.TSM.2.2008010014', '2419', 'HENDRA ERLANA', 'L', 'Aktif'),
-(726, 'XII.TSM.2.2008010014', '2884', 'ICHWAN MAULANA', 'L', 'Merah'),
-(727, 'XII.TSM.2.2008010014', '2420', 'ICSANUDIN', 'L', 'Merah'),
-(728, 'XII.TSM.2.2008010014', '2421', 'JOYO SENOAJI', 'L', 'Aktif'),
-(729, 'XII.TSM.2.2008010014', '2426', 'MOHAMAD AJRUN MAMNUN', 'L', 'Aktif'),
-(730, 'XII.TSM.2.2008010014', '2577', 'MUHAMMAD RIZAL MUHAIMIN', 'L', 'Aktif'),
-(731, 'XII.TSM.2.2008010014', '2430', 'NURKHOLIS MAJID', 'L', 'Aktif'),
-(732, 'XII.TSM.2.2008010014', '2502', 'NUZUL AKMALA', 'L', 'Aktif'),
-(733, 'XII.TSM.2.2008010014', '2433', 'RIZKI AGUNG PRAYOGI', 'L', 'Aktif'),
-(734, 'XII.TSM.2.2008010014', '2434', 'RIZKI MAULANA ', 'L', 'Aktif'),
-(735, 'XII.TSM.2.2008010014', '2435', 'RIZKI MAULANA EFENDI', 'L', 'Aktif'),
-(736, 'XII.TSM.2.2008010014', '2470', 'SETIAWAN', 'L', 'Aktif'),
-(737, 'XII.TSM.2.2008010014', '2508', 'SLAMET BUDI RAHARJO', 'L', 'Aktif'),
-(738, 'XII.TSM.2.2008010014', '2511', 'TRI WIBOWO', 'L', 'Aktif');
+(681, 'XII.KSM.1.2008010009', '2406', 'ABDUL HOFUR', 'L', 'Aktif'),
+(682, 'XII.KSM.1.2008010009', '2409', 'AGUS KURNIAWAN', 'L', 'Aktif'),
+(683, 'XII.KSM.1.2008010009', '2480', 'AHYAR AS\'ARI', 'L', 'Aktif'),
+(684, 'XII.KSM.1.2008010009', '2446', 'AKMALAN NASOHIDIN', 'L', 'Aktif'),
+(685, 'XII.KSM.1.2008010009', '2482', 'ARI SUKMO', 'L', 'Aktif'),
+(686, 'XII.KSM.1.2008010009', '2485', 'ARIP TRIATMOJO', 'L', 'Aktif'),
+(687, 'XII.KSM.1.2008010009', '2413', 'BOWO LUKITO', 'L', 'Aktif'),
+(688, 'XII.KSM.1.2008010009', '2489', 'DARMANTO', 'L', 'Aktif'),
+(689, 'XII.KSM.1.2008010009', '2451', 'DEDE ADI YUSUF', 'L', 'Aktif'),
+(690, 'XII.KSM.1.2008010009', '2491', 'DIKI MIFTAHUDIN', 'L', 'Aktif'),
+(691, 'XII.KSM.1.2008010009', '2417', 'ELIYA NUR CHASANAH', 'P', 'Tebal'),
+(692, 'XII.KSM.1.2008010009', '2418', 'FIKA NUR SEKHAH', 'P', 'Tebal'),
+(693, 'XII.KSM.1.2008010009', '2457', 'HOFAT MAWAZI', 'L', 'Aktif'),
+(694, 'XII.KSM.1.2008010009', '2458', 'HOZIN AHWALANA', 'L', 'Aktif'),
+(695, 'XII.KSM.1.2008010009', '2423', 'MOHAMAD KHAIRUL ROZIKIN', 'L', 'Aktif'),
+(696, 'XII.KSM.1.2008010009', '2573', 'MOHAMAD THOMAS ADITYA SAPUTRA', 'L', 'Aktif'),
+(697, 'XII.KSM.1.2008010009', '2425', 'MELA KISMIATI', 'P', 'Tebal'),
+(698, 'XII.KSM.1.2008010009', '2499', 'NIKO HANDIKA', 'L', 'Aktif'),
+(699, 'XII.KSM.1.2008010009', '2556', 'NINA SARIASIH', 'P', 'Tebal'),
+(700, 'XII.KSM.1.2008010009', '2501', 'NUR HANDOYO', 'L', 'Aktif'),
+(701, 'XII.KSM.1.2008010009', '2467', 'REZA ADAM ZAH', 'L', 'Aktif'),
+(702, 'XII.KSM.1.2008010009', '2503', 'RICKY RAMADIANTO', 'L', 'Aktif'),
+(703, 'XII.KSM.1.2008010009', '2504', 'RISQI HIDAYAT', 'L', 'Aktif'),
+(704, 'XII.KSM.1.2008010009', '2468', 'SAREH BUDI HARTO', 'L', 'Merah'),
+(705, 'XII.KSM.1.2008010009', '2469', 'SATRIYO PUJIANTO', 'L', 'Aktif'),
+(706, 'XII.KSM.1.2008010009', '2507', 'SETIO AJI PURNOMO', 'L', 'Aktif'),
+(707, 'XII.KSM.1.2008010009', '2472', 'TEGAR ROMADHON', 'L', 'Aktif'),
+(708, 'XII.KSM.1.2008010009', '2570', 'TIKAR APRILIYANI', 'P', 'Tebal'),
+(709, 'XII.KSM.1.2008010009', '2440', 'WISNU HANDOKO', 'L', 'Aktif'),
+(710, 'XII.KSM.1.2008010009', '2476', 'WISNU SETIAWAN', 'L', 'Aktif'),
+(711, 'XII.KSM.1.2008010009', '2516', 'ZAENAL ABIDIN', 'L', 'Aktif'),
+(712, 'XII.KSM.2.2008010014', '2407', 'ADI ARIF BUDIYANTO', 'L', 'Aktif'),
+(713, 'XII.KSM.2.2008010014', '2410', 'AHMAD AJI SANTOSO', 'L', 'Aktif'),
+(714, 'XII.KSM.2.2008010014', '2572', 'AHMAD FAJAR', 'L', 'Aktif'),
+(715, 'XII.KSM.2.2008010014', '2479', 'AHMADUN', 'L', 'Aktif'),
+(716, 'XII.KSM.2.2008010014', '2445', 'AKBAR ROJIKIN', 'L', 'Aktif'),
+(717, 'XII.KSM.2.2008010014', '2481', 'AMIR FUR\'ON', 'L', 'Aktif'),
+(718, 'XII.KSM.2.2008010014', '2484', 'ARIP KURNIAWAN', 'L', 'Aktif'),
+(719, 'XII.KSM.2.2008010014', '2486', 'ASROFIL ALHAM', 'L', 'Aktif'),
+(720, 'XII.KSM.2.2008010014', '2488', 'BURHAN AL KHABIB', 'L', 'Aktif'),
+(721, 'XII.KSM.2.2008010014', '2450', 'CIPTOROSO', 'L', 'Aktif'),
+(722, 'XII.KSM.2.2008010014', '2492', 'DWI AHMAD ROMADON', 'L', 'Aktif'),
+(723, 'XII.KSM.2.2008010014', '2454', 'EKO PRIYANTO', 'L', 'Aktif'),
+(724, 'XII.KSM.2.2008010014', '2493', 'GUNTUR SANTOSO', 'L', 'Aktif'),
+(725, 'XII.KSM.2.2008010014', '2419', 'HENDRA ERLANA', 'L', 'Aktif'),
+(726, 'XII.KSM.2.2008010014', '2884', 'ICHWAN MAULANA', 'L', 'Merah'),
+(727, 'XII.KSM.2.2008010014', '2420', 'ICSANUDIN', 'L', 'Merah'),
+(728, 'XII.KSM.2.2008010014', '2421', 'JOYO SENOAJI', 'L', 'Aktif'),
+(729, 'XII.KSM.2.2008010014', '2426', 'MOHAMAD AJRUN MAMNUN', 'L', 'Aktif'),
+(730, 'XII.KSM.2.2008010014', '2577', 'MUHAMMAD RIZAL MUHAIMIN', 'L', 'Aktif'),
+(731, 'XII.KSM.2.2008010014', '2430', 'NURKHOLIS MAJID', 'L', 'Aktif'),
+(732, 'XII.KSM.2.2008010014', '2502', 'NUZUL AKMALA', 'L', 'Aktif'),
+(733, 'XII.KSM.2.2008010014', '2433', 'RIZKI AGUNG PRAYOGI', 'L', 'Aktif'),
+(734, 'XII.KSM.2.2008010014', '2434', 'RIZKI MAULANA ', 'L', 'Aktif'),
+(735, 'XII.KSM.2.2008010014', '2435', 'RIZKI MAULANA EFENDI', 'L', 'Aktif'),
+(736, 'XII.KSM.2.2008010014', '2470', 'SETIAWAN', 'L', 'Aktif'),
+(737, 'XII.KSM.2.2008010014', '2508', 'SLAMET BUDI RAHARJO', 'L', 'Aktif'),
+(738, 'XII.KSM.2.2008010014', '2511', 'TRI WIBOWO', 'L', 'Aktif');
 INSERT INTO `studends` (`id_studend`, `code_room`, `nis`, `name`, `gendre`, `status`) VALUES
-(739, 'XII.TSM.2.2008010014', '2438', 'TRIONO ILHAM', 'L', 'Aktif'),
-(740, 'XII.TSM.2.2008010014', '2475', 'WINTO', 'L', 'Aktif'),
-(741, 'XII.TSM.3.2008010010', '2405', 'ABDUL GHONI', 'L', 'Aktif'),
-(742, 'XII.TSM.3.2008010010', '2408', 'AFANDI', 'L', 'Aktif'),
-(743, 'XII.TSM.3.2008010010', '2562', 'AHMAD DAFIK', 'L', 'Aktif'),
-(744, 'XII.TSM.3.2008010010', '2443', 'AHMAD MAULANA', 'L', 'Aktif'),
-(745, 'XII.TSM.3.2008010010', '2444', 'AHMAD SYAEFUDIN', 'L', 'Aktif'),
-(746, 'XII.TSM.3.2008010010', '2447', 'AMIN NUDIN', 'L', 'Aktif'),
-(747, 'XII.TSM.3.2008010010', '2448', 'AMINUL AZIS', 'L', 'Aktif'),
-(748, 'XII.TSM.3.2008010010', '2412', 'AMRI YASA', 'L', 'Aktif'),
-(749, 'XII.TSM.3.2008010010', '2563', 'ARAYA SATRIA NUGROHO', 'L', 'Aktif'),
-(750, 'XII.TSM.3.2008010010', '2414', 'CAHYO PAMUJI', 'L', 'Aktif'),
-(751, 'XII.TSM.3.2008010010', '2453', 'DENI ANDRIYAN', 'L', 'Aktif'),
-(752, 'XII.TSM.3.2008010010', '2490', 'DENI KRISTIAWAN', 'L', 'Aktif'),
-(753, 'XII.TSM.3.2008010010', '2455', 'FERDI ANDRIYANTO', 'L', 'Aktif'),
-(754, 'XII.TSM.3.2008010010', '2459', 'ISKANDAR MAULANA', 'L', 'Aktif'),
-(755, 'XII.TSM.3.2008010010', '2460', 'KUSJIYANTO', 'L', 'Aktif'),
-(756, 'XII.TSM.3.2008010010', '2461', 'MAULANA MUHTAR', 'L', 'Aktif'),
-(757, 'XII.TSM.3.2008010010', '2462', 'MIFTAHUDIN', 'L', 'Aktif'),
-(758, 'XII.TSM.3.2008010010', '2427', 'MOHAMAD DWI RIYANTO', 'L', 'Aktif'),
-(759, 'XII.TSM.3.2008010010', '2463', 'MUCHLISON', 'L', 'Aktif'),
-(760, 'XII.TSM.3.2008010010', '2498', 'MUHAMAD HUSNI KAMAL', 'L', 'Aktif'),
-(761, 'XII.TSM.3.2008010010', '2497', 'MUHAMMAD KHUMAEDI', 'L', 'Aktif'),
-(762, 'XII.TSM.3.2008010010', '2500', 'NOR COYO', 'L', 'Aktif'),
-(763, 'XII.TSM.3.2008010010', '2464', 'NUR ARIFIN', 'L', 'Aktif'),
-(764, 'XII.TSM.3.2008010010', '2431', 'PUJI IRAWAN ', 'L', 'Aktif'),
-(765, 'XII.TSM.3.2008010010', '2432', 'PURWANTO', 'L', 'Aktif'),
-(766, 'XII.TSM.3.2008010010', '2466', 'RENO PRIYANTO', 'L', 'Aktif'),
-(767, 'XII.TSM.3.2008010010', '2505', 'RIZA KURNIAWAN', 'L', 'Aktif'),
-(768, 'XII.TSM.3.2008010010', '2566', 'SLAMET RISDIYANTO', 'L', 'Aktif'),
-(769, 'XII.TSM.3.2008010010', '2437', 'SUTRISNO', 'L', 'Aktif'),
-(770, 'XII.TSM.3.2008010010', '2471', 'SYAHREZA VAHLEVI', 'L', 'Aktif'),
-(771, 'XII.TSM.3.2008010010', '2510', 'TRI HARJO', 'L', 'Aktif'),
-(772, 'XII.TSM.3.2008010010', '2439', 'VIRGIAWAN MAHARDIKA', 'L', 'Aktif'),
-(773, 'XII.TSM.3.2008010010', '2474', 'WAHYUDIN', 'L', 'Aktif'),
-(774, 'XII.TSM.3.2008010010', '2515', 'WITGONO', 'L', 'Aktif'),
-(775, 'XII.TSM.3.2008010010', '2441', 'YOVAN LINGGA VALENTINO', 'L', 'Aktif'),
+(739, 'XII.KSM.2.2008010014', '2438', 'TRIONO ILHAM', 'L', 'Aktif'),
+(740, 'XII.KSM.2.2008010014', '2475', 'WINTO', 'L', 'Aktif'),
+(741, 'XII.KSM.3.2008010010', '2405', 'ABDUL GHONI', 'L', 'Aktif'),
+(742, 'XII.KSM.3.2008010010', '2408', 'AFANDI', 'L', 'Aktif'),
+(743, 'XII.KSM.3.2008010010', '2562', 'AHMAD DAFIK', 'L', 'Aktif'),
+(744, 'XII.KSM.3.2008010010', '2443', 'AHMAD MAULANA', 'L', 'Aktif'),
+(745, 'XII.KSM.3.2008010010', '2444', 'AHMAD SYAEFUDIN', 'L', 'Aktif'),
+(746, 'XII.KSM.3.2008010010', '2447', 'AMIN NUDIN', 'L', 'Aktif'),
+(747, 'XII.KSM.3.2008010010', '2448', 'AMINUL AZIS', 'L', 'Aktif'),
+(748, 'XII.KSM.3.2008010010', '2412', 'AMRI YASA', 'L', 'Aktif'),
+(749, 'XII.KSM.3.2008010010', '2563', 'ARAYA SATRIA NUGROHO', 'L', 'Aktif'),
+(750, 'XII.KSM.3.2008010010', '2414', 'CAHYO PAMUJI', 'L', 'Aktif'),
+(751, 'XII.KSM.3.2008010010', '2453', 'DENI ANDRIYAN', 'L', 'Aktif'),
+(752, 'XII.KSM.3.2008010010', '2490', 'DENI KRISTIAWAN', 'L', 'Aktif'),
+(753, 'XII.KSM.3.2008010010', '2455', 'FERDI ANDRIYANTO', 'L', 'Aktif'),
+(754, 'XII.KSM.3.2008010010', '2459', 'ISKANDAR MAULANA', 'L', 'Aktif'),
+(755, 'XII.KSM.3.2008010010', '2460', 'KUSJIYANTO', 'L', 'Aktif'),
+(756, 'XII.KSM.3.2008010010', '2461', 'MAULANA MUHTAR', 'L', 'Aktif'),
+(757, 'XII.KSM.3.2008010010', '2462', 'MIFTAHUDIN', 'L', 'Aktif'),
+(758, 'XII.KSM.3.2008010010', '2427', 'MOHAMAD DWI RIYANTO', 'L', 'Aktif'),
+(759, 'XII.KSM.3.2008010010', '2463', 'MUCHLISON', 'L', 'Aktif'),
+(760, 'XII.KSM.3.2008010010', '2498', 'MUHAMAD HUSNI KAMAL', 'L', 'Aktif'),
+(761, 'XII.KSM.3.2008010010', '2497', 'MUHAMMAD KHUMAEDI', 'L', 'Aktif'),
+(762, 'XII.KSM.3.2008010010', '2500', 'NOR COYO', 'L', 'Aktif'),
+(763, 'XII.KSM.3.2008010010', '2464', 'NUR ARIFIN', 'L', 'Aktif'),
+(764, 'XII.KSM.3.2008010010', '2431', 'PUJI IRAWAN ', 'L', 'Aktif'),
+(765, 'XII.KSM.3.2008010010', '2432', 'PURWANTO', 'L', 'Aktif'),
+(766, 'XII.KSM.3.2008010010', '2466', 'RENO PRIYANTO', 'L', 'Aktif'),
+(767, 'XII.KSM.3.2008010010', '2505', 'RIZA KURNIAWAN', 'L', 'Aktif'),
+(768, 'XII.KSM.3.2008010010', '2566', 'SLAMET RISDIYANTO', 'L', 'Aktif'),
+(769, 'XII.KSM.3.2008010010', '2437', 'SUTRISNO', 'L', 'Aktif'),
+(770, 'XII.KSM.3.2008010010', '2471', 'SYAHREZA VAHLEVI', 'L', 'Aktif'),
+(771, 'XII.KSM.3.2008010010', '2510', 'TRI HARJO', 'L', 'Aktif'),
+(772, 'XII.KSM.3.2008010010', '2439', 'VIRGIAWAN MAHARDIKA', 'L', 'Aktif'),
+(773, 'XII.KSM.3.2008010010', '2474', 'WAHYUDIN', 'L', 'Aktif'),
+(774, 'XII.KSM.3.2008010010', '2515', 'WITGONO', 'L', 'Aktif'),
+(775, 'XII.KSM.3.2008010010', '2441', 'YOVAN LINGGA VALENTINO', 'L', 'Aktif'),
 (776, 'XII.TKR.1.2013070030', '2880', 'AGUNG SAPUTRA', 'L', 'Aktif'),
 (777, 'XII.TKR.1.2013070030', '2517', 'AGUS SUPIYANA', 'L', 'Aktif'),
 (778, 'XII.TKR.1.2013070030', '2519', 'AJI PRAWOTO', 'L', 'Aktif'),
@@ -958,7 +938,7 @@ INSERT INTO `studends` (`id_studend`, `code_room`, `nis`, `name`, `gendre`, `sta
 (796, 'XII.TKR.1.2013070030', '2537', 'MUHAMAD ADJIE PRASETYO', 'L', 'Aktif'),
 (797, 'XII.TKR.1.2013070030', '2539', 'MUHAMAD DIMAS SYAFRI SYAFRUDIN', 'L', 'Aktif'),
 (798, 'XII.TKR.1.2013070030', '2540', 'MUHAMAD LUTFI TOLHAH', 'L', 'Aktif'),
-(799, 'XII.TKR.1.2013070030', '2541', 'MUHAMAD SAMSUL MA#ARIF', 'L', 'Aktif'),
+(799, 'XII.TKR.1.2013070030', '2541', 'MUHAMAD SAMSUL MA\'ARIF', 'L', 'Aktif'),
 (800, 'XII.TKR.1.2013070030', '2542', 'MUHAMMAD ALFIYAN NAJID', 'L', 'Aktif'),
 (801, 'XII.TKR.1.2013070030', '2543', 'MUHAMMAD SOFAN', 'L', 'Merah'),
 (802, 'XII.TKR.1.2013070030', '2545', 'PUJI WIDYANINGRUM', 'P', 'Tebal'),
@@ -1057,7 +1037,7 @@ INSERT INTO `teacher` (`id_teacher`, `nip`, `nuptk`, `name`, `gender`, `status_c
 (56, '2014090044', '-', 'Irfan Maulana', 'L', 'PTT', '2014-09-12', 'SMK Teknik Mesin', 'Tool Man', 'Pemalang', '1996-02-18', 'Ds. Kebandungan Kec. Bodeh Kab. Pemalang', 'Pegawai Tidak Tetap '),
 (57, '2014090045', '-', 'Durajak', 'L', 'PTT', '2014-09-13', 'SD N Kutorejo', 'Kebersihan', 'Pekalongan', '0000-00-00', 'Ds. Kesesi Kec. Kesesi Kab. Pekalongan', 'Pegawai Tidak Tetap '),
 (58, '2016070062', '-', 'Eka Yanuaris Madayanti', 'P', 'PTT', '2016-07-18', 'SMA N 1 Kesesi', 'Adm', 'Pekalongan', '1995-01-08', 'Ds. Krasak Ageng Rt.4/3 Kec. Sragi Kab. PKL', 'Pegawai Tidak Tetap '),
-(59, '2004070002', '', 'TIN YATI, SE', 'P', 'PTY', '0000-00-00', '', '', '', '0000-00-00', '', 'PEGAWAI TETAP YAYASAN');
+(59, '2004070002', '6944751653300012', 'Tin Yati, S.E', 'P', 'PTY', '0000-00-00', '-', '-', '-', '0000-00-00', '-', 'Pegawai Tetap Yayasan');
 
 -- --------------------------------------------------------
 
@@ -1067,12 +1047,9 @@ INSERT INTO `teacher` (`id_teacher`, `nip`, `nuptk`, `name`, `gender`, `status_c
 
 CREATE TABLE `transaksi` (
   `id_transaksi` int(11) NOT NULL,
-  `id_student` varchar(25) NOT NULL,
+  `id_student` varchar(10) NOT NULL,
   `date_transaksi` date NOT NULL,
-  `status_transaksi` varchar(20) NOT NULL,
-  `jenis_transaksi` varchar(30) NOT NULL,
-  `price` varchar(25) NOT NULL,
-  `exp` varchar(150) NOT NULL
+  `status_transaksi` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1098,7 +1075,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id_user`, `nama_lengkap`, `email`, `no_hp`, `alamat`, `username`, `password`, `images`) VALUES
 (1, 'Administrator', 'admin@mail.com', '', 'Semarang', 'admin', '21232f297a57a5a743894a0e4a801fc3', '06_31_50_2016_01_26_Administrator.jpg'),
-(3, 'Abdur Rahman', 'abudubro@gmail.com', '082349813879', 'Wandaka City', 'Abudu', '250e5b875e50c19773617a7d304af31d', '09_07_19_2017_12_30_Abdur_Rahman.jpg');
+(2, 'Luffy', 'luffy@gmail.com', '1234', 'genuk', 'luffy', '8aea5f111090da097d313adcca7427b7', '07_10_46_2016_12_04_Luffy.jpg');
 
 --
 -- Indexes for dumped tables
@@ -1121,12 +1098,6 @@ ALTER TABLE `major`
 --
 ALTER TABLE `rooms`
   ADD PRIMARY KEY (`id_room`);
-
---
--- Indexes for table `settings`
---
-ALTER TABLE `settings`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `studends`
@@ -1172,11 +1143,6 @@ ALTER TABLE `major`
 ALTER TABLE `rooms`
   MODIFY `id_room` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
--- AUTO_INCREMENT for table `settings`
---
-ALTER TABLE `settings`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
 -- AUTO_INCREMENT for table `studends`
 --
 ALTER TABLE `studends`
@@ -1195,7 +1161,7 @@ ALTER TABLE `transaksi`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;COMMIT;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

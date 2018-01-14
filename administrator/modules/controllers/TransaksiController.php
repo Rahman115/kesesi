@@ -91,13 +91,13 @@ class TransaksiController extends MainController {
                 $data_new[$i][3] = $this->transaksi->query("SELECT SUM(transaksi.price) AS PRICE FROM transaksi "
                         . "RIGHT JOIN studends ON transaksi.id_student = studends.nis "
                         . "WHERE transaksi.status_transaksi = 'PRAKTEK' "
-                        . "AND transaksi.jenis_transaksi = 'SEMESTER_GANJIL' "
+                        . "AND transaksi.jenis_transaksi = 'PRAKTEK_GANJIL' "
                         . "AND transaksi.id_student = '{$data[$i]->nis}'");
 
                 $data_new[$i][4] = $this->transaksi->query("SELECT SUM(transaksi.price) AS PRICE FROM transaksi "
                         . "RIGHT JOIN studends ON transaksi.id_student = studends.nis "
                         . "WHERE transaksi.status_transaksi = 'PRAKTEK' "
-                        . "AND transaksi.jenis_transaksi = 'SEMESTER_GENAP' "
+                        . "AND transaksi.jenis_transaksi = 'PRAKTEK_GENAP' "
                         . "AND transaksi.id_student = '{$data[$i]->nis}'");
             }
         }
