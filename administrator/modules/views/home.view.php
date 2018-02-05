@@ -105,7 +105,41 @@
     </div>
 </div>
 <!-- /.row -->
-
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                LAPORAN KEUANGAN BULANAN
+            </div>
+            <div class="panel-body">
+                <ul class="nav nav-tabs">
+                    <li role="presentation" class="active"><a href="<?php echo SITE_URL; ?>?page=transaksi">KELAS</a></li>
+                    <li role="presentation"><a href="<?php echo SITE_URL; ?>?page=transaksi&action=online">JURUSAN</a></li>
+                    <li role="presentation"><a href="<?php echo SITE_URL; ?>?page=transaksi&action=kelas&kelas=X">RUANG KELAS</a></li>
+                    <li role="presentation"><a href="<?php echo SITE_URL; ?>?page=transaksi&action=kelas&kelas=XI">Data Transaksi Kelas XI</a></li>
+                    <li role="presentation"><a href="<?php echo SITE_URL; ?>?page=transaksi&action=kelas&kelas=XII">Data Transaksi Kelas XII</a></li>
+        <!--            <li role="presentation"><a href="<?php echo SITE_URL; ?>?page=laporan&&action=laporan_bulanan">Bulanan</a></li>-->
+                </ul>
+                <table class="table table-hover ">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>JURUSAN</th>
+                            <th>TOTAL PEMASUKKAN</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td>X</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default">

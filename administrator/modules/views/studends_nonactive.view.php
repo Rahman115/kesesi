@@ -20,7 +20,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-lg-8">
+    <div class="col-lg-12">
         <div class="form-group">
             <!--<a href="<?php echo PATH; ?>?page=teacher&&action=insert" class="btn btn-primary">+ Tambah Data Baru</a>-->
         </div>
@@ -30,6 +30,8 @@
                 <thead>
                     <tr>
                         <th class="header" style="width: 40px;">No</th>
+                        <th>JURUSAN</th>
+                        <th>RUANG</th>
                         <th>NIS</th>
                         <th>Nama Lengkap</th>
                         <th style="width: 88px;">Jenis Kelamin</th>
@@ -41,9 +43,12 @@
                     <?php
                     $no = 1;
                     foreach ($data["studends"] as $siswa) {
+                        $e = explode('.', $siswa->code_room);
                         ?>
                         <tr>
                             <td><?php echo $no; ?></td>
+                            <td><?php echo $e[1]; ?></td>
+                            <td><?php echo $e[2]; ?></td>
                             <td><?php echo $siswa->nis; ?></td>
                             <td><b><a href="<?php echo SITE_URL; ?>?page=studends&&action=detail&&id=<?php echo $siswa->id_studend; ?>"><?php echo $siswa->name; ?></a></b></td>
                             <td><?php echo $siswa->gendre; ?></td>
@@ -60,26 +65,6 @@
                     ?>
                 </tbody>
             </table>
-        </div>
-
-    </div>
-    <div class="col-lg-4">
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                INFORMASI
-            </div>
-            <div class="panel-body">
-                <div class="list-group">
-                    <?php foreach ($data['major'] AS $mjr) { ?>
-                    <a class="list-group-item" href="<?php echo SITE_URL; ?>?page=studends&action=major&major=<?php echo $data['kelas'].".".$mjr->code; ?>"><?php echo $data['kelas'].".".$mjr->stands; ?></a>
-                    <?php } ?>
-                </div>
-                <div class="list-group">
-                    
-                    <a class="list-group-item" href="<?php echo SITE_URL; ?>?page=studends&action=nonactive&kelas=<?php echo $data['kelas']; ?>">DATA SISWA KELUAR KELAS <?php echo $data['kelas'] ?> </a>
-                    
-                </div>
-            </div>
         </div>
     </div>
 </div>

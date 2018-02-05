@@ -9,6 +9,18 @@ class MajorController extends MainController {
         $this->model('major');
 
         $data = $this->major->get();
+        
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $kode = isset($_POST['form_kode']) ? $_POST['form_kode'] : '';
+            $arti = isset($_POST['form_arti']) ? $_POST['form_arti'] : '';
+            
+            $arr = array('id_major'=>'', 'code' => $kode, 'stands' => $arti);
+            // `id_major`, `code`, `stands`
+            
+            $this->major->insert($arr);
+            
+            $this->back();
+        }
 
         $this->template('major', array('major' => $data, 'access' => false));
     }

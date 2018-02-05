@@ -8,8 +8,13 @@ class StudendsController extends MainController {
 
         $this->model('studends');
 
-        $data = $this->studends->get();
+        $data = $this->studends->getWhere(array('status' => 'AKTIF'));
 
+//        for ($i = 0; $i < count($data); $i++) {
+//
+//            $this->studends->update(array('status' => 'AKTIF'), array('id_studend' => $data[$i]->id_studend));
+//        }
+//        var_dump($data);
         $this->template('studends', array('studends' => $data));
     }
 
@@ -22,16 +27,16 @@ class StudendsController extends MainController {
 
         $this->template('studends_info', array('studends' => $data[0]));
     }
-    
-    public function insert(){
+
+    public function insert() {
         $error = array();
         $success = NULL;
 
         $this->model('studends');
         $this->model('teacher');
-        
+
         $guru = $this->teacher->get();
-        
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $id_studends = isset($_POST['form_siswa_id_studends']) ? $_POST['form_siswa_id_studends'] : '';
             $nis = isset($_POST['form_siswa_nis']) ? $_POST['form_siswa_nis'] : '';
@@ -55,7 +60,7 @@ class StudendsController extends MainController {
                 $success = "Data telah tersimpan";
             }
         }
-        
+
         $this->template('studends_form', array('title' => "DATA SISWA BARU", 'error' => $error, 'success' => $success, 'guru' => $guru));
     }
 
@@ -91,6 +96,7 @@ class StudendsController extends MainController {
             $upd = $this->studends->update($arr, array('id_studend' => $ID));
             if ($upd) {
                 $success = "Data telah tersimpan";
+                $this->back();
             }
         }
 
@@ -105,7 +111,7 @@ class StudendsController extends MainController {
         $this->model('studends');
         $this->model('major');
 
-        $studends = $this->studends->getLike(array('code_room' => $KELAS . '.'));
+        $studends = $this->studends->getLike(array('code_room' => $KELAS . '.', 'status' => 'AKTIF'));
         $major = $this->major->get();
 
 //        var_dump($major);
@@ -136,8 +142,8 @@ class StudendsController extends MainController {
 
         $majorLike = $explode_room_select[0] . "." . $explode_room_select[1];
 
-        $studends_major = $this->studends->getLike(array('code_room' => $major . '.'));
-        $studends = $this->studends->getLike(array('code_room' => $majorLike . '.'));
+        $studends_major = $this->studends->getLike(array('code_room' => $major . '.', 'status' => 'AKTIF'));
+        $studends = $this->studends->getLike(array('code_room' => $majorLike . '.', 'status' => 'AKTIF'));
         $mjr = $this->major->get();
 
         foreach ($studends AS $value) {
@@ -166,7 +172,7 @@ class StudendsController extends MainController {
 
 
         $upKelas = $this->selectKelas($explode[0]);
-        
+
         $arrKelas = array(
             'downKelas' => $explode[0],
             'upKelas' => $upKelas,
@@ -210,20 +216,36 @@ class StudendsController extends MainController {
             $kelas_f = isset($_POST['form_kelas_baru']) ? $_POST['form_kelas_baru'] : '';
             $major_f = isset($_POST['form_major_baru']) ? $_POST['form_major_baru'] : '';
 
-            $code_room_new = $kelas_f.'.'.$major_f.'.'.$guru_f;
-            
+            $code_room_new = $kelas_f . '.' . $major_f . '.' . $guru_f;
+
 //            var_dump($code_room_new);
-            foreach ($siswa_f AS $nis){
+            foreach ($siswa_f AS $nis) {
                 $arr = array('code_room' => $code_room_new);
                 $this->studends->update($arr, array('nis' => $nis));
             }
-            
+
 //            for($i=0; $i<count($arr); $i++){
 //                
 //                
 //            }
-            $this->redirect(SITE_URL."?page=studends&action=major&major=".$kelas_f.'.'.$major_f);
+            $this->redirect(SITE_URL . "?page=studends&action=major&major=" . $kelas_f . '.' . $major_f);
         }
+    }
+    
+    public function nonactive(){
+  $KELAS = isset($_GET['kelas']) ? $_GET['kelas'] : '';
+
+        $title = "DATA SISWA KELAS " . $KELAS;
+
+        $this->model('studends');
+        $this->model('major');
+
+        $studends = $this->studends->getLike(array('code_room' => $KELAS . '.', 'status' => 'KELUAR'));
+        $major = $this->major->get();
+
+//        var_dump($major);
+
+        $this->template('studends_nonactive', array('title' => $title, 'kelas' => $KELAS, 'studends' => $studends, 'major' => $major));      
     }
 
 }

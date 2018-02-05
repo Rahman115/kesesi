@@ -30,6 +30,7 @@
                 $ex = explode('.', $rm->room);
 //                var_dump($ex);
                 if ($ex[2] == $m2[2]) {
+                    $ACT = SITE_URL . '?page=transaksi&action=print&major='. $ex[1] . '.' . $ex[2] . '&wl='. $ex[0] . '.' . $rm->teacher_code;
                     ?>
                     <li role="presentation" <?php echo 'class="active"'; ?>><a href="<?php echo SITE_URL; ?>?page=transaksi&action=rooms&major=<?php echo $ex[1] . '.' . $ex[2]; ?>&wl=<?php echo $ex[0] . '.' . $rm->teacher_code; ?>"><?php echo $rm->room; ?></a></li>
 
@@ -37,9 +38,18 @@
                     <li role="presentation" ><a href="<?php echo SITE_URL; ?>?page=transaksi&action=rooms&major=<?php echo $ex[1] . '.' . $ex[2]; ?>&wl=<?php echo $ex[0] . '.' . $rm->teacher_code; ?>"><?php echo $rm->room; ?></a></li>
                 <?php } ?>
             <?php } ?>
+
+        </ul>
+    </div>
+    <div class="col-lg-12">
+        <ul class="nav nav-pills">
+            <li role="presentation"><a href="<?php echo $ACT; ?>">CETAK LAPORAN</a></li>
+            <!--<li role="presentation"><a href="#"></a></li>-->
+            <!--<li role="presentation"><a href="#">Messages</a></li>-->
         </ul>
     </div>
 </div>
+<br>
 <div class="row">
 
     <div class="col-lg-12">
@@ -68,7 +78,7 @@
                         ?>
                         <tr>
                             <td><?php echo $n++; ?></td>
-                            <!--<td><?php // echo $val->code_room;               ?></td>-->
+                            <!--<td><?php // echo $val->code_room;                ?></td>-->
                             <td><?php echo $val[0]->nis; ?></td>
                             <td><?php echo $val[0]->name; ?></td>
                             <td><?php

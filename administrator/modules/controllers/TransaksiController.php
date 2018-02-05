@@ -161,9 +161,7 @@ class TransaksiController extends MainController {
                         . "JOIN studends ON transaksi.id_student = studends.nis "
                         . "WHERE transaksi.status_transaksi = 'SPP' "
                         . "AND transaksi.id_student = '{$post[0]}' ORDER BY transaksi.exp DESC";
-
-
-
+                        
                 $data_spp = $this->transaksi->query($qry);
 
 

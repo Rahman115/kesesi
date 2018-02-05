@@ -15,37 +15,53 @@
         <div class="panel panel-default">
             <div class="panel-heading">Data Jurusan</div>
             <div class="panel-body">
+<!--                <div class="">
+                    <a class="btn btn-primary" href="<?php echo SITE_URL; ?>?page=major&action=insert">TAMBAH JURUSAN</a>
+                </div>-->
                 <div class="table-responsive">
-                    <table class="table table-hover table-striped tablesorter">
-                        <thead>
-                            <tr>
-                                <th class="header" style="width: 40px;">No</th>
-                                <th  class="header" style="width: 60px;">Code</th>
-                                <th  class="header" style="width: 170px;">Arti</th>
-                                <th class="header" style="width:140px;">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            $no = 1;
-                            foreach ($data["major"] as $jurusan) {
+                    <form method="POST" role="form">
+                        <table class="table table-hover table-striped tablesorter">
+                            <thead>
+                                <tr>
+                                    <th class="header" style="width: 40px;">No</th>
+                                    <th  class="header" style="width: 60px;">Code</th>
+                                    <th  class="header" style="width: 170px;">Arti</th>
+                                    <th class="header" style="width:140px;">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $no = 1;
+                                foreach ($data["major"] as $jurusan) {
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $no; ?></td>
+                                        <td><?php echo $jurusan->code; ?></td>
+                                        <td><?php echo $jurusan->stands; ?></td>
+                                        <td>
+                                            <a class="btn btn-primary btn-xs" href="<?php echo SITE_URL; ?>?page=major&&action=kelas&&id=<?php echo $jurusan->code; ?>">
+                                                <span class="glyphicon glyphicon-home"></span>
+                                            </a>
+                                            <!--<a class="btn btn-danger btn-xs" href="<?php echo SITE_URL; ?>?page=major&&action=select&&id=<?php echo $jurusan->code; ?>" onclick="return confirm('Are you sure Select this data?');">Select</a>-->
+
+                                        </td>
+                                    </tr>
+                                    <?php
+                                    $no++;
+                                }
                                 ?>
                                 <tr>
-                                    <td><?php echo $no; ?></td>
-                                    <td><?php echo $jurusan->code; ?></td>
-                                    <td><?php echo $jurusan->stands; ?></td>
+                                    <td>#</td>
+                                    <td><input type="text" class="form_control" placeholder="KODE" name="form_kode"></td>
+                                    <td><input type="text" class="form_control" placeholder="ARTI" name="form_arti"></td>
                                     <td>
-                                        <a class="btn btn-primary btn-xs" href="<?php echo SITE_URL; ?>?page=major&&action=kelas&&id=<?php echo $jurusan->code; ?>">Kelas</a>
-                                        <!--<a class="btn btn-danger btn-xs" href="<?php echo SITE_URL; ?>?page=major&&action=select&&id=<?php echo $jurusan->code; ?>" onclick="return confirm('Are you sure Select this data?');">Select</a>-->
-
+                                        <button type="submit" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-save"></span></button>
+                                        <!--<input type="submit" value="Simpan" class="btn btn-xs btn-primary">-->
                                     </td>
                                 </tr>
-                                <?php
-                                $no++;
-                            }
-                            ?>
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </form>
                 </div>
             </div>
         </div>

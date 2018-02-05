@@ -128,7 +128,12 @@
                         <td><label>STATUS</label></td>
                         <td style="width: 1px;">:</td>
                         <td>
-                            <input type="text" name="form_siswa_status" <?php if (isset($data["studends"])) echo 'value="' . $data["studends"]->status . '"'; ?> class="form-control">
+                            <!--<input type="text" name="form_siswa_status" <?php if (isset($data["studends"])) echo 'value="' . $data["studends"]->status . '"'; ?> class="form-control">-->
+
+                            <input type="radio" <?php if (isset($data["studends"]) && $data["studends"]->status == 'AKTIF') echo 'checked="checked"'; ?> value="AKTIF" name="form_siswa_status"  > AKTIF 
+                            <input type="radio" <?php if (isset($data["studends"]) && $data["studends"]->status == 'KELUAR') echo 'checked="checked"'; ?> value="KELUAR" name="form_siswa_status"  > KELUAR 
+                            
+
                         </td>
                     </tr>
                     <tr>

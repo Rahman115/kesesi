@@ -11,6 +11,15 @@
 
 <div class="row">
     <div class="col-lg-12">
+        <ul class="nav nav-tabs">
+            <!--<li role="presentation" class="active"><a href="<?php echo SITE_URL; ?>?page=studends">DATA SISWA</a></li>-->
+            <li role="presentation"><a href="<?php echo SITE_URL; ?>?page=class&kelas=X">DATA KELAS X</a></li>
+            <li role="presentation"><a href="<?php echo SITE_URL; ?>?page=class&kelas=XI">DATA KELAS XI</a></li>
+            <li role="presentation"><a href="<?php echo SITE_URL; ?>?page=class&kelas=XII">DATA KELAS XII</a></li>
+<!--            <li role="presentation"><a href="<?php echo SITE_URL; ?>?page=laporan&&action=laporan_bulanan">Bulanan</a></li>-->
+        </ul>
+    </div>
+    <div class="col-lg-9">
 <!--        <div class="form-group">
             <a href="<?php echo PATH; ?>?page=teacher&&action=insert" class="btn btn-primary">+ Tambah Data Baru</a>
         </div>-->
