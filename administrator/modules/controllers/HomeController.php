@@ -11,9 +11,13 @@ class HomeController extends MainController {
         $this->model('transaksi');
         $this->model('teacher');
         $this->model('studends');
+		
+		$myDataKelas = $this->dtKelas();
+		// var_dump ($myDataKelas);
 
         $this->template('home', array(
             'userData' => $data,
+			'kelasData' => $myDataKelas,
             'total' => array(
                 'rooms' => $this->rooms->rows(),
                 'transaksi' => $this->transaksi->rows(),
@@ -21,7 +25,25 @@ class HomeController extends MainController {
                 'studends' => $this->studends->rows()
             )
         ));
+
+		
+		
     }
+	
+	private function dtKelas(){
+		$qry_x = "SELECT SUM(transaksi.price) AS JUMLAH FROM transaksi JOIN studends ON transaksi.id_student = studends.nis WHERE studends.code_room LIKE '%X.%' AND transaksi.date_transaksi LIKE '2018-01-%'";
+		
+		$qry_xi = "SELECT SUM(transaksi.price) AS JUMLAH FROM transaksi JOIN studends ON transaksi.id_student = studends.nis WHERE studends.code_room LIKE '%XI.%' AND transaksi.date_transaksi LIKE '2018-01-%'";
+		
+		$qry_xii = "SELECT SUM(transaksi.price) AS JUMLAH FROM transaksi JOIN studends ON transaksi.id_student = studends.nis WHERE studends.code_room LIKE '%XII.%' AND transaksi.date_transaksi LIKE '2018-01-%'";
+		
+		
+		$dataKelas[0] = $this->transaksi->query($qry_x);
+		$dataKelas[1] = $this->transaksi->query($qry_xi);
+		$dataKelas[2] = $this->transaksi->query($qry_xii);
+		
+		return $dataKelas;
+	}
     
     public function kelas(){
         $data = $_SESSION["login"];
@@ -31,9 +53,13 @@ class HomeController extends MainController {
         $this->model('studends');
         
         $dataTraSyariah = $this->transaksi->getWhere(array('status_transaksi' => 'SYARIAH'));
-        $dataTraSpp = $this->transaksi->getWhere(array('status_transaksi' => 'SYARIAH'));
-        $dataTraPraktek = $this->transaksi->getWhere(array('status_transaksi' => 'SYARIAH'));
+        $dataTraSpp = $this->transaksi->getWhere(array('status_transaksi' => 'SPP'));
+        $dataTraPraktek = $this->transaksi->getWhere(array('status_transaksi' => 'PRAKTEK'));
+		
+		// var_dump ($dataTraPraktek);
+		
 
+		
         $this->template('home', array(
             'userData' => $data,
             'total' => array(
@@ -43,6 +69,7 @@ class HomeController extends MainController {
                 'studends' => $this->studends->rows()
             )
         ));
+		
     }
 
 }

@@ -113,11 +113,10 @@
             </div>
             <div class="panel-body">
                 <ul class="nav nav-tabs">
-                    <li role="presentation" class="active"><a href="<?php echo SITE_URL; ?>?page=transaksi">KELAS</a></li>
-                    <li role="presentation"><a href="<?php echo SITE_URL; ?>?page=transaksi&action=online">JURUSAN</a></li>
-                    <li role="presentation"><a href="<?php echo SITE_URL; ?>?page=transaksi&action=kelas&kelas=X">RUANG KELAS</a></li>
-                    <li role="presentation"><a href="<?php echo SITE_URL; ?>?page=transaksi&action=kelas&kelas=XI">Data Transaksi Kelas XI</a></li>
-                    <li role="presentation"><a href="<?php echo SITE_URL; ?>?page=transaksi&action=kelas&kelas=XII">Data Transaksi Kelas XII</a></li>
+                    <li role="presentation" class="active"><a href="<?php echo SITE_URL; ?>?page=home">KELAS</a></li>
+                    <li role="presentation"><a href="<?php echo SITE_URL; ?>?page=home&action=jurusan">JURUSAN</a></li>
+                    <li role="presentation"><a href="<?php echo SITE_URL; ?>?page=home&action=ruang">RUANG KELAS</a></li>
+                    
         <!--            <li role="presentation"><a href="<?php echo SITE_URL; ?>?page=laporan&&action=laporan_bulanan">Bulanan</a></li>-->
                 </ul>
                 <table class="table table-hover ">
@@ -130,9 +129,19 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td></td>
+                            <td>1</td>
                             <td>X</td>
-                            <td></td>
+                            <td><?php echo $data['kelasData'][0][0]->JUMLAH; ?></td>
+                        </tr>
+						<tr>
+                            <td>2</td>
+                            <td>XI</td>
+                            <td><?php echo $data['kelasData'][1][0]->JUMLAH; ?></td>
+                        </tr>
+						<tr>
+                            <td>3</td>
+                            <td>XII</td>
+                            <td><?php echo $data['kelasData'][2][0]->JUMLAH; ?></td>
                         </tr>
                     </tbody>
                 </table>
