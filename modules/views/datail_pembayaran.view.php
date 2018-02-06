@@ -156,6 +156,7 @@
 
                     </tbody>
                 </table>
+                <a href="<?php echo SITE_URL; ?>" class="btn btn-danger ">CETAK PDF</a>
                 <a href="<?php echo SITE_URL; ?>" class="btn btn-primary ">KEMBALI</a>
 
             </div>

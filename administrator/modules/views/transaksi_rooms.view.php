@@ -22,13 +22,13 @@
             $m2 = explode(".", $data['activ'][$kys2[0]][0]->code_room);
             $m = explode(".", $data['rm'][$kys[0]]->room);
 
-//            var_dump($data['rm']);
+                
             ?>
             <li role="presentation"><a href="<?php echo SITE_URL; ?>?page=transaksi&action=kelas&kelas=<?php echo $m[0]; ?>"><span class="glyphicon glyphicon-arrow-left"></span></a></li>
             <?php
+//            var_dump($m2);
             foreach ($data['rm'] AS $rm) {
                 $ex = explode('.', $rm->room);
-//                var_dump($ex);
                 if ($ex[2] == $m2[2]) {
                     $ACT = SITE_URL . '?page=transaksi&action=cetak&major='. $ex[1] . '.' . $ex[2] . '&wl='. $ex[0] . '.' . $rm->teacher_code;
                     ?>

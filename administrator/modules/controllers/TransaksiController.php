@@ -49,7 +49,7 @@ class TransaksiController extends MainController {
     }
 
     public function rooms() {
-	
+
         $this->model('rooms');
         $this->model('studends');
         $this->model('transaksi');
@@ -64,8 +64,7 @@ class TransaksiController extends MainController {
         $data_rooms = $this->rooms->get();
 
         $data_rooms_new = NULL;
-		
-		
+
 
         for ($j = 0; $j < count($data_rooms); $j++) {
             $ex = explode('.', $data_rooms[$j]->room);
@@ -75,9 +74,11 @@ class TransaksiController extends MainController {
             }
         }
 
+
         for ($i = 0; $i < count($data); $i++) {
             $exp = explode(".", $data[$i]->code_room);
             if ($exp[3] == $wl[1]) {
+                
                 $data_new[$i][0] = $data[$i];
 
                 $data_new[$i][1] = $this->transaksi->query("SELECT SUM(transaksi.price) AS PRICE FROM transaksi "
@@ -104,8 +105,8 @@ class TransaksiController extends MainController {
             }
         }
 
-
-        $this->template('transaksi_rooms', array('activ' => $data_new, 'rm' => $data_rooms_new));
+//        var_dump($mj);
+        $this->template('transaksi_rooms', array('activ' => $data_new, 'rm' => $data_rooms_new, 'mj' => $mj));
     }
 
     public function pembayaran() {
@@ -163,7 +164,7 @@ class TransaksiController extends MainController {
                         . "JOIN studends ON transaksi.id_student = studends.nis "
                         . "WHERE transaksi.status_transaksi = 'SPP' "
                         . "AND transaksi.id_student = '{$post[0]}' ORDER BY transaksi.exp DESC";
-                        
+
                 $data_spp = $this->transaksi->query($qry);
 
 
@@ -360,9 +361,9 @@ class TransaksiController extends MainController {
                             . "WHERE transaksi.jenis_transaksi= '{$jenis}' "
                             . "AND transaksi.status_transaksi = '{$status}' "
                             . "AND transaksi.id_student = '{$nis}'");
-                            
+
                     $status = $exStatus[0];
-                    
+
                     if ($PEMBAYARAN_PRAKTEK[0]->PRICE != NULL) {
                         $nominal = $PEMBAYARAN_PRAKTEK[0]->PRICE + $nominal;
                         if ($nominal < $set->praktek) {
@@ -436,11 +437,11 @@ class TransaksiController extends MainController {
         $this->template('transaksi_online', array('online' => $data, 'info' => $info, 'dataInfo' => $data_info[0], 'error' => $error, 'success' => $success));
     }
 
-	public function cetak() {
-		$this->model('rooms');
+    public function cetak() {
+        $this->model('rooms');
         $this->model('studends');
         $this->model('transaksi');
-		$this->model('teacher');
+        $this->model('teacher');
 
         $wl_exp = isset($_GET['wl']) ? $_GET['wl'] : "";
         $wl = explode(".", $wl_exp);
@@ -449,12 +450,12 @@ class TransaksiController extends MainController {
         $mj = explode(".", $mj_exp);
 
         $data = $this->studends->get();
-		$data_guru = $this->teacher->getWhere(array('nip' => $wl[1]));
+        $data_guru = $this->teacher->getWhere(array('nip' => $wl[1]));
         $data_rooms = $this->rooms->get();
 
         $data_rooms_new = NULL;
-		
-		$data_feel = $wl[0] . "." . $mj_exp . "/" . $data_guru[0]->name;
+
+        $data_feel = $wl[0] . "." . $mj_exp . "/" . $data_guru[0]->name;
 
         for ($j = 0; $j < count($data_rooms); $j++) {
             $ex = explode('.', $data_rooms[$j]->room);
@@ -492,33 +493,33 @@ class TransaksiController extends MainController {
                         . "AND transaksi.id_student = '{$data[$i]->nis}'");
             }
         }
-		
-		$pdf = $this->fpdf();
 
-		$this->templatePdf('transaksi_pdf', array ('pdf' => $pdf, 'activ' => $data_new, 'rm' => $data_rooms_new, 'feel' => $data_feel));
-		
-	}
-	
-	public function cetakPerSiswa(){
-		$this->model('studends');
+        $pdf = $this->fpdf();
+
+        $this->templatePdf('transaksi_pdf', array('pdf' => $pdf, 'activ' => $data_new, 'rm' => $data_rooms_new, 'feel' => $data_feel));
+    }
+
+    public function cetakPerSiswa() {
+        $this->model('studends');
         $this->model('transaksi');
-		
-		$ID = isset($_GET['ID']) ? $_GET['ID'] : '';	
-		
-		$data = $this->studends->getWhere(array('nis' => $ID));
+
+        $ID = isset($_GET['ID']) ? $_GET['ID'] : '';
+
+        $data = $this->studends->getWhere(array('nis' => $ID));
         $tr = $this->transaksi->get();
         $simTr = $this->transaksi->rows();
-		
-		$data_tr = $this->transaksi->getWhere(array('id_student' => $ID));
-		
-		$pdf = $this->fpdf();
-		
-		
-		$this->templatePdf('transaksi_pdfPerSiswa', array('pdf' => $pdf, 'siswa' => $data[0], 'tr' => $data_tr));
-		
-		// var_dump ($data[0]->name);
-		// var_dump ($data_tr);
-	}
+
+        $data_tr = $this->transaksi->getWhere(array('id_student' => $ID));
+
+        $pdf = $this->fpdf();
+
+
+        $this->templatePdf('transaksi_pdfPerSiswa', array('pdf' => $pdf, 'siswa' => $data[0], 'tr' => $data_tr));
+
+        // var_dump ($data[0]->name);
+        // var_dump ($data_tr);
+    }
+
 }
 
 ?>
