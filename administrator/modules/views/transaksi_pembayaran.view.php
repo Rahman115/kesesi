@@ -34,7 +34,9 @@
                         <td ><?php echo $data['siswa']->gendre; ?></td>
                     </tr>
                 </table>
-
+<a class="btn btn-primary" href="<?php echo SITE_URL; ?>?page=transaksi&action=cetakPerSiswa&ID=<?php
+                    echo $data['siswa']->nis;
+                    ?>">CETAK LAPORAN</a>
             </div>
         </div>
         <div class="panel panel-danger">
@@ -53,7 +55,9 @@
                 if ($data['syariah'][0]->PRICE == NULL) {
                     echo '<div class="alert alert-info" role="alert">Belum melukan pembayaran syariah</div>';
                 } else {
-                    echo '<div class="alert alert-info" role="alert">Total pembayaran syariah <b>Rp ' . number_format($data['syariah'][0]->PRICE, 2, ",", ".") . '</b> - ' . $data['exp_syariah'][0]->EXP . '</div>';
+					$X = explode('-', $data['exp_syariah'][0]->EXP);
+										echo $X[0]; 
+                    echo '<div class="alert alert-info" role="alert">Total pembayaran syariah <b>Rp ' . number_format($data['syariah'][0]->PRICE, 2, ",", ".") . '</b> - ' . $X[0] . '</div>';
                 }
                 ?>
                 <div class="table-responsive" >
@@ -77,7 +81,8 @@
                                         <td><?php echo $no; ?></td>
                                         <td><?php echo $transaksi->date_transaksi; ?></td>
                                         <td>Rp.<?php echo number_format($transaksi->price, 2, ",", "."); ?></td>
-                                        <td><?php echo $transaksi->exp; ?></td>
+                                        <td><?php $X = explode('-', $transaksi->exp);
+										echo $X[0]; ?></td>
                                     </tr>
                                     <?php
                                     $no++;
@@ -94,7 +99,7 @@
                 <div class="close">
                     <a class="btn btn-primary btn-xs" href="<?php echo SITE_URL; ?>?page=transaksi&action=pembayaran&pembayaran=PRAKTEK&ID=<?php
                     echo $data['siswa']->nis;
-                    ;
+                    
                     ?>">
                         <span class="glyphicon glyphicon-plus"></span>
                     </a>
@@ -131,7 +136,8 @@
                                                 echo "GANJIL";
                                             }
                                             ?></td>
-                                        <td><?php echo $transaksi->exp; ?></td>
+                                        <td><?php $X = explode('-', $transaksi->exp);
+										echo $X[0]; ?></td>
                                     </tr>
                                     <?php
                                     $no++;
@@ -401,7 +407,9 @@
                                         <td><?php echo $no; ?></td>
                                         <td><?php echo $transaksi->date_transaksi; ?></td>
                                         <td>Rp.<?php echo number_format($transaksi->price, 2, ",", "."); ?></td>
-                                        <td><?php echo $transaksi->exp; ?></td>
+										
+                                        <td><?php $X = explode('-', $transaksi->exp);
+										echo $X[0]; ?></td>
                                     </tr>
                                     <?php
                                     $no++;

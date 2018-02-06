@@ -30,7 +30,7 @@
                 $ex = explode('.', $rm->room);
 //                var_dump($ex);
                 if ($ex[2] == $m2[2]) {
-                    $ACT = SITE_URL . '?page=transaksi&action=print&major='. $ex[1] . '.' . $ex[2] . '&wl='. $ex[0] . '.' . $rm->teacher_code;
+                    $ACT = SITE_URL . '?page=transaksi&action=cetak&major='. $ex[1] . '.' . $ex[2] . '&wl='. $ex[0] . '.' . $rm->teacher_code;
                     ?>
                     <li role="presentation" <?php echo 'class="active"'; ?>><a href="<?php echo SITE_URL; ?>?page=transaksi&action=rooms&major=<?php echo $ex[1] . '.' . $ex[2]; ?>&wl=<?php echo $ex[0] . '.' . $rm->teacher_code; ?>"><?php echo $rm->room; ?></a></li>
 

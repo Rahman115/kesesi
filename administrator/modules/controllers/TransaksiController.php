@@ -434,6 +434,85 @@ class TransaksiController extends MainController {
         $this->template('transaksi_online', array('online' => $data, 'info' => $info, 'dataInfo' => $data_info[0], 'error' => $error, 'success' => $success));
     }
 
+	public function cetak() {
+	$this->model('rooms');
+        $this->model('studends');
+        $this->model('transaksi');
+
+        $wl_exp = isset($_GET['wl']) ? $_GET['wl'] : "";
+        $wl = explode(".", $wl_exp);
+
+        $mj_exp = isset($_GET['major']) ? $_GET['major'] : "";
+        $mj = explode(".", $mj_exp);
+
+        $data = $this->studends->get();
+        $data_rooms = $this->rooms->get();
+
+        $data_rooms_new = NULL;
+
+        for ($j = 0; $j < count($data_rooms); $j++) {
+            $ex = explode('.', $data_rooms[$j]->room);
+            if ($ex[0] == $wl[0] && $ex[1] == $mj[0]) {
+
+                $data_rooms_new[$j] = $data_rooms[$j];
+            }
+        }
+
+        for ($i = 0; $i < count($data); $i++) {
+            $exp = explode(".", $data[$i]->code_room);
+            if ($exp[3] == $wl[1]) {
+                $data_new[$i][0] = $data[$i];
+
+                $data_new[$i][1] = $this->transaksi->query("SELECT SUM(transaksi.price) AS PRICE FROM transaksi "
+                        . "JOIN studends ON transaksi.id_student = studends.nis "
+                        . "WHERE transaksi.status_transaksi = 'SYARIAH' "
+                        . "AND transaksi.id_student = '{$data[$i]->nis}'");
+
+                $data_new[$i][2] = $this->transaksi->query("SELECT transaksi.date_transaksi AS tgl, transaksi.price AS nominal "
+                        . "FROM transaksi "
+                        . "JOIN studends ON transaksi.id_student = studends.nis "
+                        . "WHERE transaksi.status_transaksi = 'SPP' "
+                        . "AND transaksi.id_student = '{$data[$i]->nis}'");
+                $data_new[$i][3] = $this->transaksi->query("SELECT SUM(transaksi.price) AS PRICE FROM transaksi "
+                        . "RIGHT JOIN studends ON transaksi.id_student = studends.nis "
+                        . "WHERE transaksi.status_transaksi = 'PRAKTEK' "
+                        . "AND transaksi.jenis_transaksi = 'PRAKTEK_GANJIL' "
+                        . "AND transaksi.id_student = '{$data[$i]->nis}'");
+
+                $data_new[$i][4] = $this->transaksi->query("SELECT SUM(transaksi.price) AS PRICE FROM transaksi "
+                        . "RIGHT JOIN studends ON transaksi.id_student = studends.nis "
+                        . "WHERE transaksi.status_transaksi = 'PRAKTEK' "
+                        . "AND transaksi.jenis_transaksi = 'PRAKTEK_GENAP' "
+                        . "AND transaksi.id_student = '{$data[$i]->nis}'");
+            }
+        }
+		
+		$pdf = $this->fpdf();
+
+		$this->templatePdf('transaksi_pdf', array ('pdf' => $pdf, 'activ' => $data_new, 'rm' => $data_rooms_new));
+		
+	}
+	
+	public function cetakPerSiswa(){
+		$this->model('studends');
+        $this->model('transaksi');
+		
+		$ID = isset($_GET['ID']) ? $_GET['ID'] : '';	
+		
+		$data = $this->studends->getWhere(array('nis' => $ID));
+        $tr = $this->transaksi->get();
+        $simTr = $this->transaksi->rows();
+		
+		$data_tr = $this->transaksi->getWhere(array('id_student' => $ID));
+		
+		$pdf = $this->fpdf();
+		
+		
+		$this->templatePdf('transaksi_pdfPerSiswa', array('pdf' => $pdf, 'siswa' => $data[0], 'tr' => $data_tr));
+		
+		// var_dump ($data[0]->name);
+		// var_dump ($data_tr);
+	}
 }
 
 ?>
