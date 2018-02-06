@@ -65,7 +65,7 @@
                         <th>SPP <?php echo date('M'); ?></th>
                         <th>PRAKTEK GANJIL</th>
                         <th>PRAKTEK GENAP</th>
-                        <th>SYARIAH</th>
+                        <th>JARIAH</th>
 
                         <th>Action</th>
                     </tr>

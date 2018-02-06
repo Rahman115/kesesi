@@ -62,7 +62,7 @@ $pdf->Ln();
 	$no = 1;
 	$data['pdf']->SetFont('Arial','',12);
 	foreach ($data["tr"] as $transaksi) {
-		if ($transaksi->status_transaksi == 'SYARIAH') {
+		if ($transaksi->status_transaksi == 'JARIAH') {
 			
 			// header table
 			$pdf->Cell(10,10,$no++,1,0,'C');

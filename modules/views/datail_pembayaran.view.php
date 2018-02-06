@@ -7,7 +7,7 @@
             <div class="card-body">
                 <p class="card-text"></p>
                 <?php
-// var_dump($data['harga']['syariah']->PRICE);
+// var_dump($data['harga']['jariah']->PRICE);
 // var_dump($data['set']->praktek);
                 ?>
 
@@ -31,27 +31,27 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- $data['harga']['syariah']->PRICE -->
+                        <!-- $data['harga']['jariah']->PRICE -->
 
 
                         <tr>
                             <td>1</td>
-                            <td>SYARIAH</td>
+                            <td>JARIAH</td>
                             <td><?php
-                                if ($data['harga']['syariah']->PRICE == null || empty($data['harga']['syariah']->PRICE) || $data['harga']['syariah']->PRICE == '') {
+                                if ($data['harga']['jariah']->PRICE == null || empty($data['harga']['jariah']->PRICE) || $data['harga']['jariah']->PRICE == '') {
                                     echo "Belum membayar";
                                 } else {
-                                    echo number_format($data['harga']['syariah']->PRICE, 0, ",", ".");
+                                    echo number_format($data['harga']['jariah']->PRICE, 0, ",", ".");
                                 }
                                 ?></td>
                             <td><?php
-//                                var_dump($data['set']->syariah);
-                                if (!empty($data['harga']['syariah']->PRICE) && $data['harga']['syariah']->PRICE == $data['set']->syariah) {
+//                                var_dump($data['set']->jariah);
+                                if (!empty($data['harga']['jariah']->PRICE) && $data['harga']['jariah']->PRICE == $data['set']->jariah) {
                                     echo "LUNAS";
-                                } else if(empty($data['harga']['syariah']->PRICE)){
-                                    echo "BELUM LUNAS - (" . number_format($data['set']->syariah, 0, ",", "."). ")";
+                                } else if(empty($data['harga']['jariah']->PRICE)){
+                                    echo "BELUM LUNAS - (" . number_format($data['set']->jariah, 0, ",", "."). ")";
                                 } else {
-                                    echo "BELUM LUNAS - (" . number_format($data['set']->syariah - $data['harga']['syariah']->PRICE, 0, ",", ".") . ")";
+                                    echo "BELUM LUNAS - (" . number_format($data['set']->jariah - $data['harga']['jariah']->PRICE, 0, ",", ".") . ")";
                                 }
                                 ?></td>
                         </tr>

@@ -128,7 +128,7 @@ INSERT INTO `rooms` (`id_room`, `room`, `sum_l`, `sum_p`, `sum_all`, `teacher_co
 CREATE TABLE `settings` (
   `id` int(10) NOT NULL,
   `spp` varchar(25) NOT NULL,
-  `syariah` varchar(25) NOT NULL,
+  `jariah` varchar(25) NOT NULL,
   `praktek` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -136,7 +136,7 @@ CREATE TABLE `settings` (
 -- Dumping data untuk tabel `settings`
 --
 
-INSERT INTO `settings` (`id`, `spp`, `syariah`, `praktek`) VALUES
+INSERT INTO `settings` (`id`, `spp`, `jariah`, `praktek`) VALUES
 (1, '100000', '2500000', '250000');
 
 -- --------------------------------------------------------

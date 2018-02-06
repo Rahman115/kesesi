@@ -104,10 +104,10 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="width: 200px;"><label>PEMBAYARAN SYARIAH</label></td>
+                        <td style="width: 200px;"><label>PEMBAYARAN JARIAH</label></td>
                         <td style="width: 1px;">:</td>
                         <td>
-                            <input type="number" name="form_set_syariah" <?php if (isset($data["set"])) echo 'value="' . $data["set"]->syariah . '"'; ?> class="form-control">
+                            <input type="number" name="form_set_jariah" <?php if (isset($data["set"])) echo 'value="' . $data["set"]->jariah . '"'; ?> class="form-control">
                         </td>
                     </tr>
                     <tr>

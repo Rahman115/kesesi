@@ -52,7 +52,7 @@ class HomeController extends MainController {
         $this->model('teacher');
         $this->model('studends');
         
-        $dataTraSyariah = $this->transaksi->getWhere(array('status_transaksi' => 'SYARIAH'));
+        $dataTraJariah = $this->transaksi->getWhere(array('status_transaksi' => 'JARIAH'));
         $dataTraSpp = $this->transaksi->getWhere(array('status_transaksi' => 'SPP'));
         $dataTraPraktek = $this->transaksi->getWhere(array('status_transaksi' => 'PRAKTEK'));
 		

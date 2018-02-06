@@ -46,7 +46,7 @@
                             <option value="SPP">SPP</option>
                             <option value="PRAKTEK-GANJIL">PRAKTEK - SEMESTER GANJIL</option>
                             <option value="PRAKTEK-GENAP">PRAKTEK - SEMESTER GENAP</option>
-                            <option value="SYARIAH">SYARIAH</option>
+                            <option value="JARIAH">JARIAH</option>
                         </select>
                     </div>
                     <div class="form-group">

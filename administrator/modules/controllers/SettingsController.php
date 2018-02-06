@@ -17,7 +17,7 @@ class SettingsController extends MainController {
 
             $spp = isset($_POST['form_set_spp']) ? $_POST['form_set_spp'] : '';
             $praktek = isset($_POST['form_set_praktek']) ? $_POST['form_set_praktek'] : '';
-            $syariah = isset($_POST['form_set_syariah']) ? $_POST['form_set_syariah'] : '';
+            $jariah = isset($_POST['form_set_jariah']) ? $_POST['form_set_jariah'] : '';
             $bank[0] = isset($_POST['form_bank_name']) ? $_POST['form_bank_name'] : '';
             $bank[1] = isset($_POST['form_no_rek']) ? $_POST['form_no_rek'] : '';
             $bank[2] = isset($_POST['form_atas_nama']) ? $_POST['form_atas_nama'] : '';
@@ -82,7 +82,7 @@ class SettingsController extends MainController {
 
             $arr = array(
                 'spp' => $spp,
-                'syariah' => $syariah,
+                'jariah' => $jariah,
                 'praktek' => $praktek,
                 'bank' => $saved
             );

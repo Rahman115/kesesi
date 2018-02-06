@@ -43,7 +43,7 @@ CREATE TABLE `transaksi` (
 --
 
 INSERT INTO `transaksi` (`id_transaksi`, `id_student`, `date_transaksi`, `status_transaksi`, `jenis_transaksi`, `price`, `exp`) VALUES
-(1, '3018', '2017-12-29', 'SYARIAH', 'BULANAN', '200000', 'BELUM_LUNAS');
+(1, '3018', '2017-12-29', 'JARIAH', 'BULANAN', '200000', 'BELUM_LUNAS');
 
 --
 -- Indexes for dumped tables

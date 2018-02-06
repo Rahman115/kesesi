@@ -82,7 +82,7 @@ class TransaksiController extends MainController {
 
                 $data_new[$i][1] = $this->transaksi->query("SELECT SUM(transaksi.price) AS PRICE FROM transaksi "
                         . "JOIN studends ON transaksi.id_student = studends.nis "
-                        . "WHERE transaksi.status_transaksi = 'SYARIAH' "
+                        . "WHERE transaksi.status_transaksi = 'JARIAH' "
                         . "AND transaksi.id_student = '{$data[$i]->nis}'");
 
                 $data_new[$i][2] = $this->transaksi->query("SELECT transaksi.date_transaksi AS tgl, transaksi.price AS nominal "
@@ -134,12 +134,12 @@ class TransaksiController extends MainController {
 
 
 
-        $PEMBAYARAN_SYARIAH = $this->transaksi->query("SELECT SUM(transaksi.price) AS PRICE FROM transaksi "
+        $PEMBAYARAN_JARIAH = $this->transaksi->query("SELECT SUM(transaksi.price) AS PRICE FROM transaksi "
                 . "RIGHT JOIN studends ON transaksi.id_student = studends.nis "
-                . "WHERE transaksi.status_transaksi = 'SYARIAH' AND transaksi.id_student = '{$ID}'");
-        $EXP_SYARIAH = $this->transaksi->query("SELECT transaksi.exp AS EXP FROM transaksi "
+                . "WHERE transaksi.status_transaksi = 'JARIAH' AND transaksi.id_student = '{$ID}'");
+        $EXP_JARIAH = $this->transaksi->query("SELECT transaksi.exp AS EXP FROM transaksi "
                 . "RIGHT JOIN studends ON transaksi.id_student = studends.nis "
-                . "WHERE transaksi.status_transaksi = 'SYARIAH' AND transaksi.id_student = '{$ID}' "
+                . "WHERE transaksi.status_transaksi = 'JARIAH' AND transaksi.id_student = '{$ID}' "
                 . "ORDER BY transaksi.exp DESC LIMIT 1");
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -188,31 +188,31 @@ class TransaksiController extends MainController {
                         array_push($error, "Nominal yang anda inputkan terlalu besar !");
                     }
                 }
-                // if ($PEMBAYARAN_SYARIAH[0]->PRICE == NULL && $post[2] < $set->syariah) {
+                // if ($PEMBAYARAN_JARIAH[0]->PRICE == NULL && $post[2] < $set->jariah) {
                 //     $post[3] = 'BELUM_LUNAS';
-                // } else if ($PEMBAYARAN_SYARIAH[0]->PRICE != NULL) {
-                //     $syariah = $PEMBAYARAN_SYARIAH[0]->PRICE + $post[2];
-                //     if ($syariah < $set->syariah) {
+                // } else if ($PEMBAYARAN_JARIAH[0]->PRICE != NULL) {
+                //     $jariah = $PEMBAYARAN_JARIAH[0]->PRICE + $post[2];
+                //     if ($jariah < $set->jariah) {
                 //         $post[3] = 'BELUM_LUNAS';
-                //     } else if ($syariah == $set->syariah) {
+                //     } else if ($jariah == $set->jariah) {
                 //         $post[3] = 'LUNAS';
-                //     } else if ($syariah > $set->syariah) {
+                //     } else if ($jariah > $set->jariah) {
                 //         array_push($error, "Data Harga yang di inputkan lebih");
                 //     }
                 // }
 // array(1) { [0]=> object(stdClass)#30 (2) { ["tgl"]=> string(10) "2018-01-08" ["nominal"]=> string(5) "50000" } }
             }
 
-            if ($post[1] == 'SYARIAH') {
-                if ($PEMBAYARAN_SYARIAH[0]->PRICE == NULL && $post[2] < $set->syariah) {
+            if ($post[1] == 'JARIAH') {
+                if ($PEMBAYARAN_JARIAH[0]->PRICE == NULL && $post[2] < $set->jariah) {
                     $post[3] = 'BELUM_LUNAS';
-                } else if ($PEMBAYARAN_SYARIAH[0]->PRICE != NULL) {
-                    $syariah = $PEMBAYARAN_SYARIAH[0]->PRICE + $post[2];
-                    if ($syariah < $set->syariah) {
+                } else if ($PEMBAYARAN_JARIAH[0]->PRICE != NULL) {
+                    $jariah = $PEMBAYARAN_JARIAH[0]->PRICE + $post[2];
+                    if ($jariah < $set->jariah) {
                         $post[3] = 'BELUM_LUNAS';
-                    } else if ($syariah == $set->syariah) {
+                    } else if ($jariah == $set->jariah) {
                         $post[3] = 'LUNAS';
-                    } else if ($syariah > $set->syariah) {
+                    } else if ($jariah > $set->jariah) {
                         array_push($error, "Data Harga yang di inputkan lebih");
                     }
                 }
@@ -267,8 +267,8 @@ class TransaksiController extends MainController {
             'error' => $error,
             'success' => $success,
             'pembayaran' => $pembayaran,
-            'syariah' => $PEMBAYARAN_SYARIAH,
-            'exp_syariah' => $EXP_SYARIAH
+            'jariah' => $PEMBAYARAN_JARIAH,
+            'exp_jariah' => $EXP_JARIAH
                 )
         );
     }
@@ -377,22 +377,22 @@ class TransaksiController extends MainController {
                             $exp = 'LUNAS';
                         }
                     }
-                } else if ($status == 'SYARIAH') {
-                    $PEMBAYARAN_SYARIAH = $this->transaksi->query("SELECT SUM(transaksi.price) AS PRICE FROM transaksi "
+                } else if ($status == 'JARIAH') {
+                    $PEMBAYARAN_JARIAH = $this->transaksi->query("SELECT SUM(transaksi.price) AS PRICE FROM transaksi "
                             . "RIGHT JOIN studends ON transaksi.id_student = studends.nis "
-                            . "WHERE transaksi.status_transaksi = 'SYARIAH' AND transaksi.jenis_transaksi = 'SYARIAH_OL' AND transaksi.id_student = '{$nis}'");
-//                    var_dump($PEMBAYARAN_SYARIAH);
-                    $jenis = 'SYARIAH_OL';
+                            . "WHERE transaksi.status_transaksi = 'JARIAH' AND transaksi.jenis_transaksi = 'JARIAH_OL' AND transaksi.id_student = '{$nis}'");
+//                    var_dump($PEMBAYARAN_JARIAH);
+                    $jenis = 'JARIAH_OL';
 
-                    if ($PEMBAYARAN_SYARIAH[0]->PRICE != NULL) {
-                        $nominal = $PEMBAYARAN_SYARIAH[0]->PRICE + $nominal;
-                        if ($nominal < $set->syariah) {
+                    if ($PEMBAYARAN_JARIAH[0]->PRICE != NULL) {
+                        $nominal = $PEMBAYARAN_JARIAH[0]->PRICE + $nominal;
+                        if ($nominal < $set->jariah) {
                             $exp = 'BELUM_LUNAS';
                         } else {
                             $exp = 'LUNAS';
                         }
                     } else {
-                        if ($set->syariah > $nominal) {
+                        if ($set->jariah > $nominal) {
                             $exp = 'BELUM_LUNAS';
                         } else {
                             $exp = 'LUNAS';
@@ -471,7 +471,7 @@ class TransaksiController extends MainController {
 
                 $data_new[$i][1] = $this->transaksi->query("SELECT SUM(transaksi.price) AS PRICE FROM transaksi "
                         . "JOIN studends ON transaksi.id_student = studends.nis "
-                        . "WHERE transaksi.status_transaksi = 'SYARIAH' "
+                        . "WHERE transaksi.status_transaksi = 'JARIAH' "
                         . "AND transaksi.id_student = '{$data[$i]->nis}'");
 
                 $data_new[$i][2] = $this->transaksi->query("SELECT transaksi.date_transaksi AS tgl, transaksi.price AS nominal "

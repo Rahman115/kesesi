@@ -40,9 +40,9 @@
             </div>
         </div>
         <div class="panel panel-danger">
-            <div class="panel-heading">Data Pembayaran Syariah
+            <div class="panel-heading">Data Pembayaran Jariah
                 <div class="close">
-                    <a class="btn btn-primary btn-xs" href="<?php echo SITE_URL; ?>?page=transaksi&action=pembayaran&pembayaran=SYARIAH&ID=<?php
+                    <a class="btn btn-primary btn-xs" href="<?php echo SITE_URL; ?>?page=transaksi&action=pembayaran&pembayaran=JARIAH&ID=<?php
                     echo $data['siswa']->nis;
                     ;
                     ?>">
@@ -52,12 +52,12 @@
             </div>
             <div class="panel-body">
                 <?php
-                if ($data['syariah'][0]->PRICE == NULL) {
-                    echo '<div class="alert alert-info" role="alert">Belum melukan pembayaran syariah</div>';
+                if ($data['jariah'][0]->PRICE == NULL) {
+                    echo '<div class="alert alert-info" role="alert">Belum melukan pembayaran jariah</div>';
                 } else {
-					$X = explode('-', $data['exp_syariah'][0]->EXP);
+					$X = explode('-', $data['exp_jariah'][0]->EXP);
 										echo $X[0]; 
-                    echo '<div class="alert alert-info" role="alert">Total pembayaran syariah <b>Rp ' . number_format($data['syariah'][0]->PRICE, 2, ",", ".") . '</b> - ' . $X[0] . '</div>';
+                    echo '<div class="alert alert-info" role="alert">Total pembayaran jariah <b>Rp ' . number_format($data['jariah'][0]->PRICE, 2, ",", ".") . '</b> - ' . $X[0] . '</div>';
                 }
                 ?>
                 <div class="table-responsive" >
@@ -75,7 +75,7 @@
                             <?php
                             $no = 1;
                             foreach ($data["tr"] as $transaksi) {
-                                if ($transaksi->status_transaksi == 'SYARIAH') {
+                                if ($transaksi->status_transaksi == 'JARIAH') {
                                     ?>
                                     <tr>
                                         <td><?php echo $no; ?></td>
@@ -242,7 +242,7 @@
                         </table>
                     </form>
                     <?php
-                } else if ($data['pembayaran'] == 'SYARIAH') {
+                } else if ($data['pembayaran'] == 'JARIAH') {
                     ?>
                     <form method="POST" role="form">
                         <table class="table table-condensed">
@@ -259,7 +259,7 @@
                                 <td >
                                     <input type="text" value="<?php echo $data['pembayaran'] ?>" class="form-control" disabled="">
                                     <input type="hidden" value="<?php echo $data['pembayaran'] ?>" name="transaksi_type">
-                                    <input type="hidden" value="SYARIAH" name="transaksi_jenis">
+                                    <input type="hidden" value="JARIAH" name="transaksi_jenis">
                                 </td>
                             </tr>
                             <tr>
@@ -283,10 +283,10 @@
                                 <td>:</td>
                                 <td >
                                     <?php
-                                    if ($data['syariah'][0]->PRICE == NULL) {
+                                    if ($data['jariah'][0]->PRICE == NULL) {
                                         echo '<input disabled="" value="BELUM TRANSAKSI" type="number" class="form-control">';
                                     } else {
-                                        echo '<input disabled="" value="' . $data['syariah'][0]->PRICE . '" type="number" class="form-control">';
+                                        echo '<input disabled="" value="' . $data['jariah'][0]->PRICE . '" type="number" class="form-control">';
                                     }
                                     ?>
 
@@ -297,7 +297,7 @@
                                 <td>:</td>
                                 <td >
     
-                                    <input disabled="" <?php if(isset($data['exp_syariah'][0]->EXP)){ echo 'value="'.$data['exp_syariah'][0]->EXP.'"'; } else { echo 'value="No_Transaksi"';} ?> type="text" class="form-control">
+                                    <input disabled="" <?php if(isset($data['exp_jariah'][0]->EXP)){ echo 'value="'.$data['exp_jariah'][0]->EXP.'"'; } else { echo 'value="No_Transaksi"';} ?> type="text" class="form-control">
                                 </td>
                             </tr>
                             <tr>

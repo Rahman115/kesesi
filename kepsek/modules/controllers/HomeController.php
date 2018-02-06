@@ -154,9 +154,9 @@ public function index() {
                         . "WHERE transaksi.status_transaksi = 'SPP' "
                         . "AND transaksi.id_student = '{$_SESSION['loginStudend']->nis}'");
 
-        $dataSYARIAH = $this->transaksi->query("SELECT SUM(transaksi.price) AS PRICE FROM transaksi "
+        $dataJARIAH = $this->transaksi->query("SELECT SUM(transaksi.price) AS PRICE FROM transaksi "
                         . "JOIN studends ON transaksi.id_student = studends.nis "
-                        . "WHERE transaksi.status_transaksi = 'SYARIAH' "
+                        . "WHERE transaksi.status_transaksi = 'JARIAH' "
                         . "AND transaksi.id_student = '{$_SESSION['loginStudend']->nis}'");
 
 
@@ -177,7 +177,7 @@ public function index() {
         
         $arr = array(
         'spp' => $dataSPP[0],
-        'syariah' => $dataSYARIAH[0],
+        'jariah' => $dataJARIAH[0],
         'sGenap' => $dataGENAP[0],
         'sGanjil' => $dataGANJIL[0]
             );
