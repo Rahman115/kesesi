@@ -10,6 +10,7 @@ require_once "library/database.class.php";
 require_once "library/model.class.php";
 require_once "library/view.class.php";
 require_once "library/controller.class.php";
+require_once "public/fpdf/fpdf.php";
 
 function __autoload($className) {
 
