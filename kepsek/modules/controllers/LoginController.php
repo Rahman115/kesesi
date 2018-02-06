@@ -52,8 +52,8 @@ class LoginController extends Controller {
     }
     
     public function logout() {
-        unset($_SESSION["loginStudend"]);
-        $this->redirect('index.php'); 
+        unset($_SESSION["loginKepsek"]);
+        $this->redirect('../'); 
     }
 
 }

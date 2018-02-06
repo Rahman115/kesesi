@@ -26,7 +26,7 @@
                                     <th class="header" style="width: 40px;">No</th>
                                     <th  class="header" style="width: 60px;">Code</th>
                                     <th  class="header" style="width: 170px;">Arti</th>
-                                    <th class="header" style="width:140px;">Action</th>
+                                    <th class="header" style="width:140px;"></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -39,7 +39,7 @@
                                         <td><?php echo $jurusan->code; ?></td>
                                         <td><?php echo $jurusan->stands; ?></td>
                                         <td>
-                                            <a class="btn btn-primary btn-xs" href="<?php echo SITE_URL; ?>?page=major&&action=kelas&&id=<?php echo $jurusan->code; ?>">
+                                           <!-- <a class="btn btn-primary btn-xs" href="<?php echo SITE_URL; ?>?page=major&&action=kelas&&id=<?php echo $jurusan->code; ?>">
                                                 <span class="glyphicon glyphicon-home"></span>
                                             </a>
                                             <!--<a class="btn btn-danger btn-xs" href="<?php echo SITE_URL; ?>?page=major&&action=select&&id=<?php echo $jurusan->code; ?>" onclick="return confirm('Are you sure Select this data?');">Select</a>-->

@@ -3,42 +3,62 @@
 use \modules\controllers\MainController;
 
 class HomeController extends MainController {
+public function index() {
+		$bulan = array("JANUARI","FEBRUARI","MARET","APRIL","MEI","JUNI", "JULI", "AGUSTUS", "SEPTEMBER", "OKTOBER", "NOVEMBER", "DESEMBER");
+    
 
-    public function index() {
-
-        $data = $_SESSION["loginStudend"];
-
-        $arr = explode('.', $data->code_room);
+        $data = $_SESSION["loginKepsek"];
+		$bln = date('n') - 1;
+		$thn = date('Y');
+		
+		if($_SERVER['REQUEST_METHOD'] == 'POST') {
+			$bln = isset($_POST['bulan']) ? $_POST['bulan'] : '';
+			$thn = isset($_POST['tahun']) ? $_POST['tahun'] : '';
+			
+		}
 
         $this->model('teacher');
         $this->model('major');
+		$this->model('transaksi');
         $this->model('studends');
 		$this->model('settings');
 
         // data wali kelas
-        $wk = $this->teacher->getWhere(array('nip' => $arr[3]));
-
-        //  data jurusan
-        $mjr = $this->major->getWhere(array('code' => $arr[1]));
-
-        // data transaksi
-        $tr = $this->studends->getJoin('transaksi', array('studends.id_studend' => 'transaksi.id_student', 'studends.nis' => $_SESSION['loginStudend']->nis), 'RIGHT JOIN');
+        $kep = $this->teacher->getWhere(array('nip' => $data));
 		
-		// data settings
-		$st = $this->settings->getWhere(array('id' => 1));
-		$exSt = explode(';', $st[0]->bank);
+		$myDataKelas = $this->dtKelas($bln, $thn);
 		
         $this->template(
                 'home', array(
-            'studend' => $data,
-			'bank' => $exSt,
-            'code' => array(
-                'room' => $arr[2],
-                'class' => $arr[0],
-                'major' => $mjr[0]->stands,
-                'teacher' => $wk[0]->name
-        )));
+            'kepsek' => $kep[0],
+			'kelasData' => $myDataKelas,
+			'bulan' => $bulan,
+			'bln' => $bln,
+			'thn' => $thn
+			// 'bank' => $exSt,
+            // 'code' => array(
+                // 'room' => $arr[2],
+                // 'class' => $arr[0],
+                // 'major' => $mjr[0]->stands,
+                // 'teacher' => $wk[0]->name
+        ));
     }
+	
+	private function dtKelas($param, $tahun){
+		$bln = array("01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12");
+		$qry_x = "SELECT SUM(transaksi.price) AS JUMLAH FROM transaksi JOIN studends ON transaksi.id_student = studends.nis WHERE studends.code_room LIKE '%X.%' AND transaksi.date_transaksi LIKE '".$tahun."-".$bln[$param]."-%'";
+		
+		$qry_xi = "SELECT SUM(transaksi.price) AS JUMLAH FROM transaksi JOIN studends ON transaksi.id_student = studends.nis WHERE studends.code_room LIKE '%XI.%' AND transaksi.date_transaksi LIKE '".$tahun."-".$bln[$param]."-%'";
+		
+		$qry_xii = "SELECT SUM(transaksi.price) AS JUMLAH FROM transaksi JOIN studends ON transaksi.id_student = studends.nis WHERE studends.code_room LIKE '%XII.%' AND transaksi.date_transaksi LIKE '".$tahun."-".$bln[$param]."-%'";
+		
+		
+		$dataKelas[0] = $this->transaksi->query($qry_x);
+		$dataKelas[1] = $this->transaksi->query($qry_xi);
+		$dataKelas[2] = $this->transaksi->query($qry_xii);
+		
+		return $dataKelas;
+	}
 
     public function bayar_online() {
 

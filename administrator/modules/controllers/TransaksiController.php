@@ -49,7 +49,7 @@ class TransaksiController extends MainController {
     }
 
     public function rooms() {
-
+	
         $this->model('rooms');
         $this->model('studends');
         $this->model('transaksi');
@@ -64,6 +64,8 @@ class TransaksiController extends MainController {
         $data_rooms = $this->rooms->get();
 
         $data_rooms_new = NULL;
+		
+		
 
         for ($j = 0; $j < count($data_rooms); $j++) {
             $ex = explode('.', $data_rooms[$j]->room);
@@ -435,9 +437,10 @@ class TransaksiController extends MainController {
     }
 
 	public function cetak() {
-	$this->model('rooms');
+		$this->model('rooms');
         $this->model('studends');
         $this->model('transaksi');
+		$this->model('teacher');
 
         $wl_exp = isset($_GET['wl']) ? $_GET['wl'] : "";
         $wl = explode(".", $wl_exp);
@@ -446,9 +449,12 @@ class TransaksiController extends MainController {
         $mj = explode(".", $mj_exp);
 
         $data = $this->studends->get();
+		$data_guru = $this->teacher->getWhere(array('nip' => $wl[1]));
         $data_rooms = $this->rooms->get();
 
         $data_rooms_new = NULL;
+		
+		$data_feel = $wl[0] . "." . $mj_exp . "/" . $data_guru[0]->name;
 
         for ($j = 0; $j < count($data_rooms); $j++) {
             $ex = explode('.', $data_rooms[$j]->room);
@@ -489,7 +495,7 @@ class TransaksiController extends MainController {
 		
 		$pdf = $this->fpdf();
 
-		$this->templatePdf('transaksi_pdf', array ('pdf' => $pdf, 'activ' => $data_new, 'rm' => $data_rooms_new));
+		$this->templatePdf('transaksi_pdf', array ('pdf' => $pdf, 'activ' => $data_new, 'rm' => $data_rooms_new, 'feel' => $data_feel));
 		
 	}
 	

@@ -15,10 +15,10 @@ $page = (isset($_GET['page']) && $_GET['page']) ? $_GET['page'] : '';
         <title>SMK NU Kesesi</title>
 
         <!-- CSS -->
-        <link href="resources/css/bootstrap.css" rel="stylesheet" type="text/css"/>
-        <link href="resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../resources/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="../resources/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <!-- Custom styles -->
-        <link href="vendor/css/style.css" rel="stylesheet">
+        <link href="../vendor/css/style.css" rel="stylesheet">
 
     </head>
 
@@ -76,7 +76,7 @@ $page = (isset($_GET['page']) && $_GET['page']) ? $_GET['page'] : '';
         </footer>
 
         <!-- JavaScript -->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="../vendor/jquery/jquery.min.js"></script>
+        <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>

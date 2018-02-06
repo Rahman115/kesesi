@@ -105,8 +105,9 @@
     </div>
 </div>
 <!-- /.row -->
+<!--
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-6">
         <div class="panel panel-primary">
             <div class="panel-heading">
                 LAPORAN KEUANGAN BULANAN
@@ -118,6 +119,7 @@
                     <li role="presentation"><a href="<?php echo SITE_URL; ?>?page=home&action=ruang">RUANG KELAS</a></li>
                     
         <!--            <li role="presentation"><a href="<?php echo SITE_URL; ?>?page=laporan&&action=laporan_bulanan">Bulanan</a></li>-->
+		<!--
                 </ul>
                 <table class="table table-hover ">
                     <thead>
@@ -131,7 +133,7 @@
                         <tr>
                             <td>1</td>
                             <td>X</td>
-                            <td><?php echo $data['kelasData'][0][0]->JUMLAH; ?></td>
+                            <td class="text-right"> Rp. <?php echo number_format($data['kelasData'][0][0]->JUMLAH, 2, ",", ".") ; ?></td>
                         </tr>
 						<tr>
                             <td>2</td>
@@ -149,6 +151,7 @@
         </div>
     </div>
 </div>
+-->
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default">

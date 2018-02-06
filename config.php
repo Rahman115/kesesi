@@ -11,6 +11,6 @@ define('POSITION_URL', PATH . '?page=' . $page);
 define('DB_HOST', 'localhost'); // host yang di gunakan
 define('DB_USERNAME', 'root'); // username host
 define('DB_PASSWORD', ''); // password host
-// define('DB_NAME', 'db_smk_nu_kesesi'); // database yang di gunakan
-define('DB_NAME', 'kesesi'); // database yang di gunakan
+define('DB_NAME', 'db_smk_nu_kesesi'); // database yang di gunakan
+// define('DB_NAME', 'kesesi'); // database yang di gunakan
 ?>

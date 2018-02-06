@@ -28,7 +28,7 @@ class LoginController extends Controller {
                         'success' => TRUE,
                         'message' => 'Selamat, anda berhasil login'
                     );
-					$_SESSION["loginKepsek"] = 196712311999031021;
+					$_SESSION["loginKepsek"] = "196712311999031021";
 				echo '<meta http-equiv="refresh" content="1; url=kepsek/index.php" >';
 			}
 
