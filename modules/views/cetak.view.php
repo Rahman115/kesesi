@@ -25,8 +25,9 @@ $data['pdf']->SetFont('Arial', 'B', 12);
 // header table
 $pdf->Cell(10, 10, 'NO', 1, 0, 'C');
 $pdf->Cell(55, 10, 'TRANSAKSI', 1, 0, 'C');
-$pdf->Cell(55, 10, 'BIAYA', 1, 0, 'C');
-$pdf->Cell(70, 10, 'STATUS', 1, 0, 'C');
+$pdf->Cell(55, 10, 'PEMBAYARAN', 1, 0, 'C');
+$pdf->Cell(35, 10, 'TAGIHAN', 1, 0, 'C');
+$pdf->Cell(35, 10, 'STATUS', 1, 0, 'C');
 
 $pdf->Ln();
 $data['pdf']->SetFont('Arial', '', 12);
@@ -40,11 +41,14 @@ if ($data['harga']['jariah']->PRICE == null || empty($data['harga']['jariah']->P
     $pdf->Cell(55, 10, 'Rp. ' . number_format($data['harga']['jariah']->PRICE, 0, ",", "."), 1, 0, 'R');
 }
 if (!empty($data['harga']['jariah']->PRICE) && $data['harga']['jariah']->PRICE == $data['set']->jariah) {
-    $pdf->Cell(70, 10, 'LUNAS', 1, 0, 'L');
+    $pdf->Cell(35, 10, '0', 1, 0, 'R');
+    $pdf->Cell(35, 10, 'LUNAS', 1, 0, 'L');
 } else if (empty($data['harga']['jariah']->PRICE)) {
-    $pdf->Cell(70, 10, "BELUM LUNAS - (" . number_format($data['set']->jariah, 0, ",", ".") . ")", 1, 0, 'L');
+    $pdf->Cell(35, 10, "Rp. " . number_format($data['set']->jariah, 0, ",", "."), 1, 0, 'R');
+    $pdf->Cell(35, 10, "BELUM LUNAS", 1, 0, 'L');
 } else {
-    $pdf->Cell(70, 10, "BELUM LUNAS - (" . number_format($data['set']->jariah - $data['harga']['jariah']->PRICE, 0, ",", ".") . ")", 1, 0, 'L');
+    $pdf->Cell(35, 10, "Rp. " . number_format($data['set']->jariah - $data['harga']['jariah']->PRICE, 0, ",", "."), 1, 0, 'R');
+    $pdf->Cell(35, 10, "BELUM LUNAS", 1, 0, 'L');
 }
 $pdf->Ln();
 $pdf->Cell(10, 10, '2', 1, 0, 'C');
@@ -55,11 +59,13 @@ if ($data['harga']['sGanjil']->PRICE == null || empty($data['harga']['sGanjil']-
     $pdf->Cell(55, 10, 'Rp. ' . number_format($data['harga']['sGanjil']->PRICE, 0, ",", "."), 1, 0, 'R');
 }
 if ($data['harga']['sGanjil']->PRICE == $data['set']->praktek) {
-    $pdf->Cell(70, 10, 'LUNAS', 1, 0, 'L');
+    $pdf->Cell(35, 10, '0', 1, 0, 'R');
+    $pdf->Cell(35, 10, 'LUNAS', 1, 0, 'L');
 } else {
 
     $hasil = $data['set']->praktek - $data['harga']['sGanjil']->PRICE;
-    $pdf->Cell(70, 10, "BELUM LUNAS - (" . number_format($hasil, 0, ",", ".") . ")", 1, 0, 'L');
+    $pdf->Cell(35, 10, "Rp. " . number_format($hasil, 0, ",", "."), 1, 0, 'R');
+    $pdf->Cell(35, 10, "BELUM LUNAS", 1, 0, 'L');
 }
 $pdf->Ln();
 $pdf->Cell(10, 10, '3', 1, 0, 'C');
@@ -70,10 +76,12 @@ if ($data['harga']['sGenap']->PRICE == null || empty($data['harga']['sGenap']->P
     $pdf->Cell(55, 10, 'Rp. ' . number_format($data['harga']['sGenap']->PRICE, 0, ",", "."), 1, 0, 'R');
 }
 if ($data['harga']['sGenap']->PRICE == $data['set']->praktek) {
-    $pdf->Cell(70, 10, 'LUNAS', 1, 0, 'L');
+    $pdf->Cell(35, 10, '0', 1, 0, 'R');
+    $pdf->Cell(35, 10, 'LUNAS', 1, 0, 'L');
 } else {
     $hasil = $data['set']->praktek - $data['harga']['sGenap']->PRICE;
-    $pdf->Cell(70, 10, "BELUM LUNAS - (" . number_format($hasil, 0, ",", ".") . ")", 1, 0, 'L');
+    $pdf->Cell(35, 10, "Rp. " . number_format($hasil, 0, ",", "."), 1, 0, 'R');
+    $pdf->Cell(35, 10, "BELUM LUNAS", 1, 0, 'L');
 }
 $pdf->Ln();
 $pdf->Cell(10, 10, '4', 1, 0, 'C');
@@ -84,10 +92,12 @@ if ($data['harga']['spp']->PRICE == null || empty($data['harga']['spp']->PRICE) 
     $pdf->Cell(55, 10, 'Rp. ' . number_format($data['harga']['spp']->PRICE, 0, ",", "."), 1, 0, 'R');
 }
 if ($data['harga']['spp']->PRICE == $data['set']->spp) {
-    $pdf->Cell(70, 10, 'LUNAS', 1, 0, 'L');
+    $pdf->Cell(35, 10, '0', 1, 0, 'R');
+    $pdf->Cell(35, 10, 'LUNAS', 1, 0, 'L');
 } else {
     $hasil = $data['set']->spp - $data['harga']['spp']->PRICE;
-    $pdf->Cell(70, 10, "BELUM LUNAS - (" . number_format($hasil, 0, ",", ".") . ")", 1, 0, 'L');
+    $pdf->Cell(35, 10, "Rp. " . number_format($hasil, 0, ",", "."), 1, 0, 'R');
+    $pdf->Cell(35, 10, "BELUM LUNAS", 1, 0, 'L');
 }
 
 $data['pdf']->SetFont('Arial', 'B', 13);
