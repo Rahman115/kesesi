@@ -13,7 +13,7 @@ class HomeController extends MainController {
         $this->model('teacher');
         $this->model('major');
         $this->model('studends');
-		$this->model('settings');
+        $this->model('settings');
 
         // data wali kelas
         $wk = $this->teacher->getWhere(array('nip' => $arr[3]));
@@ -23,15 +23,15 @@ class HomeController extends MainController {
 
         // data transaksi
         $tr = $this->studends->getJoin('transaksi', array('studends.id_studend' => 'transaksi.id_student', 'studends.nis' => $_SESSION['loginStudend']->nis), 'RIGHT JOIN');
-		
-		// data settings
-		$st = $this->settings->getWhere(array('id' => 1));
-		$exSt = explode(';', $st[0]->bank);
-		
+
+        // data settings
+        $st = $this->settings->getWhere(array('id' => 1));
+        $exSt = explode(';', $st[0]->bank);
+
         $this->template(
                 'home', array(
             'studend' => $data,
-			'bank' => $exSt,
+            'bank' => $exSt,
             'code' => array(
                 'room' => $arr[2],
                 'class' => $arr[0],
@@ -95,7 +95,7 @@ class HomeController extends MainController {
                         'status_transaksi' => $status,
                         'jenis_transaksi' => "ONLINE_CONFIRM",
                         'price' => $nominal,
-                        'exp' => $type."/".$rek."/".$name."/".$imageName
+                        'exp' => $type . "/" . $rek . "/" . $name . "/" . $imageName
                             )
                     );
 
@@ -116,7 +116,7 @@ class HomeController extends MainController {
         );
     }
 
-    public function detail_pembayaran(){
+    public function detail_pembayaran() {
 
         $token = isset($_GET['token']) ? $_GET['token'] : '';
 
@@ -129,41 +129,41 @@ class HomeController extends MainController {
         // var_dump($set[0]);
 
         $dataSPP = $this->transaksi->query("SELECT SUM(transaksi.price) AS PRICE "
-                        . "FROM transaksi "
-                        . "JOIN studends ON transaksi.id_student = studends.nis "
-                        . "WHERE transaksi.status_transaksi = 'SPP' "
-                        . "AND transaksi.id_student = '{$_SESSION['loginStudend']->nis}'");
+                . "FROM transaksi "
+                . "JOIN studends ON transaksi.id_student = studends.nis "
+                . "WHERE transaksi.status_transaksi = 'SPP' "
+                . "AND transaksi.id_student = '{$_SESSION['loginStudend']->nis}'");
 
         $dataJARIAH = $this->transaksi->query("SELECT SUM(transaksi.price) AS PRICE FROM transaksi "
-                        . "JOIN studends ON transaksi.id_student = studends.nis "
-                        . "WHERE transaksi.status_transaksi = 'JARIAH' "
-                        . "AND transaksi.id_student = '{$_SESSION['loginStudend']->nis}'");
+                . "JOIN studends ON transaksi.id_student = studends.nis "
+                . "WHERE transaksi.status_transaksi = 'JARIAH' "
+                . "AND transaksi.id_student = '{$_SESSION['loginStudend']->nis}'");
 
 
         $dataGENAP = $this->transaksi->query("SELECT SUM(transaksi.price) AS PRICE FROM transaksi "
-                        . "RIGHT JOIN studends ON transaksi.id_student = studends.nis "
-                        . "WHERE transaksi.status_transaksi = 'PRAKTEK' "
-                        . "AND transaksi.jenis_transaksi = 'PRAKTEK_GENAP' "
-                        . "AND transaksi.id_student = '{$_SESSION['loginStudend']->nis}'");
+                . "RIGHT JOIN studends ON transaksi.id_student = studends.nis "
+                . "WHERE transaksi.status_transaksi = 'PRAKTEK' "
+                . "AND transaksi.jenis_transaksi = 'PRAKTEK_GENAP' "
+                . "AND transaksi.id_student = '{$_SESSION['loginStudend']->nis}'");
 
 
         $dataGANJIL = $this->transaksi->query("SELECT SUM(transaksi.price) AS PRICE FROM transaksi "
-                        . "RIGHT JOIN studends ON transaksi.id_student = studends.nis "
-                        . "WHERE transaksi.status_transaksi = 'PRAKTEK' "
-                        . "AND transaksi.jenis_transaksi = 'PRAKTEK_GANJIL' "
-                        . "AND transaksi.id_student = '{$_SESSION['loginStudend']->nis}'");
+                . "RIGHT JOIN studends ON transaksi.id_student = studends.nis "
+                . "WHERE transaksi.status_transaksi = 'PRAKTEK' "
+                . "AND transaksi.jenis_transaksi = 'PRAKTEK_GANJIL' "
+                . "AND transaksi.id_student = '{$_SESSION['loginStudend']->nis}'");
 
 
-        
+
         $arr = array(
-        'spp' => $dataSPP[0],
-        'jariah' => $dataJARIAH[0],
-        'sGenap' => $dataGENAP[0],
-        'sGanjil' => $dataGANJIL[0]
-            );
+            'spp' => $dataSPP[0],
+            'jariah' => $dataJARIAH[0],
+            'sGenap' => $dataGENAP[0],
+            'sGanjil' => $dataGANJIL[0]
+        );
 
 
-        $data = $this->studends->getJoin('transaksi',array('studends.nis' => 'transaksi.id_student'),"JOIN",array('nis' => $_SESSION['loginStudend']->nis));
+        $data = $this->studends->getJoin('transaksi', array('studends.nis' => 'transaksi.id_student'), "JOIN", array('nis' => $_SESSION['loginStudend']->nis));
         $dataSiswa = $this->studends->getWhere(array('nis' => $_SESSION['loginStudend']->nis));
 
         // var_dump($_SESSION['loginStudend']->nis);
@@ -171,6 +171,55 @@ class HomeController extends MainController {
 
 
         $this->template('datail_pembayaran', array('siswa' => $data, 'harga' => $arr, 'set' => $set[0], 'dataSiswa' => $dataSiswa[0]));
+    }
+
+    public function cetak() {
+        $pdf = $this->fpdf();
+
+        $this->model('transaksi');
+        $this->model('studends');
+        $this->model('settings');
+
+        $set = $this->settings->get();
+
+        $data = $this->studends->getJoin('transaksi', array('studends.nis' => 'transaksi.id_student'), "JOIN", array('nis' => $_SESSION['loginStudend']->nis));
+        $dataSiswa = $this->studends->getWhere(array('nis' => $_SESSION['loginStudend']->nis));
+
+        $dataSPP = $this->transaksi->query("SELECT SUM(transaksi.price) AS PRICE "
+                . "FROM transaksi "
+                . "JOIN studends ON transaksi.id_student = studends.nis "
+                . "WHERE transaksi.status_transaksi = 'SPP' "
+                . "AND transaksi.id_student = '{$_SESSION['loginStudend']->nis}'");
+
+        $dataJARIAH = $this->transaksi->query("SELECT SUM(transaksi.price) AS PRICE FROM transaksi "
+                . "JOIN studends ON transaksi.id_student = studends.nis "
+                . "WHERE transaksi.status_transaksi = 'JARIAH' "
+                . "AND transaksi.id_student = '{$_SESSION['loginStudend']->nis}'");
+
+
+        $dataGENAP = $this->transaksi->query("SELECT SUM(transaksi.price) AS PRICE FROM transaksi "
+                . "RIGHT JOIN studends ON transaksi.id_student = studends.nis "
+                . "WHERE transaksi.status_transaksi = 'PRAKTEK' "
+                . "AND transaksi.jenis_transaksi = 'PRAKTEK_GENAP' "
+                . "AND transaksi.id_student = '{$_SESSION['loginStudend']->nis}'");
+
+
+        $dataGANJIL = $this->transaksi->query("SELECT SUM(transaksi.price) AS PRICE FROM transaksi "
+                . "RIGHT JOIN studends ON transaksi.id_student = studends.nis "
+                . "WHERE transaksi.status_transaksi = 'PRAKTEK' "
+                . "AND transaksi.jenis_transaksi = 'PRAKTEK_GANJIL' "
+                . "AND transaksi.id_student = '{$_SESSION['loginStudend']->nis}'");
+
+
+
+        $arr = array(
+            'spp' => $dataSPP[0],
+            'jariah' => $dataJARIAH[0],
+            'sGenap' => $dataGENAP[0],
+            'sGanjil' => $dataGANJIL[0]
+        );
+
+        $this->templatePdf('cetak', array('pdf' => $pdf, 'siswa' => $data, 'set' => $set[0], 'harga' => $arr, 'dataSiswa' => $dataSiswa[0]));
     }
 
 }

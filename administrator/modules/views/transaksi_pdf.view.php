@@ -105,7 +105,7 @@ $pdf->Cell(40, 10, "Rp. " . number_format($t_smt_gn, "0", ",", "."), 1, 0, 'C');
 $pdf->Cell(40, 10, "Rp. " . number_format($t_jrh, "0", ",", "."), 1, 0, 'C');
 $pdf->Ln();
 
-$data['pdf']->Output();
+    $data['pdf']->Output();
 
 // var_dump();
 ?>
